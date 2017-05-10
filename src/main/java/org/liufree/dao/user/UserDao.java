@@ -1,6 +1,6 @@
-package org.liufree.dao;
+package org.liufree.dao.user;
 
-import org.liufree.bean.User;
+import org.liufree.bean.user.User;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Service;
 

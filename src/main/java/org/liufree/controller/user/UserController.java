@@ -1,8 +1,8 @@
-package org.liufree.controller;
+package org.liufree.controller.user;
 
 
-import org.liufree.bean.User;
-import org.liufree.dao.UserDao;
+import org.liufree.bean.user.User;
+import org.liufree.dao.user.UserDao;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
