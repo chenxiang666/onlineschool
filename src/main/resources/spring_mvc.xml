@@ -6,12 +6,30 @@
        xmlns:jpa="http://www.springframework.org/schema/data/jpa"
        xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd http://www.springframework.org/schema/mvc http://www.springframework.org/schema/mvc/spring-mvc.xsd http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx.xsd http://www.springframework.org/schema/data/jpa http://www.springframework.org/schema/data/jpa/spring-jpa.xsd">
 
-    <mvc:interceptors>
-        <bean class="org.liufree.interceptor.MyInterceptor"/>
-    </mvc:interceptors>
 
     <context:component-scan base-package="org.liufree"/>
+    <context:component-scan base-package="test"/>
 
+    <!--拦截器-->
+    <mvc:interceptors>
+       <!-- &lt;!&ndash; 使用bean定义一个Interceptor，直接定义在mvc:interceptors根下面的Interceptor将拦截所有的请求 &ndash;&gt;
+        <bean class=""/>-->
+        <mvc:interceptor>
+            <mvc:mapping path="/**/*"/>
+            <mvc:mapping path="/uc/*"/>
+            <mvc:mapping path="/uc/**/*"/>
+            <mvc:exclude-mapping path="/user/tologin"/>
+            <mvc:exclude-mapping path="/uc/getloginUser"/>
+            <mvc:exclude-mapping path="/uc/register"/>
+            <mvc:exclude-mapping path="/uc/createuser"/>
+            <mvc:exclude-mapping path="/uc/login"/>
+            <!-- 定义在mvc:interceptor下面的表示是对特定的请求才进行拦截的 -->
+            <bean class="org.liufree.interceptor.LoginInterceptor"/>
+        </mvc:interceptor>
+    </mvc:interceptors>
+
+    <!-- 支持上传 -->
+    <bean id="multipartResolver" class="org.springframework.web.multipart.commons.CommonsMultipartResolver"/>
     <!-- 静态资源(js、image等)的访问 -->
     <mvc:default-servlet-handler/>
     <!-- 开启注解 -->
