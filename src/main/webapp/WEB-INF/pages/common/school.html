@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="icon" href="../../favicon.ico">
+
+    <title>Carousel Template for Bootstrap</title>
+    <!-- Bootstrap core CSS -->
+    <link href="../../../css/bootstrap.css" rel="stylesheet">
+    <!-- Custom styles for this template -->
+    <link href="../../../css/carousel.css" rel="stylesheet">
+    <link href="../../../css/justified-nav.css" rel="stylesheet"/>
+   </head>
+<!-- NAVBAR
+================================================== -->
+<body>
+<div class="container">
+    <div th:include="common/head :: head"></div>
+    <br>
+    <div class="container marketing">
+
+        <!-- Three columns of text below the carousel -->
+        <div class="row">
+            <h1 style="text-align: center;">School Introduction</h1>
+            <div class="col-md-8 col-md-offset-2" >
+                <p style="font-style: italic;font-size: 20px;">
+                    Welcome to Willowdale Online School!
+                    Willowdale High School is a private secondary school located in North York that offers courses for students grades 9-12.
+                    Our teachers provide student-centered approaches to teaching to challenge students and hone their critical thinking skills to think for themselves so they are prepared to become productive and independent individuals in society.
+                    The difference between Willowdale High School and typical public high schools is we aim for academic excellence and focus on the students, giving them feedback tailored to their needs, rather than a one size fits all approach.
+                    We pride ourselves in helping students create everlasting learning experiences and integrating them into this diverse multicultural country we call our home.
+                </p>
+            </div>
+            <div class="col-md-12">
+                <h2 >Who?</h2>
+                <p style="text-align: left;font-size: 17px;">The program is perfect for anyone who wishes to learn, enhance their career path, enter university or college, upgrade a course or fulfill their workplace requirements. If you are a student living outside of Canada who intends to study in a Canadian university or college, this program is for you.</p>
+                <hr/>
+            </div>
+
+            <div class="col-md-12">
+                <h2>what?</h2>
+                <p style="text-align: left;font-size: 17px;">All of the courses in this program have been approved by the Ontario Ministry of Education and are taught by Ontario certified teachers who are passionate and dedicated in helping bring the best out of students and allowing them to grow and become self-reliant so they can tackle the obstacles of everyday life. The courses contain all of the resources for completion, no textbooks required. Throughout the duration of the courses, a midterm and final report card will be drafted to give students an overview of their progress. Upon completion of the course, the administrative team can send your transcript to the educational institution of your choice.</p>
+                <hr/>
+            </div><!-- /.col-lg-4 -->
+            <div class="col-md-12">
+                <h2>Where?</h2>
+                <p style="text-align: left;font-size: 17px;">You can access Willowdale Online School whenever you have access to the internet so you can study in the comfort of your own home, the coffee shop or wherever you feel best suited for learning. It’s up to you!</p>
+                <hr/>
+            </div>
+            <div class="col-md-12">
+                <h2>When?</h2>
+                <p style="text-align: left;font-size: 17px;">The online school website is open 24/7/365 so students can register or access their courses at anytime. The only restriction is that students need to complete the program within 12 months. Students have the freedom to fast track courses or complete them at their chosen pace.</p>
+                <hr/>
+            </div>
+            <div class="col-md-12">
+                <h2>How?</h2>
+                <p style="text-align: left;font-size: 17px;">Students can easily access the website at XXX. All courses will be done completely online including assignments and final exams. Teachers will finish marking assignments within 14 days and offer constructive feedback on corrections and steps to improve in the particular subject.</p>
+                <hr/>
+            </div>
+            <div class="col-md-12">
+                <h3 style="text-align: center;color: red;">
+                    So what are you waiting for? Sign up today and join us on the adventure of learning!
+                </h3>
+                <hr/>
+            </div>
+        </div><!-- /.row -->
+
+
+        <div th:include="common/foot :: foot"></div>
+    </div><!-- /.container -->
+
+
+    <script src="../../../js/jquery.min.js"></script>
+    <script src="../../../js/bootstrap.js"></script>
+    <script src="../../../js/holder.min.js"></script>
+</body>
+</html>

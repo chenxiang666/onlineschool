@@ -2,9 +2,8 @@ package org.liufree.bean.course;
 
 import lombok.Data;
 
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.Table;
+import javax.persistence.*;
+import java.util.Date;
 
 /**
  * @author lwx
@@ -17,12 +16,13 @@ import javax.persistence.Table;
 public class CourseUnit {           //课程单元类
 
     @Id
-    int unitId;
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    int id;
 
     int courseId;           //所属课程Id
     String title;           //标题
-    String detail;          //描述
-    String creatTime;       //创建时间
-    String updatetime;      //更改时间
+    String description;          //描述
+    Date creatTime;       //创建时间
+    Date updatetime;      //更改时间
 
 }

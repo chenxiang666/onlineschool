@@ -16,8 +16,10 @@ import javax.persistence.*;
 public class UserLogin {
 
     @Id
-    int loginId;
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    int id;
 
+    int userId;             //用户
     String loginTime;       //登录时间
     String ip;              //用户ip
     String osName;          //操作系统

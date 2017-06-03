@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+
+	<head>
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+		<meta name="description" content="">
+		<meta name="author" content="">
+		<link rel="icon" href="../../favicon.ico">
+
+		<title>Carousel Template for Bootstrap</title>
+
+		<!-- Bootstrap core CSS -->
+		<link href="../../../css/bootstrap.css" rel="stylesheet">
+		<!-- Custom styles for this template -->
+		<link href="../../../css/carousel.css" rel="stylesheet">
+		<link href="../../../css/justified-nav.css" rel="stylesheet"/>
+ </head>
+<!-- NAVBAR
+================================================== -->
+  <body>
+    <div class="container">
+
+		<div th:include="common/head :: head"></div>
+			</br>
+<div class="container" style="border: 1px solid #DCDCDC;">
+	<div class="col-md-1 col-md-offset-3" style="text-align: left;">
+		<p>Profile</p>
+	</div>
+	<div class="col-md-1 col-md-offset-1" style="text-align: left;">
+		<p>Course(s)</p>
+	</div>
+	<div class="col-md-1 col-md-offset-1" style="text-align: left;">
+		<p>Payment</p>
+	</div>
+	<div class="col-md-1 col-md-offset-1" style="text-align: left;">
+		<p>Finish</p>
+	</div>
+
+	<div class="col-md-8 col-md-offset-2">
+		<div class="progress">
+			<div class="progress-bar progress-bar-success" role="progressbar" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100" style="width: 100%;">
+				<span class="sr-only">100 Complete</span>
+			</div>
+		</div>
+		<div class="col-md-10 col-md-offset-1">
+			<h2>Success!Please check out your email</h2>
+			<h3>Username:</h3>
+			<p th:text="${user.email}">
+			<h3>Password</h3>
+			<p th:text="${user.password}"></p>
+			</p>
+		</div>
+	</div>
+
+	
+</div>
+		<div th:include="common/foot :: foot"></div>
+    </div><!-- /.container -->
+
+	<script src="../../../js/jquery.min.js"></script>
+	<script src="../../../js/bootstrap.js"></script>
+	<script src="../../../js/holder.min.js"></script>
+
+  </body>
+</html>

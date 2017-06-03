@@ -11,9 +11,9 @@
     <context:component-scan base-package="test"/>
 
     <!--拦截器-->
-    <mvc:interceptors>
-       <!-- &lt;!&ndash; 使用bean定义一个Interceptor，直接定义在mvc:interceptors根下面的Interceptor将拦截所有的请求 &ndash;&gt;
-        <bean class=""/>-->
+    <!--<mvc:interceptors>
+        &lt;!&ndash; &lt;!&ndash; 使用bean定义一个Interceptor，直接定义在mvc:interceptors根下面的Interceptor将拦截所有的请求 &ndash;&gt;
+         <bean class=""/>&ndash;&gt;
         <mvc:interceptor>
             <mvc:mapping path="/**/*"/>
             <mvc:mapping path="/uc/*"/>
@@ -23,10 +23,10 @@
             <mvc:exclude-mapping path="/uc/register"/>
             <mvc:exclude-mapping path="/uc/createuser"/>
             <mvc:exclude-mapping path="/uc/login"/>
-            <!-- 定义在mvc:interceptor下面的表示是对特定的请求才进行拦截的 -->
-            <bean class="org.liufree.interceptor.LoginInterceptor"/>
+            &lt;!&ndash; 定义在mvc:interceptor下面的表示是对特定的请求才进行拦截的 &ndash;&gt;
+          &lt;!&ndash;  <bean class="org.liufree.interceptor.LoginInterceptor"/>&ndash;&gt;
         </mvc:interceptor>
-    </mvc:interceptors>
+    </mvc:interceptors>-->
 
     <!-- 支持上传 -->
     <bean id="multipartResolver" class="org.springframework.web.multipart.commons.CommonsMultipartResolver"/>
@@ -34,13 +34,7 @@
     <mvc:default-servlet-handler/>
     <!-- 开启注解 -->
     <mvc:annotation-driven/>
-    <!--ViewResolver 视图解析器-->
-    <!--用于支持Servlet、JSP视图解析-->
-    <bean id="jspViewResolver" class="org.springframework.web.servlet.view.InternalResourceViewResolver">
-        <property name="viewClass" value="org.springframework.web.servlet.view.JstlView"/>
-        <property name="prefix" value="/WEB-INF/pages/"/>
-        <property name="suffix" value=".jsp"/>
-    </bean>
+
 
     <!-- 配置文件加载 -->
     <bean id="propertyConfigurer"
@@ -101,4 +95,33 @@
     <!-- 开启事务管理注解 -->
     <tx:annotation-driven transaction-manager="transactionManager"/>
 
+    <!--  &lt;!&ndash;ViewResolver 视图解析器&ndash;&gt;
+      &lt;!&ndash;用于支持Servlet、JSP视图解析&ndash;&gt;
+      <bean id="jspViewResolver1" class="org.springframework.web.servlet.view.InternalResourceViewResolver">
+          <property name="viewClass" value="org.springframework.web.servlet.view.JstlView"/>
+          <property name="prefix" value="/WEB-INF/"/>
+          <property name="suffix" value=".jsp"/>
+          <property name="viewNames" value="/pages/*"/>
+          <property name="order" value="1"/>
+          <property name="cache" value="#{ systemProperties['jsp.cacheable'] == 'false' ? false : true }"/>&lt;!&ndash;另外开发时禁用红缓存，每次重新解析模板，改动立即生效&ndash;&gt;
+      </bean>
+  -->
+    <bean id="templateResolver"
+          class="org.thymeleaf.templateresolver.ServletContextTemplateResolver">
+        <property name="prefix" value="/WEB-INF/pages/"/>
+        <property name="suffix" value=".html"/>
+        <property name="templateMode" value="HTML5"/>
+        <property name="cacheable" value="false"/>
+    </bean>
+
+    <bean id="templateEngine"
+          class="org.thymeleaf.spring4.SpringTemplateEngine">
+        <property name="templateResolver" ref="templateResolver"/>
+    </bean>
+
+    <bean class="org.thymeleaf.spring4.view.ThymeleafViewResolver">
+        <property name="templateEngine" ref="templateEngine"/>
+        <!--解决中文乱码-->
+        <property name="characterEncoding" value="UTF-8"/>
+    </bean>
 </beans>

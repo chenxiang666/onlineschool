@@ -3,9 +3,8 @@ package org.liufree.bean.course;
 
 import lombok.Data;
 
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.Table;
+import javax.persistence.*;
+import java.util.Date;
 
 /**
  * @author lwx
@@ -18,7 +17,8 @@ import javax.persistence.Table;
 public class Course {           //课程类
 
     @Id
-    int courseId;
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    int id;
 
     int gradeId;            //所属年级id
     String title;           //标题
@@ -26,7 +26,8 @@ public class Course {           //课程类
     int type;               //课程类型
     String pic;             //课程图片
     double price;           //价格
-    int buyCount;           //销售数量
-    String creatTime;       //创建时间
-    String updateTime;      //更新时间
+    //  int buyCount;           //销售数量
+    Date creatTime;       //创建时间
+    Date updateTime;      //更新时间
+    int teacherId;         //老师     就是userId
 }

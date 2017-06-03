@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="icon" href="../../favicon.ico">
+
+    <title>Carousel Template for Bootstrap</title>
+
+    <!-- Bootstrap core CSS -->
+    <link href="../../../css/bootstrap.css" rel="stylesheet">
+    <!-- Custom styles for this template -->
+    <link href="../../../css/carousel.css" rel="stylesheet">
+    <link href="../../../css/justified-nav.css" rel="stylesheet"/>
+</head>
+<!-- NAVBAR
+================================================== -->
+<body>
+<div class="container">
+
+    <div th:include="common/head :: head"></div>
+    </br>
+
+    <div  style="width: 20%;float: left; border: 1px solid #DCDCDC">
+        <div class="col-md-6">
+            <img src="img/portrait.jpg" width="100px" height="100px" >
+        </div>
+        <div class="col-md-6" style="text-align: center">
+            <p style="margin-top: 25px">Hello !</p>
+            <p>Jack</p>
+        </div>
+        <table class="table table-hover" >
+
+            <tbody>
+            <tr>
+                <td style="text-align: center"><a href="/user/courses" style="color:#DC143C;"><span class="glyphicon glyphicon-book" aria-hidden="true">Courses</span></a></td>
+            </tr>
+            <tr>
+                <td style="text-align: center"><a href="/user/information" style="color:#DC143C;"><span class="glyphicon glyphicon-user" aria-hidden="true">Information</span></a></td>
+            </tr>
+            <tr>
+                <td style="text-align: center"><a href="/user/message" style="color:#DC143C;"><span class="glyphicon glyphicon-comment" aria-hidden="true">Message</span></a></td>
+            </tr>
+            </tbody>
+        </table>
+
+    </div>
+    <div style="width: 75%;float: right">
+        <table class="table">
+            <caption style="font-size: 20px;">All of my courses</caption>
+            <tbody>
+            <tr th:each="course:${courseList}">
+                <td width="20%">
+                    <img src="docs/apple-touch-icon.png" width="60px" height="60px" >
+                </td>
+                <td width="60%" style="text-align: center">
+                    <a href="courses/grade11/SCH3U_outline.html" th:text="${course.title}">SCH3U</a>
+                </td>
+                <td width="20%">
+                    <a class="btn btn-success" href="#" th:href="@{/course/__${course.id}__}">View details</a>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
+
+
+<div th:include="common/foot :: foot"></div>
+</div><!-- /.container -->
+
+
+<script src="../../../js/jquery.min.js"></script>
+<script src="../../../js/bootstrap.js"></script>
+<script src="../../../js/holder.min.js"></script>
+</body>
+</html>

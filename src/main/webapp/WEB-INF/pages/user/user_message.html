@@ -1,0 +1,317 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="icon" href="../../favicon.ico">
+
+    <title>Carousel Template for Bootstrap</title>
+
+    <!-- Bootstrap core CSS -->
+    <link href="../../../css/bootstrap.css" rel="stylesheet">
+    <!-- Custom styles for this template -->
+    <link href="../../../css/carousel.css" rel="stylesheet">
+    <link href="../../../css/justified-nav.css" rel="stylesheet"/></head>
+</head>
+<!-- NAVBAR
+================================================== -->
+<body>
+<div class="container">
+
+    <!-- The justified navigation menu is meant for single line per list item.
+   Multiple lines will require custom code not provided by Bootstrap. -->
+    <div class="masthead">
+        <nav class="navbar navbar-default ">
+            <div class="col-md-2" style="padding: 0;">
+                <a href="homepage.html"><img src="img/logo.png" height="100px" width="130px"/></a>
+            </div>
+            <div class="col-md-10" >
+                <form class="navbar-form navbar-right">
+                    <div class="col-md-5 col-md-offset-6" style="float: right;">
+                        <div class="col-md-9" style="text-align: right;padding: 0;">
+                            <input style="margin-bottom: 10px;" type="text" placeholder="Username" class="form-control" name="username">
+                            <input type="password" placeholder="Password" class="form-control" name="password">
+                        </div>
+                        <div class="col-md-3">
+                            <button style="width: 75px;height: 75px" type="submit" class="btn btn-success" >Sign in</button>
+                        </div>
+                    </div>
+
+                </form>
+                <!--/.navbar-collapse -->
+        </nav>
+        <nav>
+            <ul class="nav nav-justified">
+                <li class="active">
+                    <a href="school_schinfo.html">School</a>
+                </li>
+                <li class="active">
+                    <a href="courses.html" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Courses<span class="caret"></span></a>
+                    <ul class="dropdown-menu">
+                        <li>
+                            <a href="courses_grade9.html">Grade 9</a>
+                        </li>
+                        <li>
+                            <a href="courses_grade10.html">Grade 10</a>
+                        </li>
+                        <li>
+                            <a href="courses_grade11.html">Grade 11</a>
+                        </li>
+                        <li>
+                            <a href="courses_grade12.html">Grade 12</a>
+                        </li>
+                    </ul>
+                </li>
+                <li class="active">
+                    <a href="register.html">Register Class</a>
+                </li>
+                <li class="active">
+                    <a href="faq.html">FAQ</a>
+                </li>
+                <li class="active">
+                    <a href="contact.html">Contact</a>
+                </li>
+            </ul>
+        </nav>
+    </div>
+    </br>
+    <div  style="width: 20%;float: left; border: 1px solid #DCDCDC">
+        <div class="col-md-6">
+            <img src="img/portrait.jpg" width="100px" height="100px" >
+        </div>
+        <div class="col-md-6" style="text-align: center">
+            <p style="margin-top: 25px">Hello !</p>
+            <p>Jack</p>
+        </div>
+        <table class="table table-hover" >
+
+            <tbody>
+            <tr>
+                <td style="text-align: center"><a href="/user/courses" style="color:#DC143C;"><span class="glyphicon glyphicon-book" aria-hidden="true">Courses</span></a></td>
+            </tr>
+            <tr>
+                <td style="text-align: center"><a href="/user/information" style="color:#DC143C;"><span class="glyphicon glyphicon-user" aria-hidden="true">Information</span></a></td>
+            </tr>
+            <tr>
+                <td style="text-align: center"><a href="/user/message" style="color:#DC143C;"><span class="glyphicon glyphicon-comment" aria-hidden="true">Message</span></a></td>
+            </tr>
+            </tbody>
+        </table>
+
+    </div>
+    <div style="width: 75%;float: right;">
+        <div id="" class="container-fluid zhenghan-border-gray">
+            <div class="col-md-11 col-md-offset-1 "style="padding-top: 10px;padding-left: 0;">
+                Send message to:<select>
+                <option value="tom">Tom</option>
+                <option value="black">Black</option>
+                <option value="Jon">Jon</option>
+            </select>
+            </div>
+
+            <div class="col-md-11 col-md-offset-1" style="margin-top: 15px;">
+                <div class="col-md-1" style="padding: 0;">
+                    <img src="img/portrait.jpg" style="width: 40px;height: 40px;"/>
+                </div>
+                <div class="col-md-11 form-group" style="padding-top: 10px;">
+                    <input type="text" style="width: 90%;height: 30px;" placeholder="Write a comment..."></input>
+                    <a class="btn btn-success">Send</a>
+                </div>
+            </div>
+        </div>
+
+        <div id="" class="container-fluid zhenghan-border-gray">
+            <div class="col-md-12 "style="padding-top: 10px;padding-left: 0;">
+                <div class="col-md-1" style="padding: 0;">
+                    <img src="img/Tom.jpg" style="width: 60px;height: 60px;"/>
+                </div>
+                <div class="col-md-3" style="padding-top: 8px;">
+                    <p style="font-size: 15px";>Tom</p>
+                    <p style="font-size: 12px;">November 16th at 8:56PM </p>
+                </div>
+            </div>
+            <div class="col-md-11 col-md-offset-1">
+
+                <p>
+                    A prerequisite course provides base knowledge required for a subsequent course. Before you register, check the information in the table below to determine what the prerequisite course is, if applicable. You must provide VHS with evidence that you have completed
+                </p>
+            </div>
+            <div class="col-md-11 col-md-offset-1" style="background-color: #F5F5F5;display: none;" >
+                <div class="col-md-12 "style="padding-top: 10px;padding-left: 0;">
+                    <div class="col-md-1" style="padding: 0;">
+                        <img src="img/portrait.jpg" style="width: 60px;height: 60px;"/>
+                    </div>
+                    <div class="col-md-4" style="padding-top: 8px;">
+                        <p style="font-size: 15px";>Jack</p>
+                        <p style="font-size: 12px;">November 18th at 10:56PM </p>
+                    </div>
+                </div>
+                <div class="col-md-11 col-md-offset-1">
+                    <p>
+                        Ok,I will do that
+                    </p>
+                </div>
+            </div>
+
+            <div class="col-md-11 col-md-offset-1" style="margin-top: 15px;">
+                <div class="col-md-1" style="padding: 0;">
+                    <img src="img/portrait.jpg" style="width: 40px;height: 40px;"/>
+                </div>
+                <div class="col-md-11 form-group" style="padding-top: 10px;">
+                    <input type="text" style="width: 90%;height: 30px;" placeholder="Write a comment..."></input>
+                    <a class="btn btn-success">Send</a>
+                </div>
+            </div>
+        </div>
+
+        <div id="" class="container-fluid zhenghan-border-gray">
+            <div class="col-md-12 "style="padding-top: 10px;padding-left: 0;">
+                <div class="col-md-1" style="padding: 0;">
+                    <img src="img/Tom.jpg" style="width: 60px;height: 60px;"/>
+                </div>
+                <div class="col-md-3" style="padding-top: 8px;">
+                    <p style="font-size: 15px";>Tom</p>
+                    <p style="font-size: 12px;">November 16th at 8:56PM </p>
+                </div>
+            </div>
+            <div class="col-md-11 col-md-offset-1">
+
+                <p>
+                    A prerequisite course provides base knowledge required for a subsequent course. Before you register, check the information in the table below to determine what the prerequisite course is, if applicable. You must provide VHS with evidence that you have completed
+                </p>
+            </div>
+            <div class="col-md-11 col-md-offset-1" style="background-color: #F5F5F5;">
+                <div class="col-md-12 "style="padding-top: 10px;padding-left: 0;">
+                    <div class="col-md-1" style="padding: 0;">
+                        <img src="img/portrait.jpg" style="width: 60px;height: 60px;"/>
+                    </div>
+                    <div class="col-md-4" style="padding-top: 8px;">
+                        <p style="font-size: 15px";>Jack</p>
+                        <p style="font-size: 12px;">November 18th at 10:56PM </p>
+                    </div>
+                </div>
+                <div class="col-md-11 col-md-offset-1">
+                    <p>
+                        Ok,I will do that
+                    </p>
+                </div>
+            </div>
+
+            <div class="col-md-11 col-md-offset-1" style="margin-top: 15px;">
+                <div class="col-md-1" style="padding: 0;">
+                    <img src="img/portrait.jpg" style="width: 40px;height: 40px;"/>
+                </div>
+                <div class="col-md-11 form-group" style="padding-top: 10px;">
+                    <input type="text" style="width: 90%;height: 30px;" placeholder="Write a comment..."></input>
+                    <a class="btn btn-success">Send</a>
+                </div>
+            </div>
+        </div>
+
+        <div id="" class="container-fluid zhenghan-border-gray">
+            <div class="col-md-12 "style="padding-top: 10px;padding-left: 0;">
+                <div class="col-md-1" style="padding: 0;">
+                    <img src="img/Tom.jpg" style="width: 60px;height: 60px;"/>
+                </div>
+                <div class="col-md-3" style="padding-top: 8px;">
+                    <p style="font-size: 15px";>Tom</p>
+                    <p style="font-size: 12px;">November 16th at 8:56PM </p>
+                </div>
+            </div>
+            <div class="col-md-11 col-md-offset-1">
+
+                <p>
+                    A prerequisite course provides base knowledge required for a subsequent course. Before you register, check the information in the table below to determine what the prerequisite course is, if applicable. You must provide VHS with evidence that you have completed
+                </p>
+            </div>
+            <div class="col-md-11 col-md-offset-1" style="background-color: #F5F5F5;">
+                <div class="col-md-12 "style="padding-top: 10px;padding-left: 0;">
+                    <div class="col-md-1" style="padding: 0;">
+                        <img src="img/portrait.jpg" style="width: 60px;height: 60px;"/>
+                    </div>
+                    <div class="col-md-4" style="padding-top: 8px;">
+                        <p style="font-size: 15px";>Jack</p>
+                        <p style="font-size: 12px;">November 18th at 10:56PM </p>
+                    </div>
+                </div>
+                <div class="col-md-11 col-md-offset-1">
+                    <p>
+                        Ok,I will do that
+                    </p>
+                </div>
+            </div>
+
+            <div class="col-md-11 col-md-offset-1" style="margin-top: 15px;">
+                <div class="col-md-1" style="padding: 0;">
+                    <img src="img/portrait.jpg" style="width: 40px;height: 40px;"/>
+                </div>
+                <div class="col-md-11 form-group" style="padding-top: 10px;">
+                    <input type="text" style="width: 90%;height: 30px;" placeholder="Write a comment..."></input>
+                    <a class="btn btn-success">Send</a>
+                </div>
+            </div>
+        </div>
+
+        <div id="" class="container-fluid zhenghan-border-gray">
+            <div class="col-md-12 "style="padding-top: 10px;padding-left: 0;">
+                <div class="col-md-1" style="padding: 0;">
+                    <img src="img/Tom.jpg" style="width: 60px;height: 60px;"/>
+                </div>
+                <div class="col-md-3" style="padding-top: 8px;">
+                    <p style="font-size: 15px";>Tom</p>
+                    <p style="font-size: 12px;">November 16th at 8:56PM </p>
+                </div>
+            </div>
+            <div class="col-md-11 col-md-offset-1">
+
+                <p>
+                    A prerequisite course provides base knowledge required for a subsequent course. Before you register, check the information in the table below to determine what the prerequisite course is, if applicable. You must provide VHS with evidence that you have completed
+                </p>
+            </div>
+            <div class="col-md-11 col-md-offset-1" style="background-color: #F5F5F5;">
+                <div class="col-md-12 "style="padding-top: 10px;padding-left: 0;">
+                    <div class="col-md-1" style="padding: 0;">
+                        <img src="img/portrait.jpg" style="width: 60px;height: 60px;"/>
+                    </div>
+                    <div class="col-md-4" style="padding-top: 8px;">
+                        <p style="font-size: 15px";>Jack</p>
+                        <p style="font-size: 12px;">November 18th at 10:56PM </p>
+                    </div>
+                </div>
+                <div class="col-md-11 col-md-offset-1">
+                    <p>
+                        Ok,I will do that
+                    </p>
+                </div>
+            </div>
+
+            <div class="col-md-11 col-md-offset-1" style="margin-top: 15px;">
+                <div class="col-md-1" style="padding: 0;">
+                    <img src="img/portrait.jpg" style="width: 40px;height: 40px;"/>
+                </div>
+                <div class="col-md-11 form-group" style="padding-top: 10px;">
+                    <input type="text" style="width: 90%;height: 30px;" placeholder="Write a comment..."></input>
+                    <a class="btn btn-success">Send</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div th:include="common/foot :: foot"></div>
+
+</div><!-- /.container -->
+
+
+
+<script src="../../../js/jquery.min.js"></script>
+<script src="../../../js/bootstrap.js"></script>
+<script src="../../../js/holder.min.js"></script>
+
+</body>
+</html>

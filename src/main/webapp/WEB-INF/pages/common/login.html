@@ -1,0 +1,32 @@
+<div th:fragment="logined" xmlns:th="http://www.w3.org/1999/xhtml">
+
+    <div class="col-md-10">
+
+        <form class="navbar-form navbar-right" action="/user/login" method="post">
+            <div class="col-md-5 col-md-offset-6" style="float: right;">
+                <p th:text="${session.username}">sfd</p>
+            </div>
+
+        </form>
+        <!--/.navbar-collapse -->
+    </div>
+</div>
+<div th:fragment="unlogined" xmlns:th="http://www.w3.org/1999/xhtml">
+    <div class="col-md-10">
+        <form class="navbar-form navbar-right" action="/user/login" method="post">
+            <div class="col-md-5 col-md-offset-6" style="float: right;">
+                <div class="col-md-9" style="text-align: right;padding: 0;">
+                    <input style="margin-bottom: 10px;" type="text" placeholder="Username" class="form-control"
+                           name="username">
+                    <input type="password" placeholder="Password" class="form-control" name="password">
+                </div>
+                <div class="col-md-3">
+                    <button style="width: 75px;height: 75px" type="submit" class="btn btn-success">Sign in
+                    </button>
+                </div>
+            </div>
+
+        </form>
+        <!--/.navbar-collapse -->
+    </div>
+</div>

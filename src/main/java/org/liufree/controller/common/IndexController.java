@@ -2,7 +2,6 @@ package org.liufree.controller.common;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
 
 /**
  * @author lwx
@@ -12,12 +11,35 @@ import org.springframework.web.bind.annotation.RequestMethod;
 @Controller
 public class IndexController {
 
-
-
-    @RequestMapping(value = "/",method = RequestMethod.GET)
+    @RequestMapping("/")
     public String index() {
+        System.out.println("OnlineSchool Success Operation");
 
-        System.out.println("刘文想");
-        return "go";
+        return "common/index";
+    }
+
+    @RequestMapping("/register")
+    public String register(){
+        return "user/register";
+    }
+
+    @RequestMapping("/school")
+    public String school(){
+        return "common/school";
+    }
+
+    @RequestMapping("/courses")
+    public String courses(){
+        return "course/index";
+    }
+
+    @RequestMapping("/faq")
+    public String faq(){
+        return "common/faq";
+    }
+
+    @RequestMapping("/contact")
+    public String contact(){
+        return "common/contact";
     }
 }

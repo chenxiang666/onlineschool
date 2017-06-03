@@ -3,9 +3,8 @@ package org.liufree.bean.msg;
 import lombok.Data;
 import org.springframework.context.annotation.EnableAspectJAutoProxy;
 
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.Table;
+import javax.persistence.*;
+import java.util.Date;
 
 /**
  * @author lwx
@@ -18,11 +17,13 @@ import javax.persistence.Table;
 public class Msg {
 
     @Id
-    int msgId;
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    int id;
 
     String content;             //内容
     int sentId;                 //发送者Id
     int receiveId;              //收到者Id
+    int msgId;                  //父级消息消息Id,便于回复
     int status;                 //0未读，1已读；默认为0
-    String creatTime;           //创建时间
+    Date creatTime;           //创建时间
 }

@@ -5,6 +5,7 @@ import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Service;
+import org.springframework.web.bind.annotation.PathVariable;
 
 
 /**
@@ -20,4 +21,10 @@ public interface UserDao extends JpaRepository<User, Integer> {
 
     @Query("select u from User u where username=:username")
     User findByUsername(@Param("username")String username); //查询相同的名字
+
+    @Query("select u from User u where id=:id")
+    User findById(@Param("id")int id); //查询相同的名字
+
+    @Query("select u.id from User u where email=:email and firstName=:firstName")
+    int findByEmailAndFirstName(@Param("email")String email, @Param("firstName")String firstName); //
 }
