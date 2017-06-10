@@ -1,8 +1,9 @@
+
 <div th:fragment="head" xmlns:th="http://www.w3.org/1999/xhtml">
     <li class="masthead">
         <nav class="navbar navbar-default ">
             <div class="col-md-2" style="padding: 0;">
-                <a href="homepage.html"><img src="../../../img/logo.png" height="100px" width="130px"/></a>
+                <a th:href="@{/}"><img th:src="@{/img/logo.png}" height="100px" width="130px"/></a>
             </div>
 
             <div th:insert="common/login :: (${session.username}==null? unlogined : logined)"></div>
@@ -12,36 +13,34 @@
         <nav>
             <ul class="nav nav-justified">
                 <li class="active">
-                    <a href="/school">School</a>
+                    <a href="/school" th:href="@{/school}">School</a>
                 </li>
                 <li class="active">
-                    <a href="/courses" class="dropdown-toggle" data-toggle="dropdown" role="button"
+                    <a href="/courses" th:href="@{/courses}" class="dropdown-toggle" data-toggle="dropdown" role="button"
                        aria-haspopup="true" aria-expanded="false">Courses<span class="caret"></span></a>
                     <ul class="dropdown-menu">
                         <li>
-                            <a href="courses_grade9.html">Grade 9</a>
+                            <a id="content" th:href="@{/grade/grade9}">Grade 9</a>
                         </li>
                         <li>
-                            <a href="courses_grade10.html">Grade 10</a>
+                            <a th:href="@{/grade/grade10}">Grade 10</a>
                         </li>
                         <li>
-                            <a href="courses_grade11.html">Grade 11</a>
+                            <a th:href="@{/grade/grade11}">Grade 11</a>
                         </li>
-                        <li>
-                            <a href="courses_grade12.html">Grade 12</a>
-                        </li>
+
                     </ul>
                 </li>
 
 
                 <li class="active">
-                    <a href="/register">Register Class</a>
+                    <a th:href="@{/register}">Register Class</a>
                 </li>
                 <li class="active">
-                    <a href="/faq">FAQ</a>
+                    <a th:href="@{/faq}">FAQ</a>
                 </li>
                 <li class="active">
-                    <a href="/contact">Contact</a>
+                    <a th:href="@{/contact}">Contact</a>
                 </li>
             </ul>
         </nav>

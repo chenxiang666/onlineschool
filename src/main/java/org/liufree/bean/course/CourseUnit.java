@@ -22,6 +22,7 @@ public class CourseUnit {           //课程单元类
     int courseId;           //所属课程Id
     String title;           //标题
     String description;          //描述
+    String spendTime;           //花费时间
     Date creatTime;       //创建时间
     Date updatetime;      //更改时间
 

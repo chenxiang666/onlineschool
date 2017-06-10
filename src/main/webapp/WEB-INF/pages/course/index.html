@@ -3,10 +3,10 @@
 <head>
     <meta charset="UTF-8">
     <!-- Bootstrap core CSS -->
-    <link href="../../../css/bootstrap.css" rel="stylesheet">
+    <link href="../../css/bootstrap.css" th:href="@{/css/bootstrap.css}"  rel="stylesheet">
     <!-- Custom styles for this template -->
-    <link href="../../../css/carousel.css" rel="stylesheet">
-    <link href="../../../css/justified-nav.css" rel="stylesheet"/>
+    <link href="../../../css/carousel.css" th:href="@{/css/carousel.css}" rel="stylesheet">
+    <link href="../../../css/justified-nav.css" th:href="@{/css/justified-nav.css}" rel="stylesheet"/>
 </head>
 <body>
 
@@ -59,138 +59,44 @@
             <p style="text-align: center;background-color:#DC143C;font-size: 20px;color:#FFFFFF;padding: 0px;">All
                 Courses Are Available For Enrollment</p>
             </br>
-            <table class="table table-striped" border="1px" bordercolor="#ddd">
+            <table class="table table-striped" border="1px" bordercolor="#ddd" th:each="grade:${gradeList}">
                 <thead style="background-color: #DC143C;color:#FFFFFF">
                 <tr>
-                    <th width="55%" style="text-align: center;">Grade 9 Regular Courses</th>
-                    <th width="15%" style="text-align: center;">Teacher(s)</th>
-                    <th width="15%" style="text-align: center;">TuitionCan$</th>
-                    <th width="15%" style="text-align: center;">Click to Register</th>
-                </tr>
-                </thead>
-                <tbody>
-                <tr>
-                    <td style="text-align: center;"><a href="">English</a></td>
-                    <td style="text-align: center;">laowang</td>
-                    <td style="text-align: center;">450$</td>
-                    <td style="text-align: center;"><a href="register.html">Register</a></td>
-                </tr>
-                <tr>
-                    <td style="text-align: center;"><a href="">Math</a></td>
-                    <td style="text-align: center;">laozhang</td>
-                    <td style="text-align: center;">350$</td>
-                    <td style="text-align: center;"><a href="register.html">Register</a></td>
-                </tr>
-                <tr>
-                    <td style="text-align: center;"><a href="">Java</a></td>
-                    <td style="text-align: center;">laoli</td>
-                    <td style="text-align: center;">370$</td>
-                    <td style="text-align: center;"><a href="register.html">Register</a></td>
-                </tr>
-                </tbody>
-            </table>
-            <table class="table table-striped" border="1px" bordercolor="#ddd">
-                <thead style="background-color: #DC143C;color:#FFFFFF">
-                <tr>
-                    <th width="55%" style="text-align: center;">Grade 10 Regular Courses</th>
-                    <th width="15%" style="text-align: center;">Teacher(s)</th>
-                    <th width="15%" style="text-align: center;">TuitionCan$</th>
-                    <th width="15%" style="text-align: center;">Click to Register</th>
-                </tr>
-                </thead>
-                <tbody>
-                <tr>
-                    <td style="text-align: center;"><a href="">English</a></td>
-                    <td style="text-align: center;">laowang</td>
-                    <td style="text-align: center;">450$</td>
-                    <td style="text-align: center;"><a href="register.html">Register</a></td>
-                </tr>
-                <tr>
-                    <td style="text-align: center;"><a href="">Math</a></td>
-                    <td style="text-align: center;">laozhang</td>
-                    <td style="text-align: center;">350$</td>
-                    <td style="text-align: center;"><a href="register.html">Register</a></td>
-                </tr>
-                <tr>
-                    <td style="text-align: center;"><a href="">Java</a></td>
-                    <td style="text-align: center;">laoli</td>
-                    <td style="text-align: center;">370$</td>
-                    <td style="text-align: center;"><a href="register.html">Register</a></td>
-                </tr>
-                </tbody>
-            </table>
-            <table class="table table-striped" border="1px" bordercolor="#ddd">
-                <thead style="background-color: #DC143C;color:#FFFFFF">
-                <tr>
-                    <th width="55%" style="text-align: center;">Grade 11 Regular Courses</th>
-                    <th width="15%" style="text-align: center;">Teacher(s)</th>
-                    <th width="15%" style="text-align: center;">TuitionCan$</th>
-                    <th width="15%" style="text-align: center;">Click to Register</th>
-                </tr>
-                </thead>
-                <tbody>
-                <tr>
-                    <td style="text-align: center;"><a href="courses/grade11/SCH3U_outline.html">SCH3U - Chemistry
-                        University Preparation</a></td>
-                    <td style="text-align: center;"></td>
-                    <td style="text-align: center;">550C$</td>
-                    <td style="text-align: center;"><a href="register.html">Register</a></td>
-                </tr>
-                <tr>
-                    <td style="text-align: center;"><a href="">Math</a></td>
-                    <td style="text-align: center;">laozhang</td>
-                    <td style="text-align: center;">350$</td>
-                    <td style="text-align: center;"><a href="register.html">Register</a></td>
-                </tr>
-                <tr>
-                    <td style="text-align: center;"><a href="">Java</a></td>
-                    <td style="text-align: center;">laoli</td>
-                    <td style="text-align: center;">370$</td>
-                    <td style="text-align: center;"><a href="register.html">Register</a></td>
-                </tr>
-                </tbody>
-            </table>
+                    <th width="55%" style="text-align: center;" th:text="${grade.gradeName}">Grade 9 Regular Courses
+                    </th>
 
-            <table class="table table-striped" border="1px" bordercolor="#ddd">
-                <thead style="background-color: #DC143C;color:#FFFFFF">
-                <tr>
-                    <th width="55%" style="text-align: center;">Grade 12 Regular Courses</th>
                     <th width="15%" style="text-align: center;">Teacher(s)</th>
-                    <th width="15%" style="text-align: center;">TuitionCan$</th>
-                    <th width="15%" style="text-align: center;">Click to Register</th>
-                </tr>
-                </thead>
-                <tbody>
-                <tr>
-                    <td style="text-align: center;"><a href="">English</a></td>
-                    <td style="text-align: center;">laowang</td>
-                    <td style="text-align: center;">450$</td>
-                    <td style="text-align: center;"><a href="register.html">Register</a></td>
-                </tr>
-                <tr>
-                    <td style="text-align: center;"><a href="">Math</a></td>
-                    <td style="text-align: center;">laozhang</td>
-                    <td style="text-align: center;">350$</td>
-                    <td style="text-align: center;"><a href="register.html">Register</a></td>
-                </tr>
-                <tr>
-                    <td style="text-align: center;"><a href="">Java</a></td>
-                    <td style="text-align: center;">laoli</td>
-                    <td style="text-align: center;">370$</td>
-                    <td style="text-align: center;"><a href="register.html">Register</a></td>
-                </tr>
-                </tbody>
-            </table>
 
-        </div>
+        <th width="15%" style="text-align: center;">TuitionCan$</th>
+        <th width="15%" style="text-align: center;">Click to Register</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:each="course:${courseList}">
+            <div th:if="${course.gradeId==grade.id}">
+                <td style="text-align: center;"><a th:href="@{/course/detail/__${course.id}__}" th:text="${course.title}">English</a></td>
+                <div th:each="user:${userList}">
+                    <div th:if="${user.id==course.teacherId}">
+                        <td style="text-align: center;" th:text="${user.username}">laowang</td>
+                    </div>
+                </div>
+                <td style="text-align: center;" th:text="${course.price}">450$</td>
+                <td style="text-align: center;"><a th:href="@{/course/register/__${course.id}__}" href="register.html">Register</a></td>
+            </div>
+        </tr>
+
+        </tbody>
+        </table>
+
     </div>
-    <div th:include="common/foot :: foot"></div>
+</div>
+<div th:include="common/foot :: foot"></div>
 
 </div>
 
-<script src="../../../js/jquery.min.js"></script>
-<script src="../../../js/bootstrap.js"></script>
-<script src="../../../js/holder.min.js"></script>
+<script src="../../../js/jquery.min.js" th:src="@{js/jquery.min.js}"></script>
+<script src="../../../js/bootstrap.js" th:src="@{js/bootstrap.js}"></script>
+<script src="../../../js/holder.min.js" th:src="@{js/holder.min.js}"></script>
 </body>
 
 </html>

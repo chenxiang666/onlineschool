@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="icon" href="../../favicon.ico">
+
+    <title>Carousel Template for Bootstrap</title>
+    <link href="../../css/bootstrap.css" th:href="@{/css/bootstrap.css}"  rel="stylesheet">
+    <!-- Custom styles for this template -->
+    <link href="../../../css/carousel.css" th:href="@{/css/carousel.css}" rel="stylesheet">
+    <link href="../../../css/justified-nav.css" th:href="@{/css/justified-nav.css}" rel="stylesheet"/>
+    <script th:src="@{/ckeditor/ckeditor.js}"></script>
+
+</head>
+<!-- NAVBAR
+================================================== -->
+<body>
+<div class="container">
+
+    <div th:include="common/head :: head"></div>
+
+    </br>
+    <div style="width: 20%;float: left; border: 1px solid #DCDCDC">
+        <div class="col-md-6">
+            <img th:src="@{img/portrait.jpg}" width="100px" height="100px">
+        </div>
+        <div class="col-md-6" style="text-align: center">
+            <p style="margin-top: 25px">Hello !</p>
+            <p>Jack</p>
+        </div>
+        <div th:include="common/nav_course :: nav"></div>
+
+    </div>
+    <div style="width: 75%;float: right;">
+        <h3 style="text-align: center;">Add Subject</h3>
+        <hr/>
+        <ul id="myTab" class="nav nav-tabs" style="margin-top: 20px;">
+            <li class="active" style="margin-left: 270px;">
+                <a href="#radio" data-toggle="tab">Radio examination</a>
+            </li>
+            <li><a href="#subjective" data-toggle="tab">Subjective question</a></li>
+
+        </ul>
+        <div id="myTabContent" class="tab-content">
+            <div class="tab-pane fade in active" id="radio">
+                <form class="form-horizontal" th:action="@{/teacher/questions/add}" method="post">
+                   <!-- <div class="form-group">
+                        <label for="unitNum" class="control-label col-md-1">Unit:</label>    &lt;!&ndash; Todo 下拉菜单&ndash;&gt;
+                        <div class="col-md-1">
+                            <input type="text" class="form-control" id="">
+                        </div>
+                    </div>-->
+                    <div class="form-group">
+                        <label  class="control-label col-md-1">Question describe:</label>
+                        <div class="col-md-11">
+                            <textarea name="title" id="title" ></textarea>
+                            <script>
+                                CKEDITOR.replace( 'title' );
+                            </script>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label  class="control-label col-md-1">A:</label>
+                        <div class="col-md-11">
+                            <input type="text" class="form-control" name="optiona">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label  class="control-label col-md-1">B:</label>
+                        <div class="col-md-11">
+                            <input type="text" class="form-control" name="optionb">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="control-label col-md-1">C:</label>
+                        <div class="col-md-11">
+                            <input type="text" class="form-control" name="optionc">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label  class="control-label col-md-1">D:</label>
+                        <div class="col-md-11">
+                            <input type="text" class="form-control" name="optiond">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label  class="control-label col-md-1">Correct Answer:</label>
+                        <div class="col-md-11" style="padding-top: 15px;">
+                            <input class="zhenghan-answer-radio" name="answer" type="radio" value="A"> <span
+                                style="margin-right: 20px;">A</span>
+                            <input class="zhenghan-answer-radio" name="answer" type="radio" value="B"> <span
+                                style="margin-right: 20px;">B</span>
+                            <input class="zhenghan-answer-radio" name="answer" type="radio" value="C"> <span
+                                style="margin-right: 20px;">C</span>
+                            <input class="zhenghan-answer-radio" name="answer" type="radio" value="D"> <span
+                                style="margin-right: 20px;">D</span>
+                        </div>
+                    </div>
+                    <button type="submit" class="btn btn-success">Submit</button>
+                </form>
+            </div>
+            <div class="tab-pane fade" id="subjective">
+                <form class="form-horizontal" th:action="@{/teacher/questions/add}" method="post">
+                   <!-- <div class="form-group">
+                        <label for="unitNum" class="control-label col-md-1">Unit:</label>
+                        <div class="col-md-1">
+                            <input type="text" class="form-control" id="unitNum">
+                        </div>
+                    </div>-->
+                    <div class="form-group">
+                        <label class="control-label col-md-1">Question describe:</label>
+                        <div class="col-md-11">
+                            <textarea name="title" id="title1" class="zhenghan-textarea"></textarea>
+                            <script>
+                                CKEDITOR.replace( 'title1' );
+                            </script>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="referenceAnswer" class="control-label col-md-1">Reference answer:</label>
+                        <div class="col-md-11">
+                            <textarea id="referenceAnswer" class="zhenghan-textarea" name="answer"></textarea>
+                        </div>
+                    </div>
+                    <button type="submit" class="btn btn-success">Submit</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div th:include="common/foot :: foot"></div>
+
+</div><!-- /.container -->
+
+<script src="../../../js/jquery.min.js" th:src="@{/js/jquery.min.js}"></script>
+<script src="../../../js/bootstrap.js" th:src="@{/js/bootstrap.js}"></script>
+<script src="../../../js/holder.min.js" th:src="@{/js/holder.min.js}"></script>
+</body>
+</html>

@@ -2,6 +2,7 @@ package org.liufree.bean.course;
 
 
 import lombok.Data;
+import org.liufree.bean.user.User;
 
 import javax.persistence.*;
 import java.util.Date;
@@ -30,4 +31,8 @@ public class Course {           //课程类
     Date creatTime;       //创建时间
     Date updateTime;      //更新时间
     int teacherId;         //老师     就是userId
+
+    /*@ManyToOne(cascade={CascadeType.MERGE,CascadeType.REFRESH})
+    @JoinColumn(name="teacherId", referencedColumnName="id", insertable=false, updatable=false)
+    User teacher;                  //这门课的老师*/
 }

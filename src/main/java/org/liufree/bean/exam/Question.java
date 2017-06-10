@@ -1,6 +1,7 @@
 package org.liufree.bean.exam;
 
 import lombok.Data;
+import org.liufree.bean.user.User;
 
 import javax.persistence.*;
 import java.util.Date;
@@ -31,4 +32,7 @@ public class Question {
     String optiond;
     String answer;              //答案
     Date creatTime;             //创建时间
+    int unitId;                 //所属单元id
+
+
 }

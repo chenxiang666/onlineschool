@@ -1,8 +1,10 @@
 package org.liufree.bean.user;
 
 import lombok.Data;
+import org.liufree.bean.course.Course;
 
 import javax.persistence.*;
+import java.util.List;
 
 /**
  * @author lwx
@@ -39,4 +41,40 @@ public class User {                 //老师和学生合在一起，同为user
     int msgNum;                 //消息数目
     int role;                   //角色，1为学生，2为老师
 
+
+    //Todo 多表查询
+    /*@OneToMany(mappedBy="user",cascade=CascadeType.ALL,fetch=FetchType.LAZY)
+    List<Course> courseList;
+
+    @ManyToOne(cascade={CascadeType.MERGE,CascadeType.REFRESH})
+
+@JoinColumn(name="teacher_id", referencedColumnName="id", insertable=false, updatable=false)
+
+private ImTeacher imTeacher;
+
+...
+
+}
+
+2）在ImTeacher.java中添加
+
+ @OneToMany(mappedBy="imTeacher",cascade=CascadeType.ALL,fetch=FetchType.LAZY)
+
+    private Set<ImStudent> imStudent = new HashSet<ImStudent>();
+
+...
+
+3）根据学生名字查出其老师信息
+
+@Query("SELECT teacher FROM ImTeacher teacher JOIN teacher.imStudent student WHERE student.name=:name")
+
+ ImTeacher findByStuName(@Param("name") String name);
+
+根据老师名字查出其学生列表
+
+@Query("SELECT student FROM ImStudent student JOIN student.imTeacher teacher WHERE teacher.name = :name")
+
+ Set<ImStudent> findByStudByTeaName(@Param("name") String name);
+
+*/
 }

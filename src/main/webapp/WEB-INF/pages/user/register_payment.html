@@ -12,11 +12,10 @@
 
     <title>Carousel Template for Bootstrap</title>
 
-    <!-- Bootstrap core CSS -->
-    <link href="../../../css/bootstrap.css" rel="stylesheet">
+    <link href="../../css/bootstrap.css" th:href="@{/css/bootstrap.css}"  rel="stylesheet">
     <!-- Custom styles for this template -->
-    <link href="../../../css/carousel.css" rel="stylesheet">
-    <link href="../../../css/justified-nav.css" rel="stylesheet"/>
+    <link href="../../../css/carousel.css" th:href="@{/css/carousel.css}" rel="stylesheet">
+    <link href="../../../css/justified-nav.css" th:href="@{/css/justified-nav.css}" rel="stylesheet"/>
 </head>
 <!-- NAVBAR
 ================================================== -->
@@ -51,7 +50,7 @@
             </div>
         </div>
         <div class="col-md-10 col-md-offset-1 ">
-            <form action="/user/register_payment" method="get">
+            <form th:action="@{/user/register_payment}" method="get">
                 <button  type="submit" class="btn btn-success" href="register_finish.html">Next</button></form>
         </div>
 
@@ -60,9 +59,8 @@
     <div th:include="common/foot :: foot"></div>
 </div><!-- /.container -->
 
-
-<script src="../../../js/jquery.min.js"></script>
-<script src="../../../js/bootstrap.js"></script>
-<script src="../../../js/holder.min.js"></script>
+<script src="../../../js/jquery.min.js" th:src="@{js/jquery.min.js}"></script>
+<script src="../../../js/bootstrap.js" th:src="@{js/bootstrap.js}"></script>
+<script src="../../../js/holder.min.js" th:src="@{js/holder.min.js}"></script>
 </body>
 </html>

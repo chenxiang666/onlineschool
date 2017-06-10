@@ -23,7 +23,7 @@ public class Msg {
     String content;             //内容
     int sentId;                 //发送者Id
     int receiveId;              //收到者Id
-    int msgId;                  //父级消息消息Id,便于回复
+    int msgId;                  //父级消息消息Id,便于回复;0
     int status;                 //0未读，1已读；默认为0
     Date creatTime;           //创建时间
 }

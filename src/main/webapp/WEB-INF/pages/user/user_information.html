@@ -11,11 +11,10 @@
     <link rel="icon" href="../../favicon.ico">
 
     <title>Carousel Template for Bootstrap</title>
-    <!-- Bootstrap core CSS -->
-    <link href="../../../css/bootstrap.css" rel="stylesheet">
+    <link href="../../css/bootstrap.css" th:href="@{/css/bootstrap.css}"  rel="stylesheet">
     <!-- Custom styles for this template -->
-    <link href="../../../css/carousel.css" rel="stylesheet">
-    <link href="../../../css/justified-nav.css" rel="stylesheet"/></head>
+    <link href="../../../css/carousel.css" th:href="@{/css/carousel.css}" rel="stylesheet">
+    <link href="../../../css/justified-nav.css" th:href="@{/css/justified-nav.css}" rel="stylesheet"/></head>
 <!-- NAVBAR
 ================================================== -->
 <body>
@@ -25,7 +24,7 @@
     </br>
     <div  style="width: 20%;float: left; border: 1px solid #DCDCDC">
         <div class="col-md-6">
-            <img src="img/portrait.jpg" width="100px" height="100px" >
+            <img th:src="@{img/portrait.jpg}" width="100px" height="100px" >
         </div>
         <div class="col-md-6" style="text-align: center">
             <p style="margin-top: 25px">Hello !</p>
@@ -35,13 +34,13 @@
 
             <tbody>
             <tr>
-                <td style="text-align: center"><a href="/user/courses" style="color:#DC143C;"><span class="glyphicon glyphicon-book" aria-hidden="true">Courses</span></a></td>
+                <td style="text-align: center"><a th:href="@{/user/courses}" style="color:#DC143C;"><span class="glyphicon glyphicon-book" aria-hidden="true">Courses</span></a></td>
             </tr>
             <tr>
-                <td style="text-align: center"><a href="/user/information" style="color:#DC143C;"><span class="glyphicon glyphicon-user" aria-hidden="true">Information</span></a></td>
+                <td style="text-align: center"><a th:href="@{/user/information}" style="color:#DC143C;"><span class="glyphicon glyphicon-user" aria-hidden="true">Information</span></a></td>
             </tr>
             <tr>
-                <td style="text-align: center"><a href="/user/message" style="color:#DC143C;"><span class="glyphicon glyphicon-comment" aria-hidden="true">Message</span></a></td>
+                <td style="text-align: center"><a th:href="@{/user/message}" style="color:#DC143C;"><span class="glyphicon glyphicon-comment" aria-hidden="true">Message</span></a></td>
             </tr>
             </tbody>
         </table>
@@ -69,10 +68,10 @@
                 </div>
             </div>
             <div class="form-group">
-                <label for="sex" class="control-label col-md-2">Sex </label>
+                <label  class="control-label col-md-2">Sex </label>
                 <div class="col-md-10">
-                    <input checked="true" name="sex" type="radio"> Male
-                    <input name="sex" type="radio"> Female
+                    <input checked="true" name="sex" type="radio" value="1"> Male
+                    <input name="sex" type="radio" value="2"> Female
                 </div>
             </div>
             <div class="form-group">
@@ -116,8 +115,8 @@
 
 
 
-<script src="../../../js/jquery.min.js"></script>
-<script src="../../../js/bootstrap.js"></script>
-<script src="../../../js/holder.min.js"></script>
+<script src="../../../js/jquery.min.js" th:src="@{js/jquery.min.js}"></script>
+<script src="../../../js/bootstrap.js" th:src="@{js/bootstrap.js}"></script>
+<script src="../../../js/holder.min.js" th:src="@{js/holder.min.js}"></script>
 </body>
 </html>

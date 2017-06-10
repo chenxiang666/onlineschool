@@ -24,7 +24,7 @@ public class Exam {
     Date beginTime;         //开始时间
     Date endTime;           //终止时间
     String title;           //考试标题
-    int type;               //考试类型，1为test,2为assignment,2为期中期末考试
+    int type;               //考试类型，1为test,2为assignment,3为期中期末考试
     double score;           //总分数
 
 

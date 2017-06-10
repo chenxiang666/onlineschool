@@ -57,7 +57,8 @@ CREATE TABLE `course` (
   `title` varchar(255) DEFAULT NULL,
   `type` int(11) NOT NULL,
   `updateTime` datetime DEFAULT NULL,
-  PRIMARY KEY (`id`)
+  PRIMARY KEY (`id`),
+  KEY `FKlmfwelta3u90fi95vaj82ot3h` (`teacherId`)
 ) ENGINE=MyISAM AUTO_INCREMENT=8 DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -67,7 +68,7 @@ CREATE TABLE `course` (
 
 LOCK TABLES `course` WRITE;
 /*!40000 ALTER TABLE `course` DISABLE KEYS */;
-INSERT INTO `course` VALUES (1,'2017-06-01 22:50:56','This course integrates two or more of the arts (dance, drama, media arts, music, and visual arts), giving students the opportunity to produce and present integrated art works created individually or collaboratively. Students will demonstrate innovation as they learn and apply concepts, styles, and conventions unique to the various arts and acquire skills that are transferable beyond the classroom. Students will use the creative process and responsible practices to explore solutions to integrated arts challenges.',1,NULL,0,0,'English1',0,NULL),(2,'2017-06-01 22:51:00','This course integrates two or more of the arts (dance, drama, media arts, music, and visual arts), giving students the opportunity to produce and present integrated art works created individually or collaboratively. Students will demonstrate innovation as they learn and apply concepts, styles, and conventions unique to the various arts and acquire skills that are transferable beyond the classroom. Students will use the creative process and responsible practices to explore solutions to integrated arts challenges.',1,NULL,0,0,'English6',0,NULL),(3,'2017-06-01 22:50:58','3',1,NULL,0,0,'English4',0,NULL),(4,'2017-06-01 22:50:59','4',2,NULL,0,0,'English5',0,NULL),(5,NULL,'5',2,NULL,0,0,'Math1',0,NULL),(6,'2017-06-01 22:51:01','5',2,NULL,0,0,'Math2',0,NULL),(7,NULL,'5',2,NULL,0,0,'Math3',0,NULL);
+INSERT INTO `course` VALUES (1,'2017-06-01 22:50:56','This course introduces students to the world of business. Students will develop an understanding of the functions of business, including accounting, marketing, information and communication technology, human resources, and production, and of the importance of ethics and social responsibility. This course builds a foundation for further studies in business and helps students develop the business knowledge and skills they will need in their everyday lives.',1,NULL,0,155,'English1',0,NULL),(2,'2017-06-01 22:51:00','1 This course introduces students to the world of business. Students will develop an understanding of the functions of business, including accounting, marketing, information and communication technology, human resources, and production, and of the importance of ethics and social responsibility. This course builds a foundation for further studies in business and helps students develop the business knowledge and skills they will need in their everyday lives. course integrates two or more of the arts (dance, drama, media arts, music, and visual arts), giving students the opportunity to produce and present integrated art works created individually or collaboratively. Students will demonstrate innovation as they learn and apply concepts, styles, and conventions unique to the various arts and acquire skills that are transferable beyond the classroom. Students will use the creative process and responsible practices to explore solutions to integrated arts challenges.',1,NULL,0,155,'English6',0,NULL),(3,'2017-06-01 22:50:58','2This course introduces students to the world of business. Students will develop an understanding of the functions of business, including accounting, marketing, information and communication technology, human resources, and production, and of the importance of ethics and social responsibility. This course builds a foundation for further studies in business and helps students develop the business knowledge and skills they will need in their everyday lives.',1,NULL,0,155,'English4',0,NULL),(4,'2017-06-01 22:50:59','This course introduces students to the world of business. Students will develop an understanding of the functions of business, including accounting, marketing, information and communication technology, human resources, and production, and of the importance of ethics and social responsibility. This course builds a foundation for further studies in business and helps students develop the business knowledge and skills they will need in their everyday lives.',2,NULL,0,155,'English5',0,NULL),(5,NULL,'This course introduces students to the world of business. Students will develop an understanding of the functions of business, including accounting, marketing, information and communication technology, human resources, and production, and of the importance of ethics and social responsibility. This course builds a foundation for further studies in business and helps students develop the business knowledge and skills they will need in their everyday lives.',2,NULL,0,155,'Math1',0,NULL),(6,'2017-06-01 22:51:01','This course introduces students to the world of business. Students will develop an understanding of the functions of business, including accounting, marketing, information and communication technology, human resources, and production, and of the importance of ethics and social responsibility. This course builds a foundation for further studies in business and helps students develop the business knowledge and skills they will need in their everyday lives.',2,NULL,0,155,'Math2',0,NULL),(7,NULL,'This course introduces students to the world of business. Students will develop an understanding of the functions of business, including accounting, marketing, information and communication technology, human resources, and production, and of the importance of ethics and social responsibility. This course builds a foundation for further studies in business and helps students develop the business knowledge and skills they will need in their everyday lives.',2,NULL,0,155,'Math3',0,NULL);
 /*!40000 ALTER TABLE `course` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -109,11 +110,12 @@ CREATE TABLE `course_unit` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `courseId` int(11) NOT NULL,
   `creatTime` datetime DEFAULT NULL,
-  `description` varchar(255) DEFAULT NULL,
+  `description` text,
   `title` varchar(255) DEFAULT NULL,
   `updatetime` datetime DEFAULT NULL,
+  `spendTime` varchar(999) DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+) ENGINE=MyISAM AUTO_INCREMENT=8 DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -122,6 +124,7 @@ CREATE TABLE `course_unit` (
 
 LOCK TABLES `course_unit` WRITE;
 /*!40000 ALTER TABLE `course_unit` DISABLE KEYS */;
+INSERT INTO `course_unit` VALUES (1,2,'2017-06-08 09:50:01','333','Unit1',NULL,'5Hour'),(2,2,NULL,'4466','Unit2',NULL,'7Hour'),(3,2,NULL,'sdf','Unit3',NULL,'46Hour'),(4,2,NULL,'4','Unit4',NULL,'42Hour'),(5,2,NULL,'5','Unit5',NULL,'6Hour'),(6,2,NULL,'6','Unit6',NULL,'7Hour'),(7,2,NULL,'4','Unit7',NULL,'12Hour');
 /*!40000 ALTER TABLE `course_unit` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -166,7 +169,7 @@ CREATE TABLE `exam` (
   `title` varchar(255) DEFAULT NULL,
   `type` int(11) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+) ENGINE=MyISAM AUTO_INCREMENT=2 DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -175,6 +178,7 @@ CREATE TABLE `exam` (
 
 LOCK TABLES `exam` WRITE;
 /*!40000 ALTER TABLE `exam` DISABLE KEYS */;
+INSERT INTO `exam` VALUES (1,NULL,2,NULL,0,'Test1',0);
 /*!40000 ALTER TABLE `exam` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -187,12 +191,12 @@ DROP TABLE IF EXISTS `exam_question`;
 /*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `exam_question` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
-  `examId` int(11) NOT NULL,
-  `itemScore` double NOT NULL,
-  `questionId` int(11) NOT NULL,
-  `sort` int(11) NOT NULL,
+  `examId` int(11) DEFAULT NULL,
+  `itemScore` double DEFAULT NULL,
+  `questionId` int(11) DEFAULT NULL,
+  `sort` int(11) DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+) ENGINE=MyISAM AUTO_INCREMENT=4 DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -201,6 +205,7 @@ CREATE TABLE `exam_question` (
 
 LOCK TABLES `exam_question` WRITE;
 /*!40000 ALTER TABLE `exam_question` DISABLE KEYS */;
+INSERT INTO `exam_question` VALUES (1,1,22,1,1),(2,1,33,2,2),(3,1,44,3,3);
 /*!40000 ALTER TABLE `exam_question` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -331,8 +336,9 @@ CREATE TABLE `question` (
   `tag` varchar(255) DEFAULT NULL,
   `title` varchar(255) DEFAULT NULL,
   `type` int(11) NOT NULL,
+  `unitId` int(11) DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+) ENGINE=MyISAM AUTO_INCREMENT=8 DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -341,6 +347,7 @@ CREATE TABLE `question` (
 
 LOCK TABLES `question` WRITE;
 /*!40000 ALTER TABLE `question` DISABLE KEYS */;
+INSERT INTO `question` VALUES (2,NULL,2,NULL,'go','dd','ee','gg',NULL,'<p>What\'s your name?</p>\r\n',1,0),(4,'A',2,NULL,'34','df','sdf','sdf',NULL,'<p>wer</p>\r\n',1,0),(5,'gg',2,NULL,NULL,NULL,NULL,NULL,NULL,'<p>sf</p>\r\n',2,0),(1,NULL,2,NULL,'go','dd','ee','gg',NULL,'<p>What\'s your name?</p>\r\n',1,0),(3,NULL,2,NULL,'go','dd','ee','gg',NULL,'<p>What\'s your name?</p>\r\n',1,0),(6,NULL,2,NULL,'go','dd','ee','gg',NULL,'<p>What\'s your name?</p>\r\n',1,0),(7,NULL,2,NULL,'go','dd','ee','gg',NULL,'<p>What\'s your name?</p>\r\n',1,0);
 /*!40000 ALTER TABLE `question` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -383,7 +390,7 @@ CREATE TABLE `user` (
 
 LOCK TABLES `user` WRITE;
 /*!40000 ALTER TABLE `user` DISABLE KEYS */;
-INSERT INTO `user` VALUES (157,'df',NULL,NULL,'',NULL,NULL,'ww@3','','33','df',0,'1111',NULL,'',NULL,0,0,0,NULL,'ww@3'),(156,'216','','wuhan','America',NULL,'I\'m good','liufreeo@gmail.com','Lucy','Jack','034-345-677',0,'1111',NULL,'88888',NULL,0,0,0,NULL,'liufreeo@gmail.com'),(155,'',NULL,NULL,'',NULL,NULL,'','','','',0,'',NULL,'',NULL,0,0,0,NULL,NULL),(154,'',NULL,NULL,'',NULL,NULL,'34@3','12','2','',0,NULL,NULL,'',NULL,0,0,0,NULL,NULL),(153,'',NULL,NULL,'',NULL,NULL,'','12','2','',0,NULL,NULL,'',NULL,0,0,0,NULL,NULL),(152,'',NULL,NULL,'',NULL,NULL,'','12','2','',0,NULL,NULL,'',NULL,0,0,0,NULL,NULL);
+INSERT INTO `user` VALUES (157,'df',NULL,NULL,'',NULL,NULL,'ww@3','','33','df',0,'student',NULL,'',NULL,0,0,0,NULL,'student'),(156,'216','','wuhan','America',NULL,'I\'m good','liufreeo@gmail.com','Lucy','Jack','034-345-677',0,'1111',NULL,'88888',NULL,0,0,0,NULL,'liufreeo@gmail.com'),(155,'',NULL,NULL,'',NULL,NULL,'','','','',0,'teacher',NULL,'',NULL,1,0,0,NULL,'teacher'),(154,'',NULL,NULL,'',NULL,NULL,'34@3','12','2','',0,NULL,NULL,'',NULL,0,0,0,NULL,NULL),(153,'',NULL,NULL,'',NULL,NULL,'','12','2','',0,NULL,NULL,'',NULL,0,0,0,NULL,NULL),(152,'',NULL,NULL,'',NULL,NULL,'','12','2','',0,NULL,NULL,'',NULL,0,0,0,NULL,NULL);
 /*!40000 ALTER TABLE `user` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -399,7 +406,7 @@ CREATE TABLE `user_course` (
   `courseId` int(11) NOT NULL,
   `userId` int(11) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM AUTO_INCREMENT=39 DEFAULT CHARSET=latin1;
+) ENGINE=MyISAM AUTO_INCREMENT=42 DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -408,7 +415,7 @@ CREATE TABLE `user_course` (
 
 LOCK TABLES `user_course` WRITE;
 /*!40000 ALTER TABLE `user_course` DISABLE KEYS */;
-INSERT INTO `user_course` VALUES (38,2,157),(37,1,157),(36,1,156),(35,2,156),(34,1,154),(33,2,154),(32,1,154),(31,3,0),(29,1,0),(30,2,0);
+INSERT INTO `user_course` VALUES (41,1,157),(40,1,157),(39,1,157),(38,2,157),(37,1,157),(36,1,156),(35,2,156),(34,1,154),(33,2,154),(32,1,154),(31,3,0),(29,1,0),(30,2,155);
 /*!40000 ALTER TABLE `user_course` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -448,4 +455,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2017-06-03 14:43:21
+-- Dump completed on 2017-06-10 11:19:14

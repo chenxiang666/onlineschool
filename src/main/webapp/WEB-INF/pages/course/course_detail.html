@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="icon" href="../../favicon.ico">
+
+    <title>Carousel Template for Bootstrap</title>
+
+    <link href="../../css/bootstrap.css" th:href="@{/css/bootstrap.css}"  rel="stylesheet">
+    <!-- Custom styles for this template -->
+    <link href="../../../css/carousel.css" th:href="@{/css/carousel.css}" rel="stylesheet">
+    <link href="../../../css/justified-nav.css" th:href="@{/css/justified-nav.css}" rel="stylesheet"/>
+</head>
+<!-- NAVBAR
+================================================== -->
+<body>
+<div class="container">
+
+
+    <div th:include="common/head :: head"></div>
+    </br>
+    <div class="container" style="border: 1px solid #DCDCDC;">
+        <div class="col-md-2">
+
+            <div class="panel-group" id="accordion" style="margin-top: 40px;">
+                <div class="panel panel-default" th:each="grade:${gradeList}">
+                    <div class="panel-heading">
+                        <h4 class="panel-title">
+                            <a data-toggle="collapse" data-parent="#accordion"
+                               href="#collapseOne">
+                                <p th:text="${grade.gradeName}"></p>
+                            </a>
+                        </h4>
+                    </div>
+                    <div id="collapseOne" class="panel-collapse collapse in">
+                        <div class="panel-body">
+                            <ul class="nav navbar-zhenghan">
+                                <li th:each="course:${courseList}">
+                                    <div th:if="${course.gradeId}==${grade.id}"><a th:href="@{/course/detail/__${course.id}__}"><p
+                                            th:text="${course.title}"></p></a></div>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+        <div class="col-md-10 ">
+            <h2>SCH3U - Chemistry University Preparation</h2>
+            <h3>COURSE OUTLINE</h3>
+            <p>
+                <strong>School Name: </strong>Sinapis High School<br>
+                <strong>Department Name: </strong>Science Department<br>
+                <strong>Ministry Course Code: </strong>SCH 3U<br>
+                <strong>Grade Level: </strong>Grade 11<br>
+                <strong>Ministry of Education Course Title: </strong>Chemistry University Preparation<br>
+                <strong>Prerequisite: </strong>SNC 2D<br>
+                <strong>Length: </strong>One Semester<br>
+                <strong>Hours: </strong>110 hours <br>
+                <strong>Credit Value: </strong>1.0<br>
+                <strong>Teacher's Name: </strong><br>
+                <strong>Developed by: </strong>Umar Goolab<br>
+                <strong>Development Date</strong>May 1, 2017<br>
+                <strong>Developed from:</strong>The Ontario Curriculum (Science, Grades 11 and 12,2008); Growing Success; Financial Literacy(www. edugains.ca)<br>
+                <strong>Text:</strong>Chemistry 11, Nelson. Publisher: Pearson Canada<br>
+            </p>
+            <div class="col-md-12" style="text-align: center;">
+                <a class="btn btn-default" th:href="@{/course/register/__${course.id}__}" style="background-color: #DC143C;color: white;width: 160px;height: 50px;font-size: 22px;margin: 20px;">Register Now</a>
+            </div>
+            <div class="col-md-12">
+                <h3>Course Description</h3>
+                <p th:text="${course.description}">
+                    This course enables students to deepen their understanding of chemistry through the study of the
+                    properties of chemicals and chemical bonds; chemical reactions and quantitative relationships in
+                    those reactions; solutions and solubility; and atmospheric chemistry and the behaviour of gases.
+                    Students will further develop their analytical skills and investigate the qualitative and quantitative
+                    properties of matter, as well as the impact of some common chemical reactions on society and the
+                    environment.
+                </p>
+                <table class="table table-bordered">
+                    <thead>
+                    <th width="600px" style="background-color: #DC143C;color: white;">
+                        <strong>
+                            Unit
+                        </strong>
+                    </th>
+                    <th width="148px" style="background-color: #DC143C;color: white;">
+                        <strong>
+                            Time and Sequence
+                        </strong>
+                    </th>
+                    </thead>
+                    <tbody>
+                    <tr th:each="courseUnit:${courseUnitList}">
+                        <td>
+                            <p>
+                                <strong th:text="${courseUnit.title}">1: Scientific Investigation Skills and Career Exploration</strong>
+                            </p>
+                            <p>
+                                This is an on-going unit that will be assessed in each of the following units. Students
+                                will demonstrate scientific investigation skills (related to both inquiry and research) in
+                                the four areas of skills (initiating and planning, performing and recording, analysing
+                                and interpreting, and communicating). The financial literacy will be studied by
+                                identifying and describing careers related to the fields of science under study (e.g.
+                                chemists, pharmaceutical chemists, chemical engineering technologists, food
+                                scientists) and the education and training necessary for these careers, and describe
+                                contributions of scientists, including Canadians, to those fields.
+                            </p>
+                        </td>
+                        <td style="text-align:center;" th:text="${courseUnit.spendTime}">
+                            On-going
+                        </td>
+                    </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+    </div>
+    <!-- FOOTER -->
+
+
+    <div th:include="common/foot :: foot"></div>
+</div><!-- /.container -->
+<script src="../../../js/jquery.min.js" th:src="@{/js/jquery.min.js}"></script>
+<script src="../../../js/bootstrap.js" th:src="@{/js/bootstrap.js}"></script>
+<script src="../../../js/holder.min.js" th:src="@{/js/holder.min.js}"></script>
+
+</body>
+</html>
