@@ -12,7 +12,7 @@
 
     <title>Carousel Template for Bootstrap</title>
 
-    <link href="../../css/bootstrap.css" th:href="@{/css/bootstrap.css}"  rel="stylesheet">
+    <link href="../../css/bootstrap.css" th:href="@{/css/bootstrap.css}" rel="stylesheet">
     <!-- Custom styles for this template -->
     <link href="../../../css/carousel.css" th:href="@{/css/carousel.css}" rel="stylesheet">
     <link href="../../../css/justified-nav.css" th:href="@{/css/justified-nav.css}" rel="stylesheet"/>
@@ -25,25 +25,29 @@
     <div th:include="common/head :: head"></div>
     </br>
 
-    <div  style="width: 20%;float: left; border: 1px solid #DCDCDC">
+    <div style="width: 20%;float: left; border: 1px solid #DCDCDC">
         <div class="col-md-6">
-            <img th:src="@{img/portrait.jpg}" width="100px" height="100px" >
+            <img th:src="@{img/portrait.jpg}" width="100px" height="100px">
         </div>
         <div class="col-md-6" style="text-align: center">
             <p style="margin-top: 25px">Hello !</p>
             <p>Jack</p>
         </div>
-        <table class="table table-hover" >
+        <table class="table table-hover">
+
 
             <tbody>
             <tr>
-                <td style="text-align: center"><a href="/teacher/courses" style="color:#DC143C;"><span class="glyphicon glyphicon-book" aria-hidden="true">Courses</span></a></td>
+                <td style="text-align: center"><a th:href="@{/teacher/courses}" style=" color:#DC143C;"><span
+                        class="glyphicon glyphicon-book" aria-hidden="true">Courses</span></a></td>
             </tr>
             <tr>
-                <td style="text-align: center"><a href="/user/information" style="color:#DC143C;"><span class="glyphicon glyphicon-user" aria-hidden="true">Information</span></a></td>
+                <td style="text-align: center"><a th:href="@{/teacher/information}" style="color:#DC143C;"><span
+                        class="glyphicon glyphicon-user" aria-hidden="true">Information</span></a></td>
             </tr>
             <tr>
-                <td style="text-align: center"><a href="/user/message" style="color:#DC143C;"><span class="glyphicon glyphicon-comment" aria-hidden="true">Message</span></a></td>
+                <td style="text-align: center"><a th:href="@{/msg/teacher}" style="color:#DC143C;"><span
+                        class="glyphicon glyphicon-comment" aria-hidden="true">Message</span></a></td>
             </tr>
             </tbody>
         </table>
@@ -55,7 +59,7 @@
             <tbody>
             <tr th:each="course:${courseList}">
                 <td width="20%">
-                    <img src="docs/apple-touch-icon.png" width="60px" height="60px" >
+                    <img src="docs/apple-touch-icon.png" width="60px" height="60px">
                 </td>
                 <td width="60%" style="text-align: center">
                     <a th:href="@{/teacher/course/__${course.id}__}" th:text="${course.title}">SCH3U</a>

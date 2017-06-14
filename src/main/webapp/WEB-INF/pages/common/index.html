@@ -12,7 +12,7 @@
     <title>Carousel Template for Bootstrap</title>
 
     <!-- Bootstrap core CSS -->
-    <link href="../../css/bootstrap.css" th:href="@{/css/bootstrap.css}"  rel="stylesheet">
+    <link href="../../css/bootstrap.css" th:href="@{/css/bootstrap.css}" rel="stylesheet">
     <!-- Custom styles for this template -->
     <link href="../../../css/carousel.css" th:href="@{/css/carousel.css}" rel="stylesheet">
     <link href="../../../css/justified-nav.css" th:href="@{/css/justified-nav.css}" rel="stylesheet"/>
@@ -26,7 +26,7 @@
 
     <!-- Carousel
    ================================================== -->
-    <div id="myCarousel" class="carousel slide" data-ride="carousel">
+    <div id="myCarousel" class="carousel slide" data-ride="carousel" style="margin-top: 20px">
         <!-- Indicators -->
         <ol class="carousel-indicators">
             <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
@@ -39,8 +39,10 @@
                 <div class="container">
                     <div class="carousel-caption">
                         <h1>Example headline.</h1>
-                        <p>Note: If you're viewing this page via a <code>file://</code> URL, the "next" and "previous"
-                            Glyphicon buttons on the left and right might not load/display properly due to web browser
+                        <p>Note: If you're viewing this page via a <code>file://</code> URL, the "next" and
+                            "previous"
+                            Glyphicon buttons on the left and right might not load/display properly due to web
+                            browser
                             security rules.</p>
                         <p><a class="btn btn-lg btn-primary" href="#" role="button">Sign up today</a></p>
                     </div>
@@ -78,7 +80,6 @@
             <span class="sr-only">Next</span>
         </a>
     </div><!-- /.carousel -->
-
 
     <!-- Marketing messaging and featurettes
     ================================================== -->
@@ -121,12 +122,9 @@
 
     <div th:include="common/foot :: foot"/>
 </div>
-<!-- Placed at the end of the document so the pages load faster -->
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
-
-<script src="../../../js/jquery.min.js" th:src="@{js/jquery.min.js}"></script>
-<script src="../../../js/bootstrap.js" th:src="@{js/bootstrap.js}"></script>
-<script src="../../../js/holder.min.js" th:src="@{js/holder.min.js}"></script>
+<script th:src="@{js/jquery.min.js}"></script>
+<script th:src="@{js/bootstrap.js}"></script>
+<script th:src="@{js/holder.min.js}"></script>
 
 </body>
 </html>
