@@ -12,5 +12,6 @@ import java.util.List;
 @Data
 public class ExamQuestionModel {
 
+    public Exam exam;
     public List<ExamQuestion> examQuestionList;
 }
