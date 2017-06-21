@@ -3,7 +3,7 @@
     <li class="masthead">
         <nav class="navbar navbar-default ">
             <div class="col-md-2" style="padding: 0;">
-                <a th:href="@{/}"><img th:src="@{/img/logo.png}" height="100px" width="130px"/></a>
+                <a th:href="@{/}"><img th:src="@{/img/logo.jpg}" height="100px" width="100px"/></a>
             </div>
 
             <div th:insert="common/login :: (${session.username}==null? unlogined : logined)"></div>

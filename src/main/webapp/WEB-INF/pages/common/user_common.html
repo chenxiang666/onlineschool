@@ -1,0 +1,26 @@
+<div th:fragment="user" xmlns:th="http://www.w3.org/1999/xhtml">
+    <div  style="width: 20%;float: left; border: 1px solid #DCDCDC">
+        <div class="col-md-6">
+            <img th:src="@{/img/portrait.jpg}" width="100px" height="100px" >
+        </div>
+        <div class="col-md-6" style="text-align: center">
+            <p style="margin-top: 25px">Hello !</p>
+            <p th:text="${session.username}"></p>
+        </div>
+        <table class="table table-hover" >
+
+            <tbody>
+            <tr>
+                <td style="text-align: center"><a th:href="@{/user/courses}" style="color:#DC143C;"><span class="glyphicon glyphicon-book" aria-hidden="true">Courses</span></a></td>
+            </tr>
+            <tr>
+                <td style="text-align: center"><a th:href="@{/user/information}" style="color:#DC143C;"><span class="glyphicon glyphicon-user" aria-hidden="true">Information</span></a></td>
+            </tr>
+            <tr>
+                <td style="text-align: center"><a th:href="@{/msg/student}" style="color:#DC143C;"><span class="glyphicon glyphicon-comment" aria-hidden="true">Message</span></a></td>
+            </tr>
+            </tbody>
+        </table>
+
+    </div>
+</div>
