@@ -82,15 +82,19 @@ public class UserController {
         // user.setPassword(Encode.getMd5(password));
         User user1;
         if ((user1 = userDao.login(username, password)) != null) {
+            session.setAttribute("role",user1.getRole());
             session.setAttribute("userId", user1.getId());
             session.setAttribute("username", user1.getUsername());
             System.out.println(user1.getUsername());
             model.addAttribute("user", user1);
-            List<Course> courseList = courseDao.getCoursesByUserId(user1.getId());
-            model.addAttribute("courseList", courseList);
-            if (user1.getRole() == 0) {
+
+            if (user1.getRole() == 0) {//学生
+                List<Course> courseList = courseDao.getCoursesByUserId(user1.getId());
+                model.addAttribute("courseList", courseList);
                 return "user/user_courses";
-            } else {
+            } else {//老师
+                List<Course> courseList = courseDao.getCoursesByTeacherId(user1.getId());
+                model.addAttribute("courseList", courseList);
                 return "teacher/teacher_courses";
             }
         } else {
@@ -117,10 +121,10 @@ public class UserController {
         return "user/user_information";
     }
 
-    @RequestMapping("/message")
-    public String message() {
-        return "user/user_message";
-    }
+//    @RequestMapping("/message")
+//    public String message() {
+//        return "user/user_message";
+//    }
 
 
     @RequestMapping("/logout")

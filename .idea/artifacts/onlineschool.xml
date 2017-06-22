@@ -1,0 +1,8 @@
+<component name="ArtifactManager">
+  <artifact type="war" build-on-make="true" name="onlineschool">
+    <output-path>$PROJECT_DIR$/out/artifacts/onlineschool</output-path>
+    <root id="archive" name="onlineschool.war">
+      <element id="artifact" artifact-name="Gradle : org.org.liufree : onlineschool-1.0-SNAPSHOT.war (exploded)" />
+    </root>
+  </artifact>
+</component>

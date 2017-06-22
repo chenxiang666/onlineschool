@@ -4,8 +4,13 @@
 
         <form class="navbar-form navbar-right" th:action="@{user/login}" method="post">
 
-                <p th:text="${session.username}">sfd</p>
-            <a th:href="@{/user/logout}">注销</a>
+            <!-- 学生 -->
+            <div th:if="${session.role == 0}"><a th:href="@{/user/courses}" th:text="${session.username}"></a></div>
+
+            <!-- 老师 -->
+            <div th:if="${session.role == 1}"><a th:href="@{/teacher/courses}" th:text="${session.username}"></a></div>
+
+            <a th:href="@{/user/logout}">logout</a>
 
 
         </form>
@@ -16,15 +21,15 @@
     <div class="col-md-10">
         <form class="navbar-form navbar-right" th:action="@{/user/login}" method="post">
 
-                <div class="col-md-9" style="text-align: right;padding: 0;">
-                    <input style="margin-bottom: 10px;" type="text" placeholder="Username" class="form-control"
-                           name="username">
-                    <input type="password" placeholder="Password" class="form-control" name="password">
-                </div>
-                <div class="col-md-3">
-                    <button style="width: 75px;height: 75px" type="submit" class="btn btn-success">Sign in
-                    </button>
-                </div>
+            <div class="col-md-9" style="text-align: right;padding: 0;">
+                <input style="margin-bottom: 10px;" type="text" placeholder="Username" class="form-control"
+                       name="username">
+                <input type="password" placeholder="Password" class="form-control" name="password">
+            </div>
+            <div class="col-md-3">
+                <button style="width: 75px;height: 75px" type="submit" class="btn btn-success">Sign in
+                </button>
+            </div>
 
 
         </form>
