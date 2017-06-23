@@ -25,39 +25,7 @@
 
 		<div th:include="common/head :: head"></div>
 			</br>
-		<div  style="width: 20%;float: left; border: 1px solid #DCDCDC">
-			    <div class="col-md-6">
-                    <img src="img/Tom.jpg" width="100px" height="100px" >
-                </div>
-                <div class="col-md-6" style="text-align: center">
-                    <p style="margin-top: 25px">Hello !</p>
-                    <p>Tom</p>
-                </div>
-           <table class="table table-hover" >
-               
-            <tbody>                
-                <tr>
-                     <td style="text-align: center"><a href="teacher_questions.html" style="color:#DC143C;"><span class="glyphicon glyphicon-th-list" aria-hidden="true">Questions</span></a></td>                   
-                </tr>
-                <tr>
-                     <td style="text-align: center"><a href="teacher_unit.html" style="color:#DC143C;"><span class="glyphicon glyphicon-th-list" aria-hidden="true">Unit</span></a></td>                  
-                </tr>
-                <tr>
-                     <td style="text-align: center"><a href="teacher_addTest.html" style="color:#DC143C;"><span class="glyphicon glyphicon-pencil" aria-hidden="true">Add Test&assignment</span></a></td>                  
-                </tr>
-                 <tr>
-                     <td style="text-align: center"><a href="teacher_choiceToMark.html" style="color:#DC143C;"><span class="glyphicon glyphicon-pencil" aria-hidden="true">Mark</span></a></td>                  
-                </tr>
-                <tr>
-                     <td style="text-align: center"><a href="teacher_lookAchievement.html" style="color:#DC143C;"><span class="glyphicon glyphicon-eye-open" aria-hidden="true">Look Achievement</span></a></td>                  
-                </tr>
-                <tr>
-                     <td style="text-align: center"><a href="teacher_courses.html" style="color:#DC143C;"><span class="glyphicon glyphicon-arrow-left" aria-hidden="true">Return</span></a></td>                  
-                </tr>
-            </tbody>
-          </table>
-
-		</div>
+        <div th:include="common/teacher_common :: teacher"></div>
 		<div style="width: 75%;float: right;">
 			<h3 style="text-align: center;">Add Unit</h3>
 			<hr />

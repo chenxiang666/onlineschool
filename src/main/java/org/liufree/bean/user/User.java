@@ -39,7 +39,7 @@ public class User {                 //老师和学生合在一起，同为user
     String creatTime;           //创建时间
     String updateTime;          //更新时间
     int msgNum;                 //消息数目
-    int role;                   //角色，1为学生，2为老师
+    int role;                   //角色，0为学生，1为老师
 
 
     //Todo 多表查询

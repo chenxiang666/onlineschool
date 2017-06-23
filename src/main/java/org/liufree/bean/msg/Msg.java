@@ -21,9 +21,9 @@ public class Msg {
     int id;
 
     String content;             //内容
-    int sentId;                 //发送者Id
-    int receiveId;              //收到者Id
-    int msgId;                  //父级消息消息Id,便于回复;0
+    int senderId;                 //发送者Id
+    int receiverId;              //收到者Id
+    int msgId;                  //父级消息消息Id,便于回复;0表示根消息
     int status;                 //0未读，1已读；默认为0
-    Date creatTime;           //创建时间
+    Date createTime;           //创建时间
 }

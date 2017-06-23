@@ -12,7 +12,7 @@
 
     <title>Carousel Template for Bootstrap</title>
 
-    <link href="../../css/bootstrap.css" th:href="@{/css/bootstrap.css}"  rel="stylesheet">
+    <link href="../../css/bootstrap.css" th:href="@{/css/bootstrap.css}" rel="stylesheet">
     <!-- Custom styles for this template -->
     <link href="../../../css/carousel.css" th:href="@{/css/carousel.css}" rel="stylesheet">
     <link href="../../../css/justified-nav.css" th:href="@{/css/justified-nav.css}" rel="stylesheet"/>
@@ -24,6 +24,8 @@
 
     <div th:include="common/head :: head"></div>
     </br>
+
+    <div th:include="common/teacher_common :: teacher"></div>
 
     <div  style="width: 20%;float: left; border: 1px solid #DCDCDC">
         <div class="col-md-6">
@@ -49,16 +51,17 @@
         </table>
 
     </div>
+
     <div style="width: 75%;float: right">
         <table class="table">
             <caption style="font-size: 20px;">All of my courses</caption>
             <tbody>
             <tr th:each="course:${courseList}">
                 <td width="20%">
-                    <img src="docs/apple-touch-icon.png" width="60px" height="60px" >
+                    <img th:src="@{/img/course.jpg}" width="60px" height="60px" >
                 </td>
                 <td width="60%" style="text-align: center">
-                    <a th:href="@{/teacher/course/__${course.id}__}" th:text="${course.title}">SCH3U</a>
+                    <a th:href="@{/course/detail/__${course.id}__}" th:text="${course.title}">SCH3U</a>
                 </td>
                 <td width="20%">
                     <a class="btn btn-success" href="#" th:href="@{/teacher/course/__${course.id}__}">View details</a>
