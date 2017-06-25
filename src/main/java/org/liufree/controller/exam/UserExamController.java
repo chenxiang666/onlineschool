@@ -1,10 +1,7 @@
 package org.liufree.controller.exam;
 
 import org.liufree.bean.exam.*;
-import org.liufree.dao.exam.ExamDao;
-import org.liufree.dao.exam.ExamQuestionDao;
-import org.liufree.dao.exam.ExamResultQuestionDao;
-import org.liufree.dao.exam.QuestionDao;
+import org.liufree.dao.exam.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -31,6 +28,8 @@ public class UserExamController {
     @Autowired
     QuestionDao questionDao;
     @Autowired
+    ExamResultDao examResultDao;
+    @Autowired
     ExamResultQuestionDao examResultQuestionDao;
 
     @RequestMapping("/doExamPage/{examId}")
@@ -50,12 +49,14 @@ public class UserExamController {
         List<ExamResultQuestionModel> examResultQuestionModelList=new ArrayList<>();
         Double totalScore = 0.0;
 
+        int userId = (Integer) session.getAttribute("userId");
+        int courseId = (Integer) session.getAttribute("_courseId");
         for (ExamResultQuestion examResultQuestion : examAnswerModel.getExamResultQuestionList()) {
             ExamResultQuestionModel examResultQuestionModel = new ExamResultQuestionModel();
 
 
             examResultQuestion.setExamId(examId);
-            examResultQuestion.setUserId((Integer) session.getAttribute("userId"));
+            examResultQuestion.setUserId(userId);
 
             String answer = examResultQuestion.getAnswer();
             int questionId = examResultQuestion.getQuestionId();
@@ -79,6 +80,14 @@ public class UserExamController {
         model.addAttribute("exam", exam);
         model.addAttribute("examResultQuestionModelList", examResultQuestionModelList);
         model.addAttribute("totalScore", totalScore);
+
+
+        ExamResult examResult = new ExamResult();
+        examResult.setExamId(examId);
+        examResult.setUserId(userId);
+        examResult.setCourseId(courseId);
+        examResult.setScore(totalScore);
+        examResultDao.save(examResult);
         return "exam/user_doExamResult";
     }
 

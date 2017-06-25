@@ -53,7 +53,7 @@ public class CourseController {
     }
 
     @RequestMapping("/course/{courseId}")
-    public String getCourseById(@PathVariable("courseId") int courseId, Model model) {
+    public String getCourseById(@PathVariable("courseId") int courseId, Model model,HttpSession session) {
         Course course1 = courseDao.findOne(courseId);
         System.out.println(course1.getTitle());
         Course course = courseDao.getCourseById(courseId);
@@ -64,6 +64,7 @@ public class CourseController {
         model.addAttribute("courseFileList", courseFileList);
         model.addAttribute("courseUnitList", courseUnitList);
         model.addAttribute("course",course);
+        session.setAttribute("_courseId",courseId);
         return "exam/item_course";
     }
 
