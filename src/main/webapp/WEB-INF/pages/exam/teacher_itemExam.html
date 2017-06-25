@@ -12,7 +12,7 @@
 
     <title>Carousel Template for Bootstrap</title>
 
-    <link href="../../css/bootstrap.css" th:href="@{/css/bootstrap.css}"  rel="stylesheet">
+    <link href="../../css/bootstrap.css" th:href="@{/css/bootstrap.css}" rel="stylesheet">
     <!-- Custom styles for this template -->
     <link href="../../../css/carousel.css" th:href="@{/css/carousel.css}" rel="stylesheet">
     <link href="../../../css/justified-nav.css" th:href="@{/css/justified-nav.css}" rel="stylesheet"/>
@@ -33,41 +33,39 @@
             <h4 style="color: crimson;padding: 0;">1.Radio examination(20*3`)</h4>
             <hr>
             <div class="form-group" style="border-bottom: 1px solid #DCDCDC;"
-                 th:each="examQuestion,examQuestionStat:${examQuestionList}">
-                <div th:each="question:${questionList}">
-                    <div th:if="${question.id==examQuestion.questionId}">
-                        <div class="col-md-12">
-                            <p class="zhenghan-question-dsc" th:text="${examQuestionStat.index+1}">(1)</p>
+            >
+                <div th:each="question,questionStat:${questionList}">
+                    <div class="col-md-12">
+                        <p class="zhenghan-question-dsc" th:text="${questionStat.index+1}">(1)</p>
 
-                            <p class="zhenghan-question-dsc" th:utext="${question.title}">How old are you?( )</p>
-                        </div>
-                        <div class="col-md-12">
-                            <ol type="A">
-                                <li>
-                                    <p th:text="${question.optiona}">I don`t know</p>
-                                </li>
-                                <li>
-                                    <p th:text="${question.optionb}">I don`t know</p>
-                                </li>
-                                <li>
-                                    <p th:text="${question.optionc}">I don`t know</p>
-                                </li>
-                                <li>
-                                    <p th:text="${question.optiond}">I don`t know</p>
-                                </li>
-                            </ol>
-                        </div>
-                        <div class="col-md-12">
-                            <input class="zhenghan-answer-radio" name="answer1" type="radio"> <span
-                                style="margin-right: 20px;">A</span>
-                            <input class="zhenghan-answer-radio" name="answer1" type="radio"> <span
-                                style="margin-right: 20px;">B</span>
-                            <input class="zhenghan-answer-radio" name="answer1" type="radio"> <span
-                                style="margin-right: 20px;">C</span>
-                            <input class="zhenghan-answer-radio" name="answer1" type="radio"> <span
-                                style="margin-right: 20px;">D</span>
+                        <p class="zhenghan-question-dsc" th:utext="${question.title}">How old are you?( )</p>
+                    </div>
+                    <div class="col-md-12">
+                        <ol type="A">
+                            <li>
+                                <p th:text="${question.optiona}">I don`t know</p>
+                            </li>
+                            <li>
+                                <p th:text="${question.optionb}">I don`t know</p>
+                            </li>
+                            <li>
+                                <p th:text="${question.optionc}">I don`t know</p>
+                            </li>
+                            <li>
+                                <p th:text="${question.optiond}">I don`t know</p>
+                            </li>
+                        </ol>
+                    </div>
+                    <div class="col-md-12">
+                        <input class="zhenghan-answer-radio" name="answer1" type="radio"> <span
+                            style="margin-right: 20px;">A</span>
+                        <input class="zhenghan-answer-radio" name="answer1" type="radio"> <span
+                            style="margin-right: 20px;">B</span>
+                        <input class="zhenghan-answer-radio" name="answer1" type="radio"> <span
+                            style="margin-right: 20px;">C</span>
+                        <input class="zhenghan-answer-radio" name="answer1" type="radio"> <span
+                            style="margin-right: 20px;">D</span>
 
-                        </div>
                     </div>
                 </div>
             </div>

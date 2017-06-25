@@ -12,7 +12,7 @@
 
     <title>Carousel Template for Bootstrap</title>
 
-    <link href="../../css/bootstrap.css" th:href="@{/css/bootstrap.css}"  rel="stylesheet">
+    <link href="../../css/bootstrap.css" th:href="@{/css/bootstrap.css}" rel="stylesheet">
     <!-- Custom styles for this template -->
     <link href="../../../css/carousel.css" th:href="@{/css/carousel.css}" rel="stylesheet">
     <link href="../../../css/justified-nav.css" th:href="@{/css/justified-nav.css}" rel="stylesheet"/>
@@ -24,10 +24,23 @@
 
     <div th:include="common/head :: head"></div>
     </br>
-    <div th:include="common/teacher_common :: teacher"></div>
+    <div style="width: 20%;float: left; border: 1px solid #DCDCDC">
+        <div class="col-md-6">
+            <img th:src="@{img/Tom.jpg}" width="100px" height="100px">
+        </div>
+        <div class="col-md-6" style="text-align: center">
+            <p style="margin-top: 25px">Hello !</p>
+            <p>Tom</p>
+        </div>
+        <div th:include="common/nav_course :: nav"></div>
+    </div>
     <div style="width: 75%;float: right;">
         <div class="col-md-12" style="margin-bottom: 10px;">
-            <a th:href="@{/teacher/questions/addPage}" style="color: green;"><span style="font-size: 20px;" class="glyphicon glyphicon-plus" aria-hidden="true">Add</span></a>
+            <a th:href="@{/teacher/questions/addPage}" style="color: green;">
+                <span style="font-size: 20px;" class="glyphicon glyphicon-plus" aria-hidden="true">
+                    Add
+                </span>
+            </a>
         </div>
         <div class="col-md-12">
             <table class="table table-bordered table-striped">
@@ -41,6 +54,9 @@
                 <th width="20%">
                     type
                 </th>
+                <th width="10%">
+                    unit
+                </th>
                 <th width="5%">
                     &nbsp;
                 </th>
@@ -50,21 +66,24 @@
                     <td th:text="${question.id}">
                         123
                     </td>
-                    <td >
-                        <div th:utext="${question.title}"/>
-
-                    </td>
+                    <td th:utext="${question.title}"></td>
                     <td th:if="${question.type==1}">
                         Single Choice
                     </td>
                     <td th:if="${question.type==2}">
                         Subjective Question
                     </td>
+                    <td th:each="courseUnit:${courseUnitList}" th:if="${question.unitId == courseUnit.id}"
+                        th:text="${courseUnit.title}">
+                        Unit 1
+                    </td>
                     <td>
-                        <a style="color: red;" th:href="@{/teacher/questions/delete/__${question.id}__}"  onclick="return confirm('confirm delete？')"><span class="glyphicon glyphicon-remove" aria-hidden="true"></span></a>
+                        <a style="color: red;" th:href="@{/teacher/questions/delete/__${question.id}__}"
+                           onclick="return confirm('confirm delete ?')">
+                            <span class="glyphicon glyphicon-remove" aria-hidden="true"></span>
+                        </a>
                     </td>
                 </tr>
-
                 </tbody>
             </table>
         </div>

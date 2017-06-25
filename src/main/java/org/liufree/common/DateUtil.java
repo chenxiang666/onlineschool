@@ -10,6 +10,7 @@ import java.util.Date;
 public class DateUtil {
     /** 默认的格式化方式 */
     private static final String defaultFormat = "yyyy-MM-dd HH:mm:ss";
+    private static final String format = "yyyy-MM-dd";
 
     public static String getStringDate() {
         SimpleDateFormat dateFormat = new SimpleDateFormat(defaultFormat);
@@ -28,5 +29,17 @@ public class DateUtil {
         }
 
         return new Date();
+    }
+
+    public static Date fomat(String dateString){
+        Date date = new Date();
+        SimpleDateFormat dateFormat = new SimpleDateFormat(format);
+        try {
+            date = dateFormat.parse(dateString);
+        } catch (ParseException e) {
+            e.printStackTrace();
+        }
+
+        return date;
     }
 }
