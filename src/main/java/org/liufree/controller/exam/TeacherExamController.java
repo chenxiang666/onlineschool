@@ -39,8 +39,8 @@ public class TeacherExamController {
 
 
     @RequestMapping("/examList")
-    public String examList(HttpSession session,Model model) {
-        int courseId = (Integer)session.getAttribute("_courseId");
+    public String examList(HttpSession session, Model model) {
+        int courseId = (Integer) session.getAttribute("_courseId");
         List<Exam> examList = examDao.getExamsByCourseId(courseId);
         model.addAttribute("examList", examList);
         return "teacher/teacher_test";
@@ -58,22 +58,22 @@ public class TeacherExamController {
     }
 
     @RequestMapping("/exam/addPage")
-    public String addPage(HttpSession session,Model model){
+    public String addPage(HttpSession session, Model model) {
         int courseId = (Integer) session.getAttribute("_courseId");
         System.out.println(courseId);
-       List<Question> questionList = questionDao.getQuestionListByCourseId(courseId);
+        List<Question> questionList = questionDao.getQuestionListByCourseId(courseId);
         model.addAttribute("questionList", questionList);
         return "teacher/teacher_test_add";
     }
 
     @RequestMapping("/exam/add")
-    public String add(HttpSession session,Model model,ExamQuestionModel examQuestionModel) {
+    public String add(HttpSession session, Model model, ExamQuestionModel examQuestionModel) {
         int courseId = (Integer) session.getAttribute("_courseId");
         Exam exam = examQuestionModel.getExam();
         System.out.println(exam.getBeginTime().toString());
         exam.setCourseId(courseId);
-        exam=examDao.save(exam);  //存了之后返回这个对象
-        int examId=exam.getId();
+        exam = examDao.save(exam);  //存了之后返回这个对象
+        int examId = exam.getId();
 
         for (ExamQuestion examQuestion : examQuestionModel.getExamQuestionList()) {
             System.out.println(examQuestion.getId());
@@ -94,9 +94,10 @@ public class TeacherExamController {
         model.addAttribute("questionList", questionList);
         return "teacher/teacher_test_select";
     }
- //Todo 这里添加考试和选择试题应该在同一个界面
+
+    //Todo 这里添加考试和选择试题应该在同一个界面
     @RequestMapping("/exam/select")
-    public String select(ExamQuestionModel examQuestionModel,HttpSession session,Model model){
+    public String select(ExamQuestionModel examQuestionModel, HttpSession session, Model model) {
         for (ExamQuestion examQuestion : examQuestionModel.getExamQuestionList()) {
 
             examQuestionDao.save(examQuestion);
@@ -106,8 +107,31 @@ public class TeacherExamController {
 
 
     @RequestMapping("exam/delete/{id}")
-    public String delete(@PathVariable("id")int id){
+    public String delete(@PathVariable("id") int id) {
         examDao.delete(id);
         return "redirect:/examList";
     }
+
+    @RequestMapping("exam/random/{id}")
+    public String random(@PathVariable("id")int id,Model model,HttpSession session) {
+        /*List<ExamQuestion> examQuestionList = examQuestionDao.getExamQuestionByExamId(id);
+
+        int courseId = (Integer) session.getAttribute("_courseId");
+        Exam exam = examQuestionModel.getExam();
+        System.out.println(exam.getBeginTime().toString());
+        exam.setCourseId(courseId);
+        exam = examDao.save(exam);  //存了之后返回这个对象
+        int examId = exam.getId();
+
+        for (ExamQuestion examQuestion : examQuestionList) {
+            System.out.println(examQuestion.getId());
+            examQuestion.setExamId(examId);
+            examQuestionDao.save(examQuestion);
+        }
+
+        re
+        return "redirect:/examList";*/
+        return null;
+    }
 }
+

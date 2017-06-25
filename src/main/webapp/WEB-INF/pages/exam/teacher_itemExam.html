@@ -35,6 +35,7 @@
             <div class="form-group" style="border-bottom: 1px solid #DCDCDC;"
             >
                 <div th:each="question,questionStat:${questionList}">
+                    <div >
                     <div class="col-md-12">
                         <p class="zhenghan-question-dsc" th:text="${questionStat.index+1}">(1)</p>
 
@@ -66,7 +67,7 @@
                         <input class="zhenghan-answer-radio" name="answer1" type="radio"> <span
                             style="margin-right: 20px;">D</span>
 
-                    </div>
+                    </div></div>
                 </div>
             </div>
 

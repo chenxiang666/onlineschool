@@ -46,7 +46,7 @@ public class UserExamController {
 
     @RequestMapping("/doExam/{examId}")
     public String doExam(@PathVariable("examId") int examId, Model model, ExamAnswerModel examAnswerModel, HttpSession session) {
-        List<ExamResultQuestionModel> examResultQuestionModelList=new ArrayList<>();
+        List<ExamResultQuestionModel> examResultQuestionModelList = new ArrayList<>();
         Double totalScore = 0.0;
 
         int userId = (Integer) session.getAttribute("userId");
@@ -61,20 +61,27 @@ public class UserExamController {
             String answer = examResultQuestion.getAnswer();
             int questionId = examResultQuestion.getQuestionId();
             Question question = questionDao.findOne(questionId);
+
+
             ExamQuestion examQuestion = examQuestionDao.findByExamIdAndQuestionId(examId, questionId);
-            if (answer.equals(question.getAnswer())) {
-                examResultQuestion.setIsRight(true);
+            if (question.getType() == 1) {
+                if (answer.equals(question.getAnswer())) {
+                    examResultQuestion.setIsRight(true);
+                    totalScore += examQuestion.getItemScore();
+
+
+                } else
+                    examResultQuestion.setIsRight(false);
+            }else
+            {
                 totalScore += examQuestion.getItemScore();
-
-            } else
-                examResultQuestion.setIsRight(false);
-
+            }
             System.out.println("总分是" + totalScore);
             examResultQuestionDao.save(examResultQuestion);
 
             examResultQuestionModel.setQuestion(question);  //添加问题
             examResultQuestionModel.setExamResultQuestion(examResultQuestion);  //判断这个问题是否正确
-                examResultQuestionModelList.add(examResultQuestionModel);
+            examResultQuestionModelList.add(examResultQuestionModel);
         }
         Exam exam = examDao.findOne(examId);
         model.addAttribute("exam", exam);
@@ -92,4 +99,4 @@ public class UserExamController {
     }
 
 
-    }
+}
