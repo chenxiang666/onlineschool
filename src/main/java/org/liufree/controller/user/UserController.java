@@ -61,7 +61,6 @@ public class UserController {
             }
 
         }
-        System.out.println("刘文想");
         return "user/register_payment";
     }
 
@@ -124,17 +123,17 @@ public class UserController {
         return "user/user_information";
     }
 
-//    @RequestMapping("/message")
-//    public String message() {
-//        return "user/user_message";
-//    }
-
-
     @RequestMapping("/logout")
     public String logout(HttpSession session){
         session.removeAttribute("userId");
         session.removeAttribute("username");
+        session.removeAttribute("role");
         return "redirect:/";
+    }
+
+    @RequestMapping("/homework")
+    public String getHomework(){
+        return "user/user_homework";
     }
 
 }

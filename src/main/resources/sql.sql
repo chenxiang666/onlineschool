@@ -81,13 +81,13 @@ DROP TABLE IF EXISTS `course_file`;
 /*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `course_file` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
-  `lessonId` int(11) NOT NULL,
   `sort` int(11) NOT NULL,
   `time` datetime DEFAULT NULL,
-  `title` varchar(255) DEFAULT NULL,
-  `url` varchar(255) DEFAULT NULL,
+  `title` text,
+  `url` text,
+  `unitId` int(11) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+) ENGINE=MyISAM AUTO_INCREMENT=11 DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -96,6 +96,7 @@ CREATE TABLE `course_file` (
 
 LOCK TABLES `course_file` WRITE;
 /*!40000 ALTER TABLE `course_file` DISABLE KEYS */;
+INSERT INTO `course_file` VALUES (9,0,NULL,'V','/onlineschool/upload/1498413739816.png',9),(10,0,NULL,'g','/onlineschool/upload/1498414872323.pdf',8);
 /*!40000 ALTER TABLE `course_file` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -115,7 +116,7 @@ CREATE TABLE `course_unit` (
   `updatetime` datetime DEFAULT NULL,
   `spendTime` varchar(999) DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM AUTO_INCREMENT=8 DEFAULT CHARSET=latin1;
+) ENGINE=MyISAM AUTO_INCREMENT=11 DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -124,7 +125,7 @@ CREATE TABLE `course_unit` (
 
 LOCK TABLES `course_unit` WRITE;
 /*!40000 ALTER TABLE `course_unit` DISABLE KEYS */;
-INSERT INTO `course_unit` VALUES (1,2,'2017-06-08 09:50:01','333','Unit1',NULL,'5Hour'),(2,2,NULL,'4466','Unit2',NULL,'7Hour'),(3,2,NULL,'sdf','Unit3',NULL,'46Hour'),(4,2,NULL,'4','Unit4',NULL,'42Hour'),(5,2,NULL,'5','Unit5',NULL,'6Hour'),(6,2,NULL,'6','Unit6',NULL,'7Hour'),(7,2,NULL,'4','Unit7',NULL,'12Hour');
+INSERT INTO `course_unit` VALUES (1,2,'2017-06-08 09:50:01','333','Unit1',NULL,'5Hour'),(2,2,NULL,'4466','Unit2',NULL,'7Hour'),(3,2,NULL,'sdf','Unit3',NULL,'46Hour'),(4,2,NULL,'4','Unit4',NULL,'42Hour'),(5,2,NULL,'5','Unit5',NULL,'6Hour'),(6,2,NULL,'6','Unit6',NULL,'7Hour'),(7,2,NULL,'4','Unit7',NULL,'12Hour'),(8,1,NULL,'<p>Let&#39;s do it</p>\r\n\r\n<p>&nbsp;</p>\r\n','Unit 1 - English Learning',NULL,'46 Hour'),(9,1,NULL,'<p>go</p>\r\n','Unit 2 - First Step',NULL,'12 Hour'),(10,3,NULL,'<p>ss</p>\r\n','F',NULL,'s');
 /*!40000 ALTER TABLE `course_unit` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -169,7 +170,7 @@ CREATE TABLE `exam` (
   `title` varchar(255) DEFAULT NULL,
   `type` int(11) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM AUTO_INCREMENT=2 DEFAULT CHARSET=latin1;
+) ENGINE=MyISAM AUTO_INCREMENT=19 DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -178,7 +179,7 @@ CREATE TABLE `exam` (
 
 LOCK TABLES `exam` WRITE;
 /*!40000 ALTER TABLE `exam` DISABLE KEYS */;
-INSERT INTO `exam` VALUES (1,NULL,2,NULL,0,'Test1',0);
+INSERT INTO `exam` VALUES (1,NULL,2,NULL,0,'Test1',0),(18,'2017-06-01 00:00:00',3,'2017-06-02 00:00:00',1,'Fs',1),(17,'2017-06-01 00:00:00',1,'2017-06-02 00:00:00',100,'Three Test',1),(16,'2017-06-01 00:00:00',1,'2017-06-09 00:00:00',0,'Second test',1),(15,'2017-06-01 00:00:00',1,'2017-06-02 00:00:00',0,'First test',1);
 /*!40000 ALTER TABLE `exam` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -195,8 +196,10 @@ CREATE TABLE `exam_question` (
   `itemScore` double DEFAULT NULL,
   `questionId` int(11) DEFAULT NULL,
   `sort` int(11) DEFAULT NULL,
-  PRIMARY KEY (`id`)
-) ENGINE=MyISAM AUTO_INCREMENT=4 DEFAULT CHARSET=latin1;
+  `question_id` int(11) DEFAULT NULL,
+  PRIMARY KEY (`id`),
+  KEY `FKhence37m8dce4mwluboy8vabx` (`question_id`)
+) ENGINE=MyISAM AUTO_INCREMENT=14 DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -205,7 +208,7 @@ CREATE TABLE `exam_question` (
 
 LOCK TABLES `exam_question` WRITE;
 /*!40000 ALTER TABLE `exam_question` DISABLE KEYS */;
-INSERT INTO `exam_question` VALUES (1,1,22,1,1),(2,1,33,2,2),(3,1,44,3,3);
+INSERT INTO `exam_question` VALUES (13,18,100,11,0,NULL),(12,17,100,10,0,NULL);
 /*!40000 ALTER TABLE `exam_question` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -250,7 +253,7 @@ CREATE TABLE `exam_result_question` (
   `questionId` int(11) NOT NULL,
   `userId` int(11) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+) ENGINE=MyISAM AUTO_INCREMENT=59 DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -259,6 +262,7 @@ CREATE TABLE `exam_result_question` (
 
 LOCK TABLES `exam_result_question` WRITE;
 /*!40000 ALTER TABLE `exam_result_question` DISABLE KEYS */;
+INSERT INTO `exam_result_question` VALUES (58,'A',17,'',10,157),(57,'A',17,'',10,157),(56,'A',17,'',10,157),(55,'A',17,'',10,157),(54,'A',17,'',10,157),(53,'A',17,'',10,157),(52,'A',17,'',10,157),(51,'A',17,'',10,157),(50,'A',17,'',10,157),(49,'A',17,'',10,157),(48,'A',17,'',10,157),(47,'A',17,'',10,157),(46,'A',17,'',10,157),(45,'A',17,'',10,157),(44,'A',17,'',10,157),(43,'A',17,'',10,157),(42,'A',17,'',10,157),(41,'A',17,'',10,157),(40,'A',17,'',10,157),(39,'A',17,'',10,157),(38,'A',17,'',10,157),(37,'A',17,'',10,157),(36,'A',17,'',10,157),(35,'A',17,'',10,157),(34,'A',17,'',10,157);
 /*!40000 ALTER TABLE `exam_result_question` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -299,10 +303,10 @@ DROP TABLE IF EXISTS `msg`;
 CREATE TABLE `msg` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `content` varchar(255) DEFAULT NULL,
-  `creatTime` datetime DEFAULT NULL,
+  `createTime` datetime DEFAULT NULL,
   `msgId` int(11) NOT NULL,
-  `receiveId` int(11) NOT NULL,
-  `sentId` int(11) NOT NULL,
+  `receiverId` int(11) NOT NULL,
+  `senderId` int(11) NOT NULL,
   `status` int(11) NOT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=MyISAM DEFAULT CHARSET=latin1;
@@ -338,7 +342,7 @@ CREATE TABLE `question` (
   `type` int(11) NOT NULL,
   `unitId` int(11) DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM AUTO_INCREMENT=8 DEFAULT CHARSET=latin1;
+) ENGINE=MyISAM AUTO_INCREMENT=13 DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -347,7 +351,7 @@ CREATE TABLE `question` (
 
 LOCK TABLES `question` WRITE;
 /*!40000 ALTER TABLE `question` DISABLE KEYS */;
-INSERT INTO `question` VALUES (2,NULL,2,NULL,'go','dd','ee','gg',NULL,'<p>What\'s your name?</p>\r\n',1,0),(4,'A',2,NULL,'34','df','sdf','sdf',NULL,'<p>wer</p>\r\n',1,0),(5,'gg',2,NULL,NULL,NULL,NULL,NULL,NULL,'<p>sf</p>\r\n',2,0),(1,NULL,2,NULL,'go','dd','ee','gg',NULL,'<p>What\'s your name?</p>\r\n',1,0),(3,NULL,2,NULL,'go','dd','ee','gg',NULL,'<p>What\'s your name?</p>\r\n',1,0),(6,NULL,2,NULL,'go','dd','ee','gg',NULL,'<p>What\'s your name?</p>\r\n',1,0),(7,NULL,2,NULL,'go','dd','ee','gg',NULL,'<p>What\'s your name?</p>\r\n',1,0);
+INSERT INTO `question` VALUES (2,NULL,2,NULL,'go','dd','ee','gg',NULL,'<p>What\'s your name?</p>\r\n',1,0),(12,'A',1,NULL,'g','h','j','j',NULL,'<p>sg</p>\r\n',1,8),(11,'B',3,NULL,'w','wt','y','t',NULL,'<p>F</p>\r\n',1,10),(10,'A',1,NULL,'Yes','No','No,but he can.','Yes,I can',NULL,'<p>Can you do it?</p>\r\n',1,8),(8,'A',2,NULL,'ag','g','h','h',NULL,'<p>sdf</p>\r\n',1,0);
 /*!40000 ALTER TABLE `question` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -381,7 +385,7 @@ CREATE TABLE `user` (
   `updateTime` varchar(255) DEFAULT NULL,
   `username` varchar(255) DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM AUTO_INCREMENT=158 DEFAULT CHARSET=latin1;
+) ENGINE=MyISAM AUTO_INCREMENT=159 DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -390,7 +394,7 @@ CREATE TABLE `user` (
 
 LOCK TABLES `user` WRITE;
 /*!40000 ALTER TABLE `user` DISABLE KEYS */;
-INSERT INTO `user` VALUES (157,'df',NULL,NULL,'',NULL,NULL,'ww@3','','33','df',0,'student',NULL,'',NULL,0,0,0,NULL,'student'),(156,'216','','wuhan','America',NULL,'I\'m good','liufreeo@gmail.com','Lucy','Jack','034-345-677',0,'1111',NULL,'88888',NULL,0,0,0,NULL,'liufreeo@gmail.com'),(155,'',NULL,NULL,'',NULL,NULL,'','','','',0,'teacher',NULL,'',NULL,1,0,0,NULL,'teacher'),(154,'',NULL,NULL,'',NULL,NULL,'34@3','12','2','',0,NULL,NULL,'',NULL,0,0,0,NULL,NULL),(153,'',NULL,NULL,'',NULL,NULL,'','12','2','',0,NULL,NULL,'',NULL,0,0,0,NULL,NULL),(152,'',NULL,NULL,'',NULL,NULL,'','12','2','',0,NULL,NULL,'',NULL,0,0,0,NULL,NULL);
+INSERT INTO `user` VALUES (158,'',NULL,NULL,'',NULL,NULL,'','','','',0,'1111',NULL,'',NULL,0,0,0,NULL,''),(157,'df',NULL,NULL,'',NULL,NULL,'ww@3','','33','df',0,'student',NULL,'',NULL,0,0,0,NULL,'student'),(156,'216','','wuhan','America',NULL,'I\'m good','liufreeo@gmail.com','Lucy','Jack','034-345-677',0,'1111',NULL,'88888',NULL,0,0,0,NULL,'liufreeo@gmail.com'),(155,'',NULL,NULL,'',NULL,NULL,'','','','',0,'teacher',NULL,'',NULL,1,0,0,NULL,'teacher'),(154,'',NULL,NULL,'',NULL,NULL,'34@3','12','2','',0,NULL,NULL,'',NULL,0,0,0,NULL,NULL),(153,'',NULL,NULL,'',NULL,NULL,'','12','2','',0,NULL,NULL,'',NULL,0,0,0,NULL,NULL),(152,'',NULL,NULL,'',NULL,NULL,'','12','2','',0,NULL,NULL,'',NULL,0,0,0,NULL,NULL);
 /*!40000 ALTER TABLE `user` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -455,4 +459,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2017-06-10 11:19:14
+-- Dump completed on 2017-06-26  2:22:24
