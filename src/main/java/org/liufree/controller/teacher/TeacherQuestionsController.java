@@ -1,7 +1,10 @@
 package org.liufree.controller.teacher;
 
+import org.liufree.bean.course.Course;
 import org.liufree.bean.course.CourseUnit;
 import org.liufree.bean.exam.Question;
+import org.liufree.dao.course.CourseDao;
+import org.liufree.dao.course.CourseUnitDao;
 import org.liufree.dao.exam.QuestionDao;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
@@ -29,14 +32,20 @@ public class TeacherQuestionsController {
 
     @Autowired
     QuestionDao questionDao;
+    @Autowired
+    CourseDao courseDao;
+    @Autowired
+    CourseUnitDao courseUnitDao;
 
+    //查看当前课程所有题目
     @RequestMapping("/questionList")
     public String questionsList(Model model, HttpSession session, @RequestParam(value = "page", defaultValue = "0") Integer page) {
         int courseId = (Integer) session.getAttribute("_courseId");
-        //  List<Question> questionList = questionDao.getQuestionListByCourseId(courseId);
+        List<CourseUnit> courseUnitList = courseUnitDao.getCourseUnitListByCourseId(courseId);//这门课的所有单元
         Pageable pageable = new PageRequest(page, 8, Sort.Direction.ASC, "id");
-        Page<Question> datas = questionDao.getQuestionListByCourseId(courseId, pageable);
+        Page<Question> datas = questionDao.getQuestionListByCourseId(courseId, pageable);//这门课所有已有题目
 
+        model.addAttribute("courseUnitList",courseUnitList);
         model.addAttribute("datas", datas);
         return "teacher/questions";
     }
@@ -55,8 +64,13 @@ public class TeacherQuestionsController {
         return "redirect:/teacher/questions/questionList";
     }
 
+    //跳转到添加题目页面
     @RequestMapping("/addPage")
-    public String addPage() {
+    public String addPage(Model model, HttpSession session) {
+        int courseId = (Integer) session.getAttribute("_courseId");
+        List<CourseUnit> courseUnitList = courseUnitDao.getCourseUnitListByCourseId(courseId);//这门课的所有单元
+
+        model.addAttribute("courseUnitList",courseUnitList);
         return "teacher/teacher_addQuestion";
     }
 

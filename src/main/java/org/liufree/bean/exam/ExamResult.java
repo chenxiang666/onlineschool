@@ -20,6 +20,7 @@ public class ExamResult {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     int id;
 
+    int courseId;           //课程id
     int examId;
     double score;           //最后得分
     int userId;             //学生id

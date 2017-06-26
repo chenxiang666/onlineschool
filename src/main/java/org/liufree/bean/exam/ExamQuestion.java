@@ -18,7 +18,11 @@ public class ExamQuestion {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     int id;
 
-    int examId;             //属于哪门考试
+    int examId;             //
+    /**所属球队*/
+    @ManyToOne(cascade={CascadeType.MERGE,CascadeType.REFRESH})
+    @JoinColumn(name="question_id")
+    private Question question;
     int questionId;         //题目id
     int sort;               //题目排序，第几道题
     double itemScore;       //每题分数
