@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="icon" href="../../favicon.ico">
+    <title>Carousel Template for Bootstrap</title>
+    <link href="../../../css/bootstrap.css" th:href="@{/css/bootstrap.css}"  rel="stylesheet">
+    <!-- Custom styles for this template -->
+    <link href="../../../css/carousel.css" th:href="@{/css/carousel.css}" rel="stylesheet">
+    <link href="../../../css/justified-nav.css" th:href="@{/css/justified-nav.css}" rel="stylesheet"/>
+</head>
+<!-- NAVBAR
+================================================== -->
+<body>
+<div class="container">
+
+    <div th:include="common/head :: head"></div>
+    </br>
+
+    <div th:include="common/principal_common :: principal"></div>
+    <div style="width: 75%;float: right">
+        <h3 style="text-align: center;">Update Course</h3>
+        <form class="form-horizontal" action="#" method="post">
+            <div class="form-group">
+                <label for="name" class="control-label col-md-2">name</label>
+                <div class="col-md-10">
+                    <input type="text" class="form-control" id="name" value="English1">
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="description" class="control-label col-md-2">description</label>
+                <div class="col-md-10">
+                    <input type="text" class="form-control" id="description" value="this is a courese that...">
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="grade" class="control-label col-md-2">grade</label>
+                <div class="col-md-10">
+                    <input type="email" class="form-control" id="grade" value="grade11">
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label for="price" class="control-label col-md-2">price</label>
+                <div class="col-md-10">
+                    <input type="text" class="form-control" id="price" value="460">
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="teacher" class="control-label col-md-2">teacher</label>
+                <div class="col-md-10">
+                    <input type="text" class="form-control" id="teacher" value="Tom">
+                </div>
+            </div>
+
+            <button style="float: right;" type="submit" class="btn btn-success">Update</button>
+        </form>
+    </div>
+</div>
+
+
+<div th:include="common/foot :: foot"></div>
+</div><!-- /.container -->
+
+
+
+<script src="../../../js/jquery.min.js" th:src="@{/js/jquery.min.js}"></script>
+<script src="../../../js/bootstrap.js" th:src="@{/js/bootstrap.js}"></script>
+<script src="../../../js/holder.min.js" th:src="@{/js/holder.min.js}"></script>
+</body>
+</html>

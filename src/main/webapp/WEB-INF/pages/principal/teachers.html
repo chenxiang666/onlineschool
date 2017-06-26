@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="icon" href="../../favicon.ico">
+
+    <title>Carousel Template for Bootstrap</title>
+    <link href="../../../css/bootstrap.css" th:href="@{/css/bootstrap.css}"  rel="stylesheet">
+    <!-- Custom styles for this template -->
+    <link href="../../../css/carousel.css" th:href="@{/css/carousel.css}" rel="stylesheet">
+    <link href="../../../css/justified-nav.css" th:href="@{/css/justified-nav.css}" rel="stylesheet"/>
+</head>
+<!-- NAVBAR
+================================================== -->
+<body>
+<div class="container">
+
+    <div th:include="common/head :: head"></div>
+    </br>
+
+    <div th:include="common/principal_common :: principal"></div>
+    <div style="width: 75%;float: right">
+        <div class="col-md-12" style="margin-bottom: 10px;">
+            <a th:href="@{/principal/addTeacher}" style="color: green;"><span style="font-size: 20px;" class="glyphicon glyphicon-plus" aria-hidden="true">Add</span></a>
+        </div>
+        <div class="col-md-12">
+            <table class="table table-bordered table-striped">
+                <thead>
+                <th width="20%">
+                    name
+                </th>
+                <th width="60%">
+                    courses
+                </th>
+                <th width="15%">
+                    information
+                </th>
+                <th width="5%">
+                    &nbsp;
+                </th>
+                </thead>
+                <tbody>
+                <tr>
+                    <td >
+                        Tom
+                    </td>
+                    <td >
+                        English1,English2
+
+                    </td>
+                    <td>
+                        <a style="color: red;" th:href="@{/principal/changeTeacherInformation}"><span class="glyphicon glyphicon-th-list" aria-hidden="true"></span></a>
+                    </td>
+
+                    <td>
+                        <a style="color: red;"><span class="glyphicon glyphicon-remove" aria-hidden="true"></span></a>
+                    </td>
+                </tr>
+                <tr>
+                    <td >
+                        Tom
+                    </td>
+                    <td >
+                        English1,English2
+
+                    </td>
+                    <td>
+                        <a style="color: red;" href="#"><span class="glyphicon glyphicon-th-list" aria-hidden="true"></span></a>
+                    </td>
+
+                    <td>
+                        <a style="color: red;"><span class="glyphicon glyphicon-remove" aria-hidden="true"></span></a>
+                    </td>
+                </tr>
+                <tr>
+                    <td >
+                        Tom
+                    </td>
+                    <td >
+                        English1,English2
+
+                    </td>
+                    <td>
+                        <a style="color: red;" href="#"><span class="glyphicon glyphicon-th-list" aria-hidden="true"></span></a>
+                    </td>
+
+                    <td>
+                        <a style="color: red;"><span class="glyphicon glyphicon-remove" aria-hidden="true"></span></a>
+                    </td>
+                </tr>
+                <tr>
+                    <td >
+                        Tom
+                    </td>
+                    <td >
+                        English1,English2
+
+                    </td>
+                    <td>
+                        <a style="color: red;" href="#"><span class="glyphicon glyphicon-th-list" aria-hidden="true"></span></a>
+                    </td>
+
+                    <td>
+                        <a style="color: red;"><span class="glyphicon glyphicon-remove" aria-hidden="true"></span></a>
+                    </td>
+                </tr>
+                <tr>
+                    <td >
+                        Tom
+                    </td>
+                    <td >
+                        English1,English2
+
+                    </td>
+                    <td>
+                        <a style="color: red;" href="#"><span class="glyphicon glyphicon-th-list" aria-hidden="true"></span></a>
+                    </td>
+
+                    <td>
+                        <a style="color: red;"><span class="glyphicon glyphicon-remove" aria-hidden="true"></span></a>
+                    </td>
+                </tr>
+
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+
+
+<div th:include="common/foot :: foot"></div>
+</div><!-- /.container -->
+
+
+
+<script src="../../../js/jquery.min.js" th:src="@{/js/jquery.min.js}"></script>
+<script src="../../../js/bootstrap.js" th:src="@{/js/bootstrap.js}"></script>
+<script src="../../../js/holder.min.js" th:src="@{/js/holder.min.js}"></script>
+</body>
+</html>

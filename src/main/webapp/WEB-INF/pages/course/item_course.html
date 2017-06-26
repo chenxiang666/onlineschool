@@ -48,6 +48,20 @@
                     Students will further develop their analytical skills and investigate the qualitative and quantitative
                     properties of matter, as well as the impact of some common chemical reactions on society and the
                     environment.</p>
+                <table class="table table-bordered table-striped" style="width: 600px;margin-left: 120px;">
+                    <thead>
+                    <tr>
+                        <th width="100%">unit list</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr th:each="courseUnit:${courseUnitList}">
+                        <td th:text="${courseUnit.title}">
+                            Unit 1
+                        </td>
+                    </tr>
+                    </tbody>
+                </table>
             </div>
             <div class="tab-pane fade" id="assignment" >
 
