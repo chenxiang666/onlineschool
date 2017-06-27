@@ -126,8 +126,11 @@
                             <td th:utext="${question.title}">
                                 where are you from?
                             </td>
-                            <td>
-                                Radio examination
+                            <td th:if="${question.type==1}">
+                                Single Choice
+                            </td>
+                            <td th:if="${question.type==2}">
+                                Subjective Question
                             </td>
                             <td>
                                 <input type="text" th:name="'examQuestionList['+${questionStat.index}+'].itemScore'" class="form-control"/>

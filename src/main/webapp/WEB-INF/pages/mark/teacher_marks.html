@@ -53,10 +53,12 @@
                 <th width="20%">
                     score
                 </th>
-                <th width="10%">
+                <th width="15%">
                     stats
                 </th>
+                <th width="10%">
 
+                </th>
                 </thead>
                 <tbody>
 
@@ -69,18 +71,25 @@
                             <td th:utext="${user.username}"></td>
                             <div th:each="exam:${examList}">
                                 <div th:if="${exam.id==examResult.examId}">
-                            <td th:text="${exam.title}">
-                                Subjective Question
-                            </td></div></div>
+                                    <td th:text="${exam.title}">
+                                        Subjective Question
+                                    </td>
+                                </div>
+                            </div>
                             <td th:text="${examResult.score}">
                                 111
                             </td>
-
+                            <td th:if="${examResult.stats==0}" style="color: red;">
+                                No corrections
+                            </td>
+                            <td th:if="${examResult.stats==1}" style="color:green;">
+                                My responses
+                            </td>
                             <td>
-                               <!-- <a style="color: red;" th:href="@{/teacher/mark/mark/__${examResult.id}__}"
-                                   onclick="return confirm('confirm delete ?')">-->
-                                <a>
-                                    <span  >correct</span>
+                                <a style="color: red;" th:href="@{/teacher/mark/mark/__${examResult.id}__}"
+                                  >
+
+                                    <span>correct</span>
                                 </a>
                             </td>
                         </div>
@@ -90,7 +99,7 @@
             </table>
         </div>
 
-        <div th:include="common/_pagination :: nav"></div>
+
     </div>
 </div>
 
