@@ -42,7 +42,7 @@ public class TeacherQuestionsController {
     public String questionsList(Model model, HttpSession session, @RequestParam(value = "page", defaultValue = "0") Integer page) {
         int courseId = (Integer) session.getAttribute("_courseId");
         List<CourseUnit> courseUnitList = courseUnitDao.getCourseUnitListByCourseId(courseId);//这门课的所有单元
-        Pageable pageable = new PageRequest(page, 8, Sort.Direction.ASC, "id");
+        Pageable pageable = new PageRequest(page, 10, Sort.Direction.ASC, "id");
         Page<Question> datas = questionDao.getQuestionListByCourseId(courseId, pageable);//这门课所有已有题目
 
         model.addAttribute("courseUnitList",courseUnitList);

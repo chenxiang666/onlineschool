@@ -15,7 +15,9 @@
     <!-- Custom styles for this template -->
     <link href="../../../css/carousel.css" th:href="@{/css/carousel.css}" rel="stylesheet">
     <link href="../../../css/justified-nav.css" th:href="@{/css/justified-nav.css}" rel="stylesheet"/>
+
 </head>
+
 <!-- NAVBAR
 ================================================== -->
 <body>
@@ -57,21 +59,21 @@
                 <div class="form-group">
                     <label class="control-label col-md-2">Score:</label>
                     <div class="col-md-6">
-                        <input type="number" class="form-control" name="exam.score" placeholder="100">
+                        <input type="number" class="form-control" required name="exam.score" placeholder="100">
                     </div>
                     <div class="col-md-4"></div>
                 </div>
-                <div class="form-group">
-                    <label class="control-label col-md-2">Percent:</label>
-                    <div class="col-md-6">
-                        <input type="number" class="form-control" name="exam.percent" placeholder="10">
-                    </div>
-                    <div class="col-md-4"></div>
-                </div>
+                 <div class="form-group">
+                     <label class="control-label col-md-2">Percent:</label>
+                     <div class="col-md-6">
+                         <input type="number" class="form-control" required name="exam.percent" placeholder="10">
+                     </div>
+                     <div class="col-md-4"></div>
+                 </div>
                 <div class="form-group">
                     <label class="control-label col-md-2">Bagin Time:</label>
                     <div class="col-md-6">
-                        <input type="date" class="form-control" name="exam.beginTime">
+                        <input type="date" class="form-control" required name="exam.beginTime">
                     </div>
                     <div class="col-md-4"></div>
                 </div>
@@ -79,7 +81,7 @@
                 <div class="form-group">
                     <label class="control-label col-md-2">End Time:</label>
                     <div class="col-md-6">
-                        <input type="date" class="form-control" name="exam.endTime">
+                        <input type="date" class="form-control" required name="exam.endTime">
                     </div>
                     <div class="col-md-4"></div>
                 </div>
@@ -114,7 +116,8 @@
                         <tbody>
                         <tr th:each="question,questionStat:${questionList}">
                             <td>
-                                <input type="checkbox" th:name="'examQuestionList['+${questionStat.index}+'].questionId'"
+                                <input type="checkbox"
+                                       th:name="'examQuestionList['+${questionStat.index}+'].questionId'"
                                        th:value="${question.id}"/>
                             </td>
                             <td th:text="${question.id}">
@@ -130,13 +133,14 @@
                                 Subjective Question
                             </td>
                             <td>
-                                <input type="number" th:name="'examQuestionList['+${questionStat.index}+'].itemScore'" class="form-control"/>
+                                <input type="number" th:value="0" th:name="'examQuestionList['+${questionStat.index}+'].itemScore'"
+                                       class="form-control" />
                             </td>
                         </tr>
 
                         </tbody>
                     </table>
-                    <button type="submit" class="btn btn-success">Submit</button>
+                    <button type="submit" class="btn btn-success" onclick="return check11()">Submit</button>
 
                 </div>
             </form>

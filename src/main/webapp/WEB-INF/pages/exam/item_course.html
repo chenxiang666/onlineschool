@@ -114,6 +114,7 @@
                         <td>
                             <!-- 已考试，显示成绩 -->
                             <div th:each="examResult:${examResultList}">
+
                                 <div th:if="${examResult.examId == exam.id}" th:text="${examResult.score}">
                                     100
                                 </div>

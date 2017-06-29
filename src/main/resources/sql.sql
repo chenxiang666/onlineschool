@@ -95,7 +95,7 @@ CREATE TABLE `course_file` (
   `url` text,
   `unitId` int(11) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM AUTO_INCREMENT=12 DEFAULT CHARSET=latin1;
+) ENGINE=MyISAM AUTO_INCREMENT=17 DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -104,7 +104,7 @@ CREATE TABLE `course_file` (
 
 LOCK TABLES `course_file` WRITE;
 /*!40000 ALTER TABLE `course_file` DISABLE KEYS */;
-INSERT INTO `course_file` VALUES (9,0,NULL,'V','/onlineschool/upload/1498413739816.png',9),(11,0,NULL,'qq','/onlineschool/upload/1498459103976.pdf',8);
+INSERT INTO `course_file` VALUES (15,0,NULL,'13','/onlineschool/upload/1498731229790.iml',10),(16,0,NULL,'3','/onlineschool/upload/1498731534440.iml',10);
 /*!40000 ALTER TABLE `course_file` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -124,7 +124,7 @@ CREATE TABLE `course_unit` (
   `updatetime` datetime DEFAULT NULL,
   `spendTime` varchar(999) DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM AUTO_INCREMENT=11 DEFAULT CHARSET=latin1;
+) ENGINE=MyISAM AUTO_INCREMENT=13 DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -133,7 +133,7 @@ CREATE TABLE `course_unit` (
 
 LOCK TABLES `course_unit` WRITE;
 /*!40000 ALTER TABLE `course_unit` DISABLE KEYS */;
-INSERT INTO `course_unit` VALUES (1,2,'2017-06-08 09:50:01','333','Unit1',NULL,'5Hour'),(2,2,NULL,'4466','Unit2',NULL,'7Hour'),(3,2,NULL,'sdf','Unit3',NULL,'46Hour'),(4,2,NULL,'4','Unit4',NULL,'42Hour'),(5,2,NULL,'5','Unit5',NULL,'6Hour'),(6,2,NULL,'6','Unit6',NULL,'7Hour'),(7,2,NULL,'4','Unit7',NULL,'12Hour'),(8,1,NULL,'<p>Let&#39;s do it</p>\r\n\r\n<p>&nbsp;</p>\r\n','Unit 1 - English Learning',NULL,'46 Hour'),(9,1,NULL,'<p>go</p>\r\n','Unit 2 - First Step',NULL,'12 Hour'),(10,3,NULL,'<p>ss</p>\r\n','F',NULL,'s');
+INSERT INTO `course_unit` VALUES (1,2,'2017-06-08 09:50:01','333','Unit1',NULL,'5Hour'),(2,2,NULL,'4466','Unit2',NULL,'7Hour'),(3,2,NULL,'sdf','Unit3',NULL,'46Hour'),(4,2,NULL,'4','Unit4',NULL,'42Hour'),(5,2,NULL,'5','Unit5',NULL,'6Hour'),(6,2,NULL,'6','Unit6',NULL,'7Hour'),(7,2,NULL,'4','Unit7',NULL,'12Hour'),(8,1,NULL,'<p>Let&#39;s do it</p>\r\n\r\n<p>&nbsp;</p>\r\n','Unit 1 - English Learning',NULL,'46 Hour'),(9,1,NULL,'<p>go</p>\r\n','Unit 2 - First Step',NULL,'12 Hour'),(10,3,NULL,'<p>ss</p>\r\n','F',NULL,'s'),(11,3,NULL,'<p>dsd</p>\r\n','dsa',NULL,'10'),(12,3,NULL,'','',NULL,'');
 /*!40000 ALTER TABLE `course_unit` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -179,7 +179,7 @@ CREATE TABLE `exam` (
   `type` int(11) NOT NULL,
   `percent` double NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM AUTO_INCREMENT=20 DEFAULT CHARSET=latin1;
+) ENGINE=MyISAM AUTO_INCREMENT=31 DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -188,7 +188,7 @@ CREATE TABLE `exam` (
 
 LOCK TABLES `exam` WRITE;
 /*!40000 ALTER TABLE `exam` DISABLE KEYS */;
-INSERT INTO `exam` VALUES (1,NULL,2,NULL,0,'Test1',0,0),(19,'2017-06-01 00:00:00',1,'2017-06-02 00:00:00',23,'ga',1,0),(18,'2017-06-01 00:00:00',3,'2017-06-02 00:00:00',1,'Fs',1,0),(17,'2017-06-01 00:00:00',1,'2017-06-02 00:00:00',100,'Three Test',1,0),(16,'2017-06-01 00:00:00',1,'2017-06-09 00:00:00',0,'Second test',1,0),(15,'2017-06-01 00:00:00',1,'2017-06-02 00:00:00',0,'First test',1,0);
+INSERT INTO `exam` VALUES (1,NULL,2,NULL,0,'Test1',0,0),(20,'2017-06-29 00:00:00',1,'2017-06-30 00:00:00',100,'111',1,25),(18,'2017-06-01 00:00:00',3,'2017-06-02 00:00:00',1,'Fs',1,0),(17,'2017-06-01 00:00:00',1,'2017-06-02 00:00:00',100,'Three Test',1,0),(16,'2017-06-01 00:00:00',1,'2017-06-09 00:00:00',0,'Second test',1,0),(15,'2017-06-01 00:00:00',1,'2017-06-02 00:00:00',0,'First test',1,0),(22,'2017-06-01 00:00:00',1,'2017-06-02 00:00:00',4,'2',1,6),(23,'2017-06-01 00:00:00',1,'2017-06-02 00:00:00',4,'2',1,6),(24,'2017-06-01 00:00:00',1,'2017-06-02 00:00:00',5,'24',1,56),(25,'2017-06-01 00:00:00',1,'2017-06-02 00:00:00',24,'22',1,0),(26,'2017-06-01 00:00:00',1,'2017-06-02 00:00:00',36,'24',1,45),(27,'2017-06-01 00:00:00',1,'2017-06-02 00:00:00',436,'35',1,7),(28,'2017-06-01 00:00:00',1,'2017-06-03 00:00:00',26,'24',1,26),(29,'2017-06-01 00:00:00',1,'2017-06-03 00:00:00',25,'2134',1,26),(30,'2017-06-06 00:00:00',3,'2017-06-24 00:00:00',2,'2',1,2);
 /*!40000 ALTER TABLE `exam` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -205,10 +205,8 @@ CREATE TABLE `exam_question` (
   `itemScore` double DEFAULT NULL,
   `questionId` int(11) DEFAULT NULL,
   `sort` int(11) DEFAULT NULL,
-  `question_id` int(11) DEFAULT NULL,
-  PRIMARY KEY (`id`),
-  KEY `FKhence37m8dce4mwluboy8vabx` (`question_id`)
-) ENGINE=MyISAM AUTO_INCREMENT=17 DEFAULT CHARSET=latin1;
+  PRIMARY KEY (`id`)
+) ENGINE=MyISAM AUTO_INCREMENT=42 DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -217,7 +215,7 @@ CREATE TABLE `exam_question` (
 
 LOCK TABLES `exam_question` WRITE;
 /*!40000 ALTER TABLE `exam_question` DISABLE KEYS */;
-INSERT INTO `exam_question` VALUES (13,18,100,11,0,NULL),(12,17,100,10,0,NULL),(14,19,3,13,0,NULL),(15,19,4,12,0,NULL),(16,19,4,10,0,NULL);
+INSERT INTO `exam_question` VALUES (13,18,100,11,0),(12,17,100,10,0),(19,20,45,10,0),(18,20,25,12,0),(17,20,20,13,0),(21,22,4,0,0),(22,22,6,0,0),(23,22,7,0,0),(24,23,4,13,0),(25,23,6,12,0),(26,23,7,10,0),(27,24,26,13,0),(28,24,27,12,0),(29,24,27,10,0),(30,25,34,13,0),(31,25,25,12,0),(32,25,56,10,0),(33,26,3,13,0),(34,26,36,12,0),(35,26,7,10,0),(36,27,35,13,0),(37,27,36,0,0),(38,27,7,0,0),(39,28,27,13,0),(40,29,12,13,0),(41,30,21,11,0);
 /*!40000 ALTER TABLE `exam_question` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -235,10 +233,9 @@ CREATE TABLE `exam_result` (
   `time` datetime DEFAULT NULL,
   `userId` int(11) NOT NULL,
   `courseId` int(11) DEFAULT NULL,
-  `stats` int(11) NOT NULL,
   `status` int(11) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM AUTO_INCREMENT=23 DEFAULT CHARSET=latin1;
+) ENGINE=MyISAM AUTO_INCREMENT=27 DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -247,7 +244,7 @@ CREATE TABLE `exam_result` (
 
 LOCK TABLES `exam_result` WRITE;
 /*!40000 ALTER TABLE `exam_result` DISABLE KEYS */;
-INSERT INTO `exam_result` VALUES (16,19,9,NULL,155,1,1,0),(22,19,0,NULL,157,1,0,0),(21,19,0,NULL,157,1,0,0),(20,19,0,NULL,157,1,0,0),(19,19,0,NULL,157,1,0,0),(18,19,0,NULL,157,1,0,0),(17,19,0,NULL,157,1,0,0),(15,17,0,NULL,155,1,0,0),(14,17,0,NULL,155,1,0,0);
+INSERT INTO `exam_result` VALUES (25,20,60,NULL,2,1,1),(15,17,0,NULL,155,1,0),(26,17,0,NULL,2,1,0),(24,17,4,NULL,2,1,1);
 /*!40000 ALTER TABLE `exam_result` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -268,7 +265,7 @@ CREATE TABLE `exam_result_question` (
   `examResultId` int(11) NOT NULL,
   `itemScore` double NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM AUTO_INCREMENT=119 DEFAULT CHARSET=latin1;
+) ENGINE=MyISAM AUTO_INCREMENT=127 DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -277,7 +274,7 @@ CREATE TABLE `exam_result_question` (
 
 LOCK TABLES `exam_result_question` WRITE;
 /*!40000 ALTER TABLE `exam_result_question` DISABLE KEYS */;
-INSERT INTO `exam_result_question` VALUES (100,'A',19,'',10,155,16,0),(99,'A',19,'',12,155,16,0),(98,'<p>444</p>\r\n',19,NULL,13,155,16,0),(97,'A',17,'',10,155,15,0),(96,'B',17,'\0',10,155,14,0),(101,'<p>333</p>\r\n',19,NULL,13,157,17,0),(102,'A',19,'',12,157,17,0),(103,'B',19,'\0',10,157,17,0),(104,'<p>er</p>\r\n',19,NULL,13,157,18,0),(105,'A',19,'',12,157,18,0),(106,'B',19,'\0',10,157,18,0),(107,'<p>er</p>\r\n',19,NULL,13,157,19,0),(108,'A',19,'',12,157,19,0),(109,'B',19,'\0',10,157,19,0),(110,'<p>er</p>\r\n',19,NULL,13,157,20,0),(111,'A',19,'',12,157,20,0),(112,'B',19,'\0',10,157,20,0),(113,'<p>er</p>\r\n',19,NULL,13,157,21,0),(114,'A',19,'',12,157,21,0),(115,'B',19,'\0',10,157,21,0),(116,'<p>er</p>\r\n',19,NULL,13,157,22,0),(117,'A',19,'',12,157,22,0),(118,'B',19,'\0',10,157,22,0);
+INSERT INTO `exam_result_question` VALUES (97,'A',17,'',10,155,15,0),(96,'B',17,'\0',10,155,14,0),(126,'A',17,'',10,2,26,0),(125,'<p>22222222222222222</p>\r\n',20,NULL,13,2,25,0),(124,'A',20,'',12,2,25,0),(123,'A',20,'',10,2,25,0),(122,'A',17,'',10,2,24,0);
 /*!40000 ALTER TABLE `exam_result_question` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -324,7 +321,7 @@ CREATE TABLE `msg` (
   `senderId` int(11) NOT NULL,
   `status` int(11) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM AUTO_INCREMENT=5 DEFAULT CHARSET=latin1;
+) ENGINE=MyISAM AUTO_INCREMENT=6 DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -333,7 +330,7 @@ CREATE TABLE `msg` (
 
 LOCK TABLES `msg` WRITE;
 /*!40000 ALTER TABLE `msg` DISABLE KEYS */;
-INSERT INTO `msg` VALUES (1,'111','2017-06-29 16:21:40',0,1,2,0),(2,'222','2017-06-29 16:21:45',1,1,2,0),(3,'333','2017-06-29 16:21:59',2,2,1,0),(4,'4444','2017-06-29 16:22:09',0,155,1,0);
+INSERT INTO `msg` VALUES (1,'111','2017-06-29 16:21:40',0,1,2,0),(2,'222','2017-06-29 16:21:45',1,1,2,0),(3,'333','2017-06-29 16:21:59',2,2,1,0),(4,'4444','2017-06-29 16:22:09',0,155,1,0),(5,'dsd','2017-06-29 17:05:55',0,1,2,0);
 /*!40000 ALTER TABLE `msg` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -358,7 +355,7 @@ CREATE TABLE `question` (
   `type` int(11) NOT NULL,
   `unitId` int(11) DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM AUTO_INCREMENT=14 DEFAULT CHARSET=latin1;
+) ENGINE=MyISAM AUTO_INCREMENT=17 DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -367,7 +364,7 @@ CREATE TABLE `question` (
 
 LOCK TABLES `question` WRITE;
 /*!40000 ALTER TABLE `question` DISABLE KEYS */;
-INSERT INTO `question` VALUES (13,'ah',1,NULL,NULL,NULL,NULL,NULL,NULL,'<p>ag</p>\r\n',2,8),(2,NULL,2,NULL,'go','dd','ee','gg',NULL,'<p>What\'s your name?</p>\r\n',1,0),(12,'A',1,NULL,'g','h','j','j',NULL,'<p>sg</p>\r\n',1,8),(11,'B',3,NULL,'w','wt','y','t',NULL,'<p>F</p>\r\n',1,10),(10,'A',1,NULL,'Yes','No','No,but he can.','Yes,I can',NULL,'<p>Can you do it?</p>\r\n',1,8),(8,'A',2,NULL,'ag','g','h','h',NULL,'<p>sdf</p>\r\n',1,0);
+INSERT INTO `question` VALUES (13,'ah',1,NULL,NULL,NULL,NULL,NULL,NULL,'<p>ag</p>\r\n',2,8),(2,NULL,2,NULL,'go','dd','ee','gg',NULL,'<p>What\'s your name?</p>\r\n',1,0),(12,'A',1,NULL,'g','h','j','j',NULL,'<p>sg</p>\r\n',1,8),(11,'B',3,NULL,'w','wt','y','t',NULL,'<p>F</p>\r\n',1,10),(10,'A',1,NULL,'Yes','No','No,but he can.','Yes,I can',NULL,'<p>Can you do it?</p>\r\n',1,8),(8,'A',2,NULL,'ag','g','h','h',NULL,'<p>sdf</p>\r\n',1,0),(14,'B',3,NULL,'d','d','d','',NULL,'<p>d</p>\r\n',1,10);
 /*!40000 ALTER TABLE `question` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -401,7 +398,7 @@ CREATE TABLE `user` (
   `updateTime` varchar(255) DEFAULT NULL,
   `username` varchar(255) DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM AUTO_INCREMENT=309 DEFAULT CHARSET=latin1;
+) ENGINE=MyISAM AUTO_INCREMENT=313 DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -410,7 +407,7 @@ CREATE TABLE `user` (
 
 LOCK TABLES `user` WRITE;
 /*!40000 ALTER TABLE `user` DISABLE KEYS */;
-INSERT INTO `user` VALUES (1,NULL,NULL,NULL,NULL,NULL,NULL,'111','teacher','one',NULL,0,'111',NULL,NULL,NULL,1,0,0,NULL,'111'),(223,'',NULL,NULL,'',NULL,NULL,'26@45','333','236',NULL,0,'',NULL,'',NULL,0,1,0,NULL,NULL),(159,NULL,NULL,NULL,NULL,NULL,NULL,'admin@gmail.com',NULL,NULL,NULL,0,'admin',NULL,NULL,NULL,2,0,0,NULL,'admin'),(157,'',NULL,NULL,'',NULL,NULL,'6#63@4','w34','345','',0,'student',NULL,'',NULL,0,1,0,NULL,'student'),(156,'216','','wuhan','America',NULL,'I\'m good','liufreeo@gmail.com','Lucy','Jack','034-345-677',0,'1111',NULL,'88888',NULL,0,0,0,NULL,'liufreeo@gmail.com'),(155,'',NULL,NULL,'',NULL,NULL,'','teacher','test','',0,'teacher',NULL,'',NULL,1,0,0,NULL,'teacher'),(154,'',NULL,NULL,'',NULL,NULL,'34@3','12','2','',0,NULL,NULL,'',NULL,0,0,0,NULL,NULL),(153,'',NULL,NULL,'',NULL,NULL,'','12','2','',0,NULL,NULL,'',NULL,0,0,0,NULL,NULL),(152,'',NULL,NULL,'',NULL,NULL,'','12','2','',0,NULL,NULL,'',NULL,0,0,0,NULL,NULL),(2,NULL,NULL,NULL,NULL,NULL,NULL,'222','student','one',NULL,0,'222',NULL,NULL,NULL,0,1,0,NULL,'222'),(307,'',NULL,NULL,'',NULL,NULL,'','weq5','rt',NULL,0,'',NULL,'',NULL,0,1,0,NULL,NULL),(308,'',NULL,NULL,'',NULL,NULL,'26@45','342','262',NULL,0,'',NULL,'',NULL,0,1,0,NULL,NULL);
+INSERT INTO `user` VALUES (1,NULL,NULL,NULL,NULL,NULL,NULL,'111','teacher','one',NULL,0,'111',NULL,NULL,NULL,1,0,0,NULL,'111'),(223,'',NULL,NULL,'',NULL,NULL,'26@45','333','236',NULL,0,'',NULL,'',NULL,0,1,0,NULL,NULL),(159,NULL,NULL,NULL,NULL,NULL,NULL,'admin@gmail.com',NULL,NULL,NULL,0,'admin',NULL,NULL,NULL,2,0,0,NULL,'admin'),(157,'we',NULL,NULL,'6',NULL,NULL,'26@45','21','3','3',0,'student',NULL,'3',NULL,0,1,0,NULL,'student'),(156,'216','','wuhan','America',NULL,'I\'m good','liufreeo@gmail.com','Lucy','Jack','034-345-677',0,'1111',NULL,'88888',NULL,0,0,0,NULL,'liufreeo@gmail.com'),(155,'',NULL,NULL,'',NULL,NULL,'','teacher','test','',0,'teacher',NULL,'',NULL,1,0,0,NULL,'teacher'),(154,'',NULL,NULL,'',NULL,NULL,'34@3','12','2','',0,NULL,NULL,'',NULL,0,0,0,NULL,NULL),(153,'',NULL,NULL,'',NULL,NULL,'','12','2','',0,NULL,NULL,'',NULL,0,0,0,NULL,NULL),(152,'',NULL,NULL,'',NULL,NULL,'','12','2','',0,NULL,NULL,'',NULL,0,0,0,NULL,NULL),(312,'',NULL,NULL,'',NULL,NULL,'as@as','as','as','',0,'1111',NULL,'',NULL,0,0,0,NULL,'as@as'),(311,'',NULL,NULL,'',NULL,NULL,'5@wq','4','4','',0,'1111',NULL,'',NULL,0,0,0,NULL,'5@wq'),(310,'',NULL,NULL,'',NULL,NULL,'','','','',0,'1111',NULL,'',NULL,0,0,0,NULL,''),(309,'3',NULL,NULL,'7',NULL,NULL,'36@34','342','','37',0,'1111',NULL,'7',NULL,0,1,0,NULL,'36@34'),(2,'',NULL,NULL,'',NULL,NULL,'','','','',0,'1111',NULL,'',NULL,0,1,0,NULL,'222'),(307,'',NULL,NULL,'',NULL,NULL,'','weq5','rt',NULL,0,'',NULL,'',NULL,0,1,0,NULL,NULL),(308,'',NULL,NULL,'',NULL,NULL,'26@45','342','262',NULL,0,'',NULL,'',NULL,0,1,0,NULL,NULL);
 /*!40000 ALTER TABLE `user` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -435,7 +432,7 @@ CREATE TABLE `user_course` (
 
 LOCK TABLES `user_course` WRITE;
 /*!40000 ALTER TABLE `user_course` DISABLE KEYS */;
-INSERT INTO `user_course` VALUES (1,1,2),(41,1,157),(40,1,157),(39,1,157),(38,2,157),(37,1,157),(36,1,156),(35,2,156),(34,1,154),(33,2,154),(32,1,154),(31,3,0),(29,1,0),(30,2,155),(2,2,2),(3,3,2),(4,4,2);
+INSERT INTO `user_course` VALUES (1,1,309),(41,1,157),(40,1,157),(39,1,157),(38,2,157),(37,1,157),(36,1,156),(35,2,156),(34,1,154),(33,2,154),(32,1,154),(31,3,0),(29,1,0),(30,2,155),(2,2,2),(3,3,2),(4,4,2);
 /*!40000 ALTER TABLE `user_course` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -475,4 +472,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2017-06-29 16:22:32
+-- Dump completed on 2017-06-29 18:26:29
