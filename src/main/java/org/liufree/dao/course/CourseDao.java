@@ -22,6 +22,8 @@ public interface CourseDao extends JpaRepository<Course,Integer> {
     @Query("select  c from  Course c where id=:courseId")
     Course getCourseById(@Param("courseId") int courseId);
 
+    List<Course> findAll();
+
     @Query("select c from Course c where c.teacherId=:teacherId")
     List<Course> getCoursesByTeacherId(@Param("teacherId") int teacherId);
 }

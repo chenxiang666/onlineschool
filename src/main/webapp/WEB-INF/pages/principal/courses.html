@@ -43,48 +43,12 @@
                 </th>
                 </thead>
                 <tbody>
-                <tr>
-                    <td >
+                <tr th:each="course:${courseList}">
+                    <td th:text="${course.title}">
                         English1
                     </td>
                     <td>
                         <a style="color: red;" th:href="@{/principal/changeCourse}"><span class="glyphicon glyphicon-th-list" aria-hidden="true"></span></a>
-                    </td>
-
-                    <td>
-                        <a style="color: red;"><span class="glyphicon glyphicon-remove" aria-hidden="true"></span></a>
-                    </td>
-                </tr>
-                <tr>
-                    <td >
-                        English1
-                    </td>
-                    <td>
-                        <a style="color: red;" href="#"><span class="glyphicon glyphicon-th-list" aria-hidden="true"></span></a>
-                    </td>
-
-                    <td>
-                        <a style="color: red;"><span class="glyphicon glyphicon-remove" aria-hidden="true"></span></a>
-                    </td>
-                </tr>
-                <tr>
-                    <td >
-                        English1
-                    </td>
-                    <td>
-                        <a style="color: red;" href="#"><span class="glyphicon glyphicon-th-list" aria-hidden="true"></span></a>
-                    </td>
-
-                    <td>
-                        <a style="color: red;"><span class="glyphicon glyphicon-remove" aria-hidden="true"></span></a>
-                    </td>
-                </tr>
-                <tr>
-                    <td >
-                        English1
-                    </td>
-                    <td>
-                        <a style="color: red;" href="#"><span class="glyphicon glyphicon-th-list" aria-hidden="true"></span></a>
                     </td>
 
                     <td>

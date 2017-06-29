@@ -18,19 +18,28 @@ import java.util.List;
 @Controller
 @RequestMapping("/principal")
 public class PrincipalController {
+
+    @Autowired
+    UserDao userDao;
+    @Autowired
+    CourseDao courseDao;
+
     @RequestMapping("/courses")
     public String courses(HttpSession session,Model model){
-
+        List<Course> courseList = courseDao.findAll();
+        model.addAttribute("courseList", courseList);
         return "principal/courses";
     }
     @RequestMapping("/teachers")
     public String teachers(HttpSession session,Model model){
-
+        List<User> teacherList=userDao.findAllTeacher();
+        model.addAttribute("teacherList",teacherList);
         return "principal/teachers";
     }
     @RequestMapping("/students")
     public String students(HttpSession session,Model model){
-
+        List<User> studentList=userDao.findAllStudent();
+        model.addAttribute("studentList",studentList);
         return "principal/students";
     }
     @RequestMapping("/addTeacher")

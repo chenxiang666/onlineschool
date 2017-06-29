@@ -46,8 +46,8 @@
                 </th>
                 </thead>
                 <tbody>
-                <tr>
-                    <td >
+                <tr th:each="user:${teacherList}">
+                    <td th:text="${user.username}">
                         Tom
                     </td>
                     <td >
@@ -62,70 +62,7 @@
                         <a style="color: red;"><span class="glyphicon glyphicon-remove" aria-hidden="true"></span></a>
                     </td>
                 </tr>
-                <tr>
-                    <td >
-                        Tom
-                    </td>
-                    <td >
-                        English1,English2
 
-                    </td>
-                    <td>
-                        <a style="color: red;" href="#"><span class="glyphicon glyphicon-th-list" aria-hidden="true"></span></a>
-                    </td>
-
-                    <td>
-                        <a style="color: red;"><span class="glyphicon glyphicon-remove" aria-hidden="true"></span></a>
-                    </td>
-                </tr>
-                <tr>
-                    <td >
-                        Tom
-                    </td>
-                    <td >
-                        English1,English2
-
-                    </td>
-                    <td>
-                        <a style="color: red;" href="#"><span class="glyphicon glyphicon-th-list" aria-hidden="true"></span></a>
-                    </td>
-
-                    <td>
-                        <a style="color: red;"><span class="glyphicon glyphicon-remove" aria-hidden="true"></span></a>
-                    </td>
-                </tr>
-                <tr>
-                    <td >
-                        Tom
-                    </td>
-                    <td >
-                        English1,English2
-
-                    </td>
-                    <td>
-                        <a style="color: red;" href="#"><span class="glyphicon glyphicon-th-list" aria-hidden="true"></span></a>
-                    </td>
-
-                    <td>
-                        <a style="color: red;"><span class="glyphicon glyphicon-remove" aria-hidden="true"></span></a>
-                    </td>
-                </tr>
-                <tr>
-                    <td >
-                        Tom
-                    </td>
-                    <td >
-                        English1,English2
-
-                    </td>
-                    <td>
-                        <a style="color: red;" href="#"><span class="glyphicon glyphicon-th-list" aria-hidden="true"></span></a>
-                    </td>
-
-                    <td>
-                        <a style="color: red;"><span class="glyphicon glyphicon-remove" aria-hidden="true"></span></a>
-                    </td>
-                </tr>
 
                 </tbody>
             </table>
