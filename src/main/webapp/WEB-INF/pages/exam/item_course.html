@@ -117,14 +117,10 @@
                                 <div th:if="${examResult.examId == exam.id}" th:text="${examResult.score}">
                                     100
                                 </div>
+
                             </div>
 
-                            <!-- 未考试，显示零分 -->
-                            <div th:each="examResult,examResultStat:${examResultList}">
-                                <div th:if="${examResult.examId != exam.id && examResultStat.last}">
-                                    0
-                                </div>
-                            </div>
+
                         </td>
                         <td th:text="${exam.percent + '%'}">
                             10%
@@ -139,12 +135,6 @@
                                     </div>
                                 </div>
 
-                                <!-- 未考试，显示未做 -->
-                                <div th:each="examResult,examResultStat:${examResultList}">
-                                    <div th:if="${examResult.examId != exam.id && examResultStat.last}">
-                                        undo
-                                    </div>
-                                </div>
                             </div>
                         </td>
                     </tr>
