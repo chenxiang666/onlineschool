@@ -11,7 +11,7 @@
     <link rel="icon" href="../../favicon.ico">
 
     <title>Carousel Template for Bootstrap</title>
-    <link href="../../../css/bootstrap.css" th:href="@{/css/bootstrap.css}"  rel="stylesheet">
+    <link href="../../../css/bootstrap.css" th:href="@{/css/bootstrap.css}" rel="stylesheet">
     <!-- Custom styles for this template -->
     <link href="../../../css/carousel.css" th:href="@{/css/carousel.css}" rel="stylesheet">
     <link href="../../../css/justified-nav.css" th:href="@{/css/justified-nav.css}" rel="stylesheet"/>
@@ -44,15 +44,26 @@
                 </thead>
                 <tbody>
                 <tr th:each="user:${studentList}">
+
                     <td th:text="${user.username}">
                         Tom
                     </td>
-                    <td >
-                        English1,English2
-
+                    <td>
+                        <div th:each="userCourse:${userCourseList}">
+                            <div th:each="course:${courseList}">
+                                <div th:if="${user.id==userCourse.userId}">
+                                    <div th:if="${userCourse.courseId==course.id}">
+                                <span th:text="${course.title}">
+                                    English1,English2
+                                </span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
                     </td>
                     <td>
-                        <a style="color: red;" th:href="@{/principal/studentInformation}"><span class="glyphicon glyphicon-th-list" aria-hidden="true"></span></a>
+                        <a style="color: red;" th:href="@{/principal/studentInformation}"><span
+                                class="glyphicon glyphicon-th-list" aria-hidden="true"></span></a>
                     </td>
 
                     <td>
@@ -70,7 +81,6 @@
 
 <div th:include="common/foot :: foot"></div>
 </div><!-- /.container -->
-
 
 
 <script src="../../../js/jquery.min.js" th:src="@{/js/jquery.min.js}"></script>
