@@ -10,6 +10,9 @@
             <!-- 老师 -->
             <div th:if="${session.role == 1}"><a th:href="@{/teacher/courses}" th:text="${session.username}"></a></div>
 
+            <!-- 校长 -->
+            <div th:if="${session.role == 2}"><a th:href="@{/principal/teachers}" th:text="${session.username}"></a></div>
+
             <a th:href="@{/user/logout}">logout</a>
 
 

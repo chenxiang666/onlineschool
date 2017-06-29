@@ -35,6 +35,7 @@ public class TeacherController {
         return "teacher/teacher_courses";
     }
 
+
     @RequestMapping("/course/{courseId}")
     public String getCourseById(@PathVariable("courseId")int courseId, Model model,HttpSession session)
     {
@@ -55,5 +56,6 @@ public class TeacherController {
         model.addAttribute("user", user);
         return "teacher/teacher_information";
     }
+
 
 }

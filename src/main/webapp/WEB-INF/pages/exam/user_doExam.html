@@ -30,14 +30,13 @@
         <br>
 
         <form class="form-horizontal" th:action="@{/user/exam/doExam/__${exam.id}__}" action="#" method="post" style="margin-left: 15px;">
-            <h4 style="color: crimson;padding: 0;">1.Radio examination(20*3`)</h4>
+            <h4 style="color: crimson;padding: 0;">1.Radio examination</h4>
             <hr>
             <div class="form-group" style="border-bottom: 1px solid #DCDCDC;">
                 <div th:each="question,questionStat:${questionList}">
                     <div th:if="${question.type==1}">
                     <div class="col-md-12">
                         <p class="zhenghan-question-dsc" th:text="${questionStat.index+1}">(1)</p>
-
                         <p class="zhenghan-question-dsc" th:utext="${question.title}">How old are you?( )</p>
                     </div>
                     <div class="col-md-12">

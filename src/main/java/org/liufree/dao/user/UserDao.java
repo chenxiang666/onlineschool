@@ -24,8 +24,15 @@ public interface UserDao extends JpaRepository<User, Integer> {
     @Query("select u from User u where username=:username")
     User findByUsername(@Param("username")String username); //查询相同的名字
 
+
     @Query("select u from User u where id=:id")
     User findById(@Param("id")int id); //查询相同的名字
+
+    @Query("select u from  User u where role=0")
+    List<User> findAllStudent();
+
+    @Query("select u from  User u where role=1")
+    List<User> findAllTeacher();
 
     @Query("select u.id from User u where email=:email and firstName=:firstName")
     int findByEmailAndFirstName(@Param("email")String email, @Param("firstName")String firstName); //

@@ -91,10 +91,13 @@ public class UserController {
                 List<Course> courseList = courseDao.getCoursesByUserId(user1.getId());
                 model.addAttribute("courseList", courseList);
                 return "user/user_courses";
-            } else {//老师
+            } else if(user1.getRole()==1){//老师
                 List<Course> courseList = courseDao.getCoursesByTeacherId(user1.getId());
                 model.addAttribute("courseList", courseList);
                 return "teacher/teacher_courses";
+            }
+            else{
+                return "principal/teachers";
             }
         } else {
             return "redirect:/";
