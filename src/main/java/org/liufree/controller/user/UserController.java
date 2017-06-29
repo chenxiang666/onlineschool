@@ -81,7 +81,7 @@ public class UserController {
         // user.setPassword(Encode.getMd5(password));
         User user1;
         if ((user1 = userDao.login(username, password)) != null) {
-            session.setAttribute("role",user1.getRole());
+            session.setAttribute("role", user1.getRole());
             session.setAttribute("userId", user1.getId());
             session.setAttribute("username", user1.getUsername());
             System.out.println(user1.getUsername());
@@ -91,12 +91,11 @@ public class UserController {
                 List<Course> courseList = courseDao.getCoursesByUserId(user1.getId());
                 model.addAttribute("courseList", courseList);
                 return "user/user_courses";
-            } else if(user1.getRole()==1){//老师
+            } else if (user1.getRole() == 1) {//老师
                 List<Course> courseList = courseDao.getCoursesByTeacherId(user1.getId());
                 model.addAttribute("courseList", courseList);
                 return "teacher/teacher_courses";
-            }
-            else{
+            } else {
                 return "principal/teachers";
             }
         } else {
@@ -124,7 +123,7 @@ public class UserController {
     }
 
     @RequestMapping("/logout")
-    public String logout(HttpSession session){
+    public String logout(HttpSession session) {
         session.removeAttribute("userId");
         session.removeAttribute("username");
         session.removeAttribute("role");
@@ -132,8 +131,22 @@ public class UserController {
     }
 
     @RequestMapping("/homework")
-    public String getHomework(){
+    public String getHomework() {
         return "user/user_homework";
     }
 
+    @RequestMapping("/update")
+    public String update(HttpSession session,User user1) {
+
+
+        int userId = (Integer) session.getAttribute("userId");
+        User user = userDao.findById(userId);
+        if(user1.getPassword()==null)
+            user1.setPassword(user.getPassword());
+        user1.setUsername(user.getUsername());
+        user1.setId(userId);
+        userDao.save(user1);
+        return "redirect:/user/information";
+    }
 }
+

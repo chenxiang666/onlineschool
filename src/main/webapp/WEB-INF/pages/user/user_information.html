@@ -25,23 +25,23 @@
     <div th:include="common/user_common :: user"></div>
     <div style="width: 75%;float: right;">
         <p style="font-size: 25px;">My Information</p>
-        <form class="form-horizontal" action="#" method="post">
+        <form class="form-horizontal" th:action="@{/user/update}" method="post">
             <div class="form-group">
-                <label for="firstName" class="control-label col-md-2">Legal FirstName</label>
+                <label  class="control-label col-md-2">Legal FirstName</label>
                 <div class="col-md-10">
-                    <input type="text" class="form-control" id="firstName" th:value="${user.firstName}">
+                    <input type="text" class="form-control" name="firstName" th:placeholder="${user.firstName}" th:value="${user.firstName}">
                 </div>
             </div>
             <div class="form-group">
-                <label for="lastName" class="control-label col-md-2">Legal LastName</label>
+                <label  class="control-label col-md-2">Legal LastName</label>
                 <div class="col-md-10">
-                    <input type="text" class="form-control" id="lastName" th:value="${user.lastName}">
+                    <input type="text" class="form-control" name="lastName" th:value="${user.lastName}" th:placeholder="${user.lastName}">
                 </div>
             </div>
             <div class="form-group">
-                <label for="email" class="control-label col-md-2">email</label>
+                <label  class="control-label col-md-2">email</label>
                 <div class="col-md-10">
-                    <input type="email" class="form-control" id="email" th:value="${user.email}">
+                    <input type="email" class="form-control" name="email"  th:value="${user.email}" th:placeholder="${user.email}">
                 </div>
             </div>
             <div class="form-group">
@@ -52,33 +52,33 @@
                 </div>
             </div>
             <div class="form-group">
-                <label for="phoneNumber" class="control-label col-md-2">Phone Number</label>
+                <label class="control-label col-md-2">Phone Number</label>
                 <div class="col-md-10">
-                    <input type="text" class="form-control" id="phoneNumber" th:value="${user.mobile}">
+                    <input type="text" class="form-control" name="mobile" th:placeholder="${user.mobile}" th:value="${user.mobile}">
                 </div>
             </div>
             <div class="form-group">
-                <label for="address" class="control-label col-md-2">Address</label>
+                <label class="control-label col-md-2">Address</label>
                 <div class="col-md-10">
-                    <input type="text" class="form-control" id="address" th:value="${user.address}">
+                    <input type="text" class="form-control" name="address" th:placeholder="${user.address}" th:value="${user.address}">
                 </div>
             </div>
             <div class="form-group">
-                <label for="postalCode" class="control-label col-md-2">Postal Code</label>
+                <label class="control-label col-md-2">Postal Code</label>
                 <div class="col-md-10">
-                    <input type="text" class="form-control" id="postalCode" th:value="${user.postalCode}">
+                    <input type="text" class="form-control" name="postalCode" th:placeholder="${user.postalCode}" th:value="${user.postalCode}">
                 </div>
             </div>
             <div class="form-group">
-                <label for="country" class="control-label col-md-2">Country</label>
+                <label class="control-label col-md-2">Country</label>
                 <div class="col-md-10">
-                    <input type="text" class="form-control" id="country" th:value="${user.country}">
+                    <input type="text" class="form-control" name="country" th:placeholder="${user.country}" th:value="${user.country}">
                 </div>
             </div>
             <div class="form-group">
-                <label for="portrait" class="control-label col-md-2">Head Portrait</label>
+                <label class="control-label col-md-2">Password</label>
                 <div class="col-md-10">
-                    <input type="file" class="form-control" id="portrait" style="border: hidden;" value="55">
+                    <input type="text" class="form-control" name="password" th:placeholder="${user.password}" th:value="${user.password}">
                 </div>
             </div>
             <button style="float: right;" type="submit" class="btn btn-success">Update</button>
