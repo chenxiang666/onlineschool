@@ -37,8 +37,9 @@
                 <div th:each="examResultQuestionModel,examResultQuestionModelStat:${examResultQuestionModelList}">
                     <div th:if="${examResultQuestionModel.question.type==1}">
                         <div class="col-md-12">
+                            <p class="zhenghan-question-dsc">(</p>
                             <p class="zhenghan-question-dsc" th:text="${examResultQuestionModelStat.index+1}">(1)</p>
-
+                            <p class="zhenghan-question-dsc">)&nbsp</p>
                             <p class="zhenghan-question-dsc" th:utext="${examResultQuestionModel.question.title}">How
                                 old
                                 are you?( )</p>
@@ -59,7 +60,7 @@
                                 </li>
                             </ol>
                         </div>
-                        <div class="col-md-12">
+                        <div class="col-md-12" style="border-bottom: 1px solid #DCDCDC">
                             <input class="zhenghan-answer-radio"
                                    th:checked="${examResultQuestionModel.examResultQuestion.answer}==A" type="radio">
                             <span
@@ -84,8 +85,9 @@
                         </div>
                     </div>
                     <div th:if="${examResultQuestionModel.question.type==2}">
+                        <p class="zhenghan-question-dsc">(</p>
                         <p class="zhenghan-question-dsc" th:text="${examResultQuestionModelStat.index+1}">(1)</p>
-
+                        <p class="zhenghan-question-dsc">)&nbsp</p>
                         <p class="zhenghan-question-dsc" th:utext="${examResultQuestionModel.question.title}">How old
                             are you?( )</p>
                         <textarea th:text="${examResultQuestionModel.examResultQuestion.answer}" id="title"></textarea>

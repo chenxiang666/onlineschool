@@ -103,5 +103,10 @@ public class UserExamController {
         return "exam/user_doExamResult";
     }
 
+    @RequestMapping("/examed/{id}")
+    public String examed(@PathVariable("id") int id, Model model) {
+        return null;
+    }
+
 
 }
