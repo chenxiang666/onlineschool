@@ -1,7 +1,9 @@
 package org.liufree.controller.principal;
 import org.liufree.bean.course.Course;
 import org.liufree.bean.user.User;
+import org.liufree.bean.user.UserCourse;
 import org.liufree.dao.course.CourseDao;
+import org.liufree.dao.user.UserCourseDao;
 import org.liufree.dao.user.UserDao;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -23,6 +25,8 @@ public class PrincipalController {
     UserDao userDao;
     @Autowired
     CourseDao courseDao;
+    @Autowired
+    UserCourseDao userCourseDao;
 
     @RequestMapping("/courses")
     public String courses(HttpSession session,Model model){
@@ -33,12 +37,18 @@ public class PrincipalController {
     @RequestMapping("/teachers")
     public String teachers(HttpSession session,Model model){
         List<User> teacherList=userDao.findAllTeacher();
+        List<Course> courseList= courseDao.findAll();
+        model.addAttribute("courseList", courseList);
         model.addAttribute("teacherList",teacherList);
         return "principal/teachers";
     }
     @RequestMapping("/students")
     public String students(HttpSession session,Model model){
         List<User> studentList=userDao.findAllStudent();
+         List<UserCourse> userCourseList=userCourseDao.findAll();
+       List<Course> courseList = courseDao.findAll();
+        model.addAttribute("userCourseList", userCourseList);
+        model.addAttribute("courseList", courseList);
         model.addAttribute("studentList",studentList);
         return "principal/students";
     }
