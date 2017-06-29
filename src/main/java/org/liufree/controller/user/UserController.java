@@ -97,7 +97,7 @@ public class UserController {
                 return "teacher/teacher_courses";
             }
         } else {
-            return null;
+            return "redirect:/";
         }
 
     }
