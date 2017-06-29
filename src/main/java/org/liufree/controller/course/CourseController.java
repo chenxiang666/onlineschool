@@ -5,12 +5,14 @@ import org.liufree.bean.course.CourseFile;
 import org.liufree.bean.course.CourseUnit;
 import org.liufree.bean.course.Grade;
 import org.liufree.bean.exam.Exam;
+import org.liufree.bean.exam.ExamResult;
 import org.liufree.bean.user.UserCourse;
 import org.liufree.dao.course.CourseDao;
 import org.liufree.dao.course.CourseFileDao;
 import org.liufree.dao.course.CourseUnitDao;
 import org.liufree.dao.course.GradeDao;
 import org.liufree.dao.exam.ExamDao;
+import org.liufree.dao.exam.ExamResultDao;
 import org.liufree.dao.user.UserCourseDao;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -41,6 +43,8 @@ public class CourseController {
     ExamDao examDao;
     @Autowired
     CourseFileDao courseFileDao;
+    @Autowired
+    ExamResultDao examResultDao;
 
     @RequestMapping("/grade/{gradeId}")
     public String getCoursesByGrade(@PathVariable("gradeId") int gradeId, Model model) {
@@ -54,13 +58,20 @@ public class CourseController {
 
     @RequestMapping("/course/{courseId}")
     public String getCourseById(@PathVariable("courseId") int courseId, Model model,HttpSession session) {
-        Course course1 = courseDao.findOne(courseId);
-        System.out.println(course1.getTitle());
+        int userId = (Integer)session.getAttribute("userId");
         Course course = courseDao.getCourseById(courseId);
         List<CourseUnit> courseUnitList = courseUnitDao.getCourseUnitListByCourseId(courseId);
         List<CourseFile> courseFileList = courseFileDao.findAll();
         List<Exam> examList = examDao.getExamsByCourseId(courseId);
-        model.addAttribute("examList", examList);
+        List<ExamResult> examResultList = examResultDao.getByCourseIdAndUserId(courseId,userId);
+
+        if(examResultList.size() == 0){  //examResultList为空，学生还未考试过
+            model.addAttribute("examList", examList);
+        }else{
+            model.addAttribute("examResultList",examResultList);
+            model.addAttribute("examList", examList);
+        }
+
         model.addAttribute("courseFileList", courseFileList);
         model.addAttribute("courseUnitList", courseUnitList);
         model.addAttribute("course",course);

@@ -14,7 +14,7 @@
 
 
     <!-- Bootstrap core CSS -->
-    <link href="../../css/bootstrap.css" th:href="@{/css/bootstrap.css}"  rel="stylesheet">
+    <link href="../../css/bootstrap.css" th:href="@{/css/bootstrap.css}" rel="stylesheet">
     <!-- Custom styles for this template -->
     <link href="../../../css/carousel.css" th:href="@{/css/carousel.css}" rel="stylesheet">
     <link href="../../../css/justified-nav.css" th:href="@{/css/justified-nav.css}" rel="stylesheet"/>
@@ -27,9 +27,10 @@
     <div th:include="common/head :: head"></div>
     </br>
     <div th:include="common/user_common :: user"></div>
+
     <div style="width: 75%;float: right">
         <h3 style="text-align: center;" th:text="${course.title}">SCH3U:Chemistry University Preparation</h3>
-        <hr />
+        <hr/>
         <ul id="myTab" class="nav nav-tabs" style="margin-top: 20px;">
             <li class="active" style="margin-left: 270px;">
                 <a href="#details" data-toggle="tab">Details</a>
@@ -39,13 +40,15 @@
 
         </ul>
         <div id="myTabContent" class="tab-content">
-            <div class="tab-pane fade in active" id="details" >
+            <div class="tab-pane fade in active" id="details">
                 <h3>Course Description</h3>
                 <hr/>
-                <p th:text="${course.description}">  This course enables students to deepen their understanding of chemistry through the study of the
+                <p th:text="${course.description}"> This course enables students to deepen their understanding of
+                    chemistry through the study of the
                     properties of chemicals and chemical bonds; chemical reactions and quantitative relationships in
                     those reactions; solutions and solubility; and atmospheric chemistry and the behaviour of gases.
-                    Students will further develop their analytical skills and investigate the qualitative and quantitative
+                    Students will further develop their analytical skills and investigate the qualitative and
+                    quantitative
                     properties of matter, as well as the impact of some common chemical reactions on society and the
                     environment.</p>
                 <table class="table table-bordered table-striped" style="width: 600px;margin-left: 120px;">
@@ -63,32 +66,86 @@
                     </tbody>
                 </table>
             </div>
-            <div class="tab-pane fade" id="assignment" >
+            <div class="tab-pane fade" id="assignment">
 
                 <table class="table table-bordered table-striped" style="width: 600px;margin-left: 120px;">
                     <thead>
                     <tr>
-                        <th width="10%">&nbsp;</th>
-                        <th width="60%">Title</th>
+                        <th width="10%">Do</th>
+                        <th width="40%">Title</th>
                         <th width="15%">Score</th>
-                        <th width="15%">Median</th>
+                        <th width="15%">Percent</th>
+                        <th width="20%">Status</th>
                     </tr>
                     </thead>
                     <tbody>
-                    <tr th:each="exam:${examList}">
+
+                    <!-- 学生从未做过作业和考试 -->
+                    <tr th:if="${examResultList == null}" th:each="exam:${examList}">
                         <td style="text-align: center;padding: 5px;">
-                            <a href="../../edit_test.html"  th:href="@{/user/exam/doExamPage/__${exam.id}__}" class="btn btn-success" >
+                            <a th:href="@{/user/exam/doExamPage/__${exam.id}__}" class="btn btn-success">
                                 <span class="glyphicon glyphicon-edit" aria-hidden="true"></span>
                             </a>
                         </td>
                         <td th:text="${exam.title}">
-                            Unit 1
-                        </td>
-                        <td th:text="${exam.score}">
-                            25%
+                            Unit 1 Test
                         </td>
                         <td>
-                            25%
+                            0
+                        </td>
+                        <td th:text="${exam.percent + '%'}">
+                            10%
+                        </td>
+                        <td>
+                            undo
+                        </td>
+                    </tr>
+
+                    <!-- 学生曾做过作业和考试 -->
+                    <tr th:if="${examResultList != null}" th:each="exam:${examList}">
+                        <td style="text-align: center;padding: 5px;">
+                            <a th:href="@{/user/exam/doExamPage/__${exam.id}__}" class="btn btn-success">
+                                <span class="glyphicon glyphicon-edit" aria-hidden="true"></span>
+                            </a>
+                        </td>
+                        <td th:text="${exam.title}">
+                            Unit 1 Test
+                        </td>
+                        <td>
+                            <!-- 已考试，显示成绩 -->
+                            <div th:each="examResult:${examResultList}">
+                                <div th:if="${examResult.examId == exam.id}" th:text="${examResult.score}">
+                                    100
+                                </div>
+                            </div>
+
+                            <!-- 未考试，显示零分 -->
+                            <div th:each="examResult,examResultStat:${examResultList}">
+                                <div th:if="${examResult.examId != exam.id && examResultStat.last}">
+                                    0
+                                </div>
+                            </div>
+                        </td>
+                        <td th:text="${exam.percent + '%'}">
+                            10%
+                        </td>
+                        <td>
+                            <!-- 已考试，显示批改情况 -->
+                            <div th:each="examResult,examResultStat:${examResultList}">
+                                <div th:if="${examResult.examId == exam.id}">
+                                    <div th:switch="${examResult.status}">
+                                        <div th:case="1">corrected</div>
+                                        <div th:case="0">not corrected</div>
+                                    </div>
+                                </div>
+
+                                <!-- 未考试，显示未做 -->
+                                <div th:each="examResult,examResultStat:${examResultList}">
+                                    <div th:if="${examResult.examId != exam.id && examResultStat.last}">
+                                        undo
+                                    </div>
+                                </div>
+                            </div>
                         </td>
                     </tr>
 
@@ -109,7 +166,9 @@
                                                     <h4 class="panel-title">
                                                         <a data-toggle="collapse" data-parent="#accordion_unit1"
                                                            href="#unit1_lession1">
-                                                            <span class="glyphicon glyphicon-folder-open" aria-hidden="true" style="font-size: 16px;" th:text="${courseUnit.title}"> lession1</span>
+                                                            <span class="glyphicon glyphicon-folder-open"
+                                                                  aria-hidden="true" style="font-size: 16px;"
+                                                                  th:text="${courseUnit.title}"> lession1</span>
                                                         </a>
                                                     </h4>
                                                 </div>
@@ -118,8 +177,13 @@
                                                         <ul class="nav navbar-zhenghan">
                                                             <div th:each="courseFile:${courseFileList}">
                                                                 <div th:if="${courseFile.unitId==courseUnit.id}">
-                                                            <li><a th:href="${courseFile.url}"><span class="glyphicon glyphicon-file" aria-hidden="true" th:text="${courseFile.title}"> file1</span></a></li>
-                                                   </div></div>
+                                                                    <li><a th:href="${courseFile.url}"><span
+                                                                            class="glyphicon glyphicon-file"
+                                                                            aria-hidden="true"
+                                                                            th:text="${courseFile.title}"> file1</span></a>
+                                                                    </li>
+                                                                </div>
+                                                            </div>
                                                         </ul>
                                                     </div>
                                                 </div>
@@ -149,10 +213,18 @@
 <script src="../../../js/bootstrap.js" th:src="@{/js/bootstrap.js}"></script>
 <script src="../../../js/holder.min.js" th:src="@{/js/holder.min.js}"></script>
 <script>
-    $(function () { $('#unit1').collapse('hide')});
-    $(function () { $('#unit1_lession1').collapse('hide')});
-    $(function () { $('#unit2').collapse('hide')});
-    $(function () { $('#unit2_lession1').collapse('hide')});
+    $(function () {
+        $('#unit1').collapse('hide')
+    });
+    $(function () {
+        $('#unit1_lession1').collapse('hide')
+    });
+    $(function () {
+        $('#unit2').collapse('hide')
+    });
+    $(function () {
+        $('#unit2_lession1').collapse('hide')
+    });
 </script>
 </body>
 </html>

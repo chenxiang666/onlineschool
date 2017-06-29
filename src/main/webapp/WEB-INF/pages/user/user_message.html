@@ -24,6 +24,7 @@
     <div th:include="common/head :: head"></div>
     </br>
     <div th:include="common/user_common :: user"></div>
+
     <div style="width: 75%;float: right;">
         <div id="" class="container-fluid zhenghan-border-gray">
             <!-- 发送消息 -->
@@ -47,7 +48,37 @@
 
         </div>
 
-        <!-- 接收到的消息 -->
+        <!-- 用户自己发出去的根消息 -->
+        <div th:each="teacher:${teacherList}">
+            <div th:each="mineRootMsg:${mineRootMsgList}">
+                <div th:if="${teacher.id == mineRootMsg.receiverId}">
+
+                    <div class="container-fluid zhenghan-border-gray">
+                        <div class="col-md-12 " style="padding-top: 10px;padding-left: 0;">
+
+                            <div class="col-md-1" style="padding: 0;">
+                                <img th:src="${teacher.pic}" style="width: 60px;height: 60px;"/>
+                            </div>
+                            <div class="col-md-3" style="padding-top: 8px;">
+                                <p style="font-size: 15px;"
+                                   th:text="${'To ' + teacher.firstName + ' ' + teacher.lastName}"></p>
+                                <p style="font-size: 12px;" th:text="${mineRootMsg.createTime}"></p>
+                            </div>
+
+                        </div>
+                        <div class="col-md-11 col-md-offset-1">
+                            <p style="font-size: 12px;" th:text="${mineRootMsg.content}"></p>
+                        </div>
+
+                        <a th:href="@{/msg/details/__${mineRootMsg.id}__}">Details</a>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+
+
+        <!-- 用户接收到的根消息 -->
         <div th:each="sender:${senderList}">
             <div th:each="rootMsg:${rootMsgList}">
                 <div th:if="${sender.id == rootMsg.senderId}">
@@ -59,34 +90,30 @@
                                 <img th:src="${sender.pic}" style="width: 60px;height: 60px;"/>
                             </div>
                             <div class="col-md-3" style="padding-top: 8px;">
-                                <p style="font-size: 15px;" th:text="${sender.firstName + ' ' + sender.lastName}"></p>
+                                <p style="font-size: 15px;"
+                                   th:text="${'From ' + sender.firstName + ' ' + sender.lastName}"></p>
                                 <p style="font-size: 12px;" th:text="${rootMsg.createTime}"></p>
                             </div>
 
                         </div>
                         <div class="col-md-11 col-md-offset-1">
-                            <div th:if="${sender.id == rootMsg.senderId}">
-                                <p style="font-size: 12px;" th:text="${rootMsg.content}"></p>
-                            </div>
+                            <p style="font-size: 12px;" th:text="${rootMsg.content}"></p>
                         </div>
 
-                        <a th:href="@{/msg/details/__${rootMsg.id}__}" href="#">Details</a>
+                        <a th:href="@{/msg/details/__${rootMsg.id}__}">Details</a>
                     </div>
 
                 </div>
             </div>
         </div>
     </div>
-</div>
+</div><!-- /.container -->
 
 <div th:include="common/foot :: foot"></div>
 
-</div><!-- /.container -->
-
-
-<script src="../../../js/jquery.min.js" th:src="@{js/jquery.min.js}"></script>
-<script src="../../../js/bootstrap.js" th:src="@{js/bootstrap.js}"></script>
-<script src="../../../js/holder.min.js" th:src="@{js/holder.min.js}"></script>
+<script th:src="@{/js/jquery.min.js}"></script>
+<script th:src="@{/js/bootstrap.js}"></script>
+<script th:src="@{/js/holder.min.js}"></script>
 
 </body>
 </html>

@@ -25,7 +25,7 @@ public class ExamResult {
     double score;           //最后得分
     int userId;             //学生id
 
-    int stats;              //状态，判断是否已批改，0为未批改，1为已批改
+    int status;              //状态，判断是否已批改，0为未批改，1为已批改
     Date time;              //时间
 
 

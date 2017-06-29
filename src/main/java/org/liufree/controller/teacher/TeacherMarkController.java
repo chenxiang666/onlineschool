@@ -74,7 +74,7 @@ public class TeacherMarkController {
         }
 
         ExamResult examResult = examResultDao.findOne(examResultId);
-        examResult.setStats(1);
+        examResult.setStatus(1);
         examResult.setScore(totalScore);
         examResultDao.save(examResult);
         return "redirect:/teacher/mark/markList";

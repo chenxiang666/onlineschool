@@ -30,6 +30,6 @@ public class Exam {
     String title;           //考试标题
     int type;               //考试类型，1为test,2为assignment,3为期中期末考试
     double score;           //总分数
-
+    double percent;         //本次考试分数在总成绩中所占百分比
 
 }
