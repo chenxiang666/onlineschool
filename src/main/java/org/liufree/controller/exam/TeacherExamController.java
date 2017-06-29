@@ -4,9 +4,7 @@ import org.liufree.bean.exam.Exam;
 import org.liufree.bean.exam.ExamQuestion;
 import org.liufree.bean.exam.ExamQuestionModel;
 import org.liufree.bean.exam.Question;
-import org.liufree.dao.exam.ExamDao;
-import org.liufree.dao.exam.ExamQuestionDao;
-import org.liufree.dao.exam.QuestionDao;
+import org.liufree.dao.exam.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.propertyeditors.CustomDateEditor;
 import org.springframework.stereotype.Controller;
@@ -36,6 +34,10 @@ public class TeacherExamController {
     QuestionDao questionDao;
     @Autowired
     ExamQuestionDao examQuestionDao;
+    @Autowired
+    ExamResultDao examResultDao;
+    @Autowired
+    ExamResultQuestionDao examResultQuestionDao;
 
 
     @RequestMapping("/examList")
@@ -109,6 +111,9 @@ public class TeacherExamController {
     @RequestMapping("exam/delete/{id}")
     public String delete(@PathVariable("id") int id) {
         examDao.delete(id);
+        examQuestionDao.deleteByExamId(id);
+        examResultDao.deleteByExamId(id);
+        examResultQuestionDao.deleteByExamId(id);
         return "redirect:/examList";
     }
 
