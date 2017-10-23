@@ -10,7 +10,7 @@
     <meta name="author" content="">
     <link rel="icon" href="../../favicon.ico">
 
-    <title>Carousel Template for Bootstrap</title>
+    <title>Teacher</title>
 
     <link href="../../css/bootstrap.css" th:href="@{/css/bootstrap.css}" rel="stylesheet">
     <!-- Custom styles for this template -->
@@ -24,7 +24,7 @@
 
     <div th:include="common/head :: head"></div>
     </br>
-    <div th:include="common/teacher_common :: teacher"></div>
+    <div th:include="common/teacher_details_common :: teacher"></div>
     <div style="width: 75%;float: right;">
         <div class="col-md-12" style="margin-bottom: 10px;">
             <a th:href="@{/teacher/courses/addUnitPage}" style="color: green;">
@@ -58,9 +58,6 @@
 
                 </tbody>
             </table>
-        </div>
-        <div class="col-md-12">
-            <a class="btn btn-success" href="#">Subsmit</a>
         </div>
 
         <div th:include="common/_pagination :: nav"></div>

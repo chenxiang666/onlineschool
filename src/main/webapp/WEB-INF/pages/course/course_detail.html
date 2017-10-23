@@ -10,7 +10,7 @@
     <meta name="author" content="">
     <link rel="icon" href="../../favicon.ico">
 
-    <title>Carousel Template for Bootstrap</title>
+    <title>Course</title>
 
     <link href="../../css/bootstrap.css" th:href="@{/css/bootstrap.css}"  rel="stylesheet">
     <!-- Custom styles for this template -->
@@ -53,7 +53,7 @@
 
         </div>
         <div class="col-md-10 ">
-            <h2>SCH3U - Chemistry University Preparation</h2>
+            <h2 th:text="${course.title}">SCH3U - Chemistry University Preparation</h2>
             <h3>COURSE OUTLINE</h3>
             <p>
                 <strong>School Name: </strong>Sinapis High School<br>

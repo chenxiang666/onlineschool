@@ -20,7 +20,7 @@ public class EmailUtil {
         email.setSSLOnConnect(true);
         email.setFrom("2425580012@qq.com");
         email.setSubject("TestMail");
-        email.setMsg("This is a test mail ... :-)");
+        email.setMsg("This is a Test1 mail ... :-)");
         email.addTo("liufreeo@gmail.com");
         email.send();
     }

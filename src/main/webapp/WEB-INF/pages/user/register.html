@@ -10,7 +10,7 @@
     <meta name="author" content="">
     <link rel="icon" href="../../favicon.ico">
 
-    <title>Carousel Template for Bootstrap</title>
+    <title>Register</title>
 
     <link href="../../css/bootstrap.css" th:href="@{/css/bootstrap.css}"  rel="stylesheet">
     <!-- Custom styles for this template -->
@@ -45,15 +45,15 @@
             <form th:action="@{/user/register_user}" method="post">
                 <div class="form-group">
                     <label >Legal FirstName</label>
-                    <input type="text" class="form-control"  name="firstName">
+                    <input  required type="text" class="form-control"  name="firstName">
                 </div>
                 <div class="form-group">
                     <label >Legal LastName</label>
-                    <input type="text" class="form-control"  name="lastName">
+                    <input required type="text" class="form-control"  name="lastName">
                 </div>
                 <div class="form-group">
                     <label for="email">Email</label>
-                    <input type="email" class="form-control" name="email" id="email">
+                    <input required type="email" class="form-control" name="email" id="email">
                 </div>
                 <div class="form-group">
                     <label>Sex :</label>

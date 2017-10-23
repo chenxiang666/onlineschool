@@ -57,7 +57,7 @@ public class TeacherMarkController {
         Exam exam = examDao.findOne(examId);
         System.out.println(exam.getTitle());
         List<Question> questionList = questionDao.getQuestionListByExamId(examId);
-        List<ExamResultQuestion> examResultQuestionList = examResultQuestionDao.getByUserIdAndExamId(userId, examId);
+        List<ExamResultQuestion> examResultQuestionList = examResultQuestionDao.getByExamResultId(examResult.getId());
         model.addAttribute("examResultId", examResult.getId());
         model.addAttribute("exam", exam);
         model.addAttribute("questionList", questionList);
@@ -74,7 +74,7 @@ public class TeacherMarkController {
         }
 
         ExamResult examResult = examResultDao.findOne(examResultId);
-        examResult.setStats(1);
+        examResult.setStatus(1);
         examResult.setScore(totalScore);
         examResultDao.save(examResult);
         return "redirect:/teacher/mark/markList";

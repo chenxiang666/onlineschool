@@ -24,7 +24,7 @@ public class UpController {
 
     @RequestMapping("/toUp")
     public String toUp(){
-        return "test/upload/upload";
+        return "Test1/upload/upload";
     }
     @RequestMapping("/up")
     public String up(@RequestParam(value = "file",
@@ -49,6 +49,6 @@ public class UpController {
         }
         model.addAttribute("fileUrl", request.getContextPath() + "/upload/" + fileName);
 
-        return "test/upload/result";
+        return "Test1/upload/result";
     }
 }

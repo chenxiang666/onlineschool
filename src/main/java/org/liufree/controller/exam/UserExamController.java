@@ -49,12 +49,21 @@ public class UserExamController {
         List<ExamResultQuestionModel> examResultQuestionModelList = new ArrayList<>();
         Double totalScore = 0.0;
 
+
         int userId = (Integer) session.getAttribute("userId");
         int courseId = (Integer) session.getAttribute("_courseId");
+
+        ExamResult examResult = new ExamResult();
+        examResult.setExamId(examId);
+        examResult.setUserId(userId);
+        examResult.setCourseId(courseId);
+        examResult.setScore(totalScore);
+        examResult = examResultDao.save(examResult);
+
         for (ExamResultQuestion examResultQuestion : examAnswerModel.getExamResultQuestionList()) {
             ExamResultQuestionModel examResultQuestionModel = new ExamResultQuestionModel();
 
-
+            examResultQuestion.setExamResultId(examResult.getId());  //对应哪次作答
             examResultQuestion.setExamId(examId);
             examResultQuestion.setUserId(userId);
 
@@ -67,13 +76,15 @@ public class UserExamController {
             if (question.getType() == 1) {
                 if (answer.equals(question.getAnswer())) {
                     examResultQuestion.setIsRight(true);
+                    examResultQuestion.setItemScore(examQuestion.getItemScore());
                     totalScore += examQuestion.getItemScore();
 
 
                 } else
                     examResultQuestion.setIsRight(false);
-            }else
-            {
+                    examResultQuestion.setItemScore(0.0);
+
+            } else {
                 totalScore += examQuestion.getItemScore();
             }
             System.out.println("总分是" + totalScore);
@@ -89,13 +100,12 @@ public class UserExamController {
         model.addAttribute("totalScore", totalScore);
 
 
-        ExamResult examResult = new ExamResult();
-        examResult.setExamId(examId);
-        examResult.setUserId(userId);
-        examResult.setCourseId(courseId);
-        examResult.setScore(totalScore);
-        examResultDao.save(examResult);
         return "exam/user_doExamResult";
+    }
+
+    @RequestMapping("/examed/{id}")
+    public String examed(@PathVariable("id") int id, Model model) {
+        return null;
     }
 
 

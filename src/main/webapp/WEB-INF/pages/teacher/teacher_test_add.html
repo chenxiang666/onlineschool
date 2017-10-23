@@ -10,21 +10,14 @@
     <meta name="author" content="">
     <link rel="icon" href="../../favicon.ico">
 
-    <title>Carousel Template for Bootstrap</title>
+    <title>Teacher</title>
     <link href="../../css/bootstrap.css" th:href="@{/css/bootstrap.css}" rel="stylesheet">
     <!-- Custom styles for this template -->
     <link href="../../../css/carousel.css" th:href="@{/css/carousel.css}" rel="stylesheet">
     <link href="../../../css/justified-nav.css" th:href="@{/css/justified-nav.css}" rel="stylesheet"/>
-    <script language="JavaScript">
-        function check11() {
-            if(document.getElementById("score").value==""||document.getElementById("score").value==null)
-            {
-                alert("Please input itemScore");
-                return false;
-            }
-        }
-    </script>
+
 </head>
+
 <!-- NAVBAR
 ================================================== -->
 <body>
@@ -32,27 +25,17 @@
 
     <div th:include="common/head :: head"></div>
     </br>
-    <div style="width: 20%;float: left; border: 1px solid #DCDCDC">
-        <div class="col-md-6">
-            <img src="img/Tom.jpg" width="100px" height="100px">
-        </div>
-        <div class="col-md-6" style="text-align: center">
-            <p style="margin-top: 25px">Hello !</p>
-            <p>Tom</p>
-        </div>
+    <div th:include="common/teacher_details_common :: teacher"></div>
 
-        <div th:include="common/nav_course :: nav"></div>
-
-    </div>
     <div style="width: 75%;float: right;">
         <h3 style="text-align: center;">Add Test&assignment</h3>
         <hr/>
         <div class="col-md-12 zhenghan-border-gray" style="padding: 20px;">
-            <form class="form-horizontal" th:action="@{/exam/add}" method="post" id="testForm">
+            <form class="form-horizontal" th:action="@{/exam/add}" method="post">
                 <div class="form-group">
                     <label class="control-label col-md-2">Test title:</label>
                     <div class="col-md-6">
-                        <input type="text" class="form-control" name="exam.title" placeholder="Unit 1 assigment">
+                        <input type="text" class="form-control" name="exam.title" placeholder="Unit 1 Assignment">
                     </div>
                     <div class="col-md-4"></div>
                 </div>
@@ -76,14 +59,21 @@
                 <div class="form-group">
                     <label class="control-label col-md-2">Score:</label>
                     <div class="col-md-6">
-                        <input type="number" class="form-control" name="exam.score">
+                        <input type="number" class="form-control" required name="exam.score" placeholder="100">
                     </div>
                     <div class="col-md-4"></div>
                 </div>
+                 <div class="form-group">
+                     <label class="control-label col-md-2">Percent:</label>
+                     <div class="col-md-6">
+                         <input type="number" class="form-control" required name="exam.percent" placeholder="10">
+                     </div>
+                     <div class="col-md-4"></div>
+                 </div>
                 <div class="form-group">
                     <label class="control-label col-md-2">Bagin Time:</label>
                     <div class="col-md-6">
-                        <input type="date" class="form-control" name="exam.beginTime">
+                        <input type="date" class="form-control" required name="exam.beginTime">
                     </div>
                     <div class="col-md-4"></div>
                 </div>
@@ -91,7 +81,7 @@
                 <div class="form-group">
                     <label class="control-label col-md-2">End Time:</label>
                     <div class="col-md-6">
-                        <input type="date" class="form-control" name="exam.endTime">
+                        <input type="date" class="form-control" required name="exam.endTime">
                     </div>
                     <div class="col-md-4"></div>
                 </div>
@@ -126,7 +116,8 @@
                         <tbody>
                         <tr th:each="question,questionStat:${questionList}">
                             <td>
-                                <input type="checkbox" th:name="'examQuestionList['+${questionStat.index}+'].questionId'"
+                                <input type="checkbox"
+                                       th:name="'examQuestionList['+${questionStat.index}+'].questionId'"
                                        th:value="${question.id}"/>
                             </td>
                             <td th:text="${question.id}">
@@ -141,11 +132,11 @@
                             <td th:if="${question.type==2}">
                                 Subjective Question
                             </td>
-                            <td id="score">
-                                <input type="text" th:name="'examQuestionList['+${questionStat.index}+'].itemScore'" class="form-control"/>
+                            <td>
+                                <input type="number" th:value="0" th:name="'examQuestionList['+${questionStat.index}+'].itemScore'"
+                                       class="form-control" />
                             </td>
                         </tr>
-
 
                         </tbody>
                     </table>

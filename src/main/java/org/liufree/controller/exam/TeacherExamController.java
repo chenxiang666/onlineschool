@@ -4,9 +4,7 @@ import org.liufree.bean.exam.Exam;
 import org.liufree.bean.exam.ExamQuestion;
 import org.liufree.bean.exam.ExamQuestionModel;
 import org.liufree.bean.exam.Question;
-import org.liufree.dao.exam.ExamDao;
-import org.liufree.dao.exam.ExamQuestionDao;
-import org.liufree.dao.exam.QuestionDao;
+import org.liufree.dao.exam.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.propertyeditors.CustomDateEditor;
 import org.springframework.stereotype.Controller;
@@ -36,6 +34,10 @@ public class TeacherExamController {
     QuestionDao questionDao;
     @Autowired
     ExamQuestionDao examQuestionDao;
+    @Autowired
+    ExamResultDao examResultDao;
+    @Autowired
+    ExamResultQuestionDao examResultQuestionDao;
 
 
     @RequestMapping("/examList")
@@ -69,16 +71,19 @@ public class TeacherExamController {
     @RequestMapping("/exam/add")
     public String add(HttpSession session, Model model, ExamQuestionModel examQuestionModel) {
         int courseId = (Integer) session.getAttribute("_courseId");
+
         Exam exam = examQuestionModel.getExam();
-        System.out.println(exam.getBeginTime().toString());
         exam.setCourseId(courseId);
         exam = examDao.save(exam);  //存了之后返回这个对象
         int examId = exam.getId();
-
+        System.out.println(444);
         for (ExamQuestion examQuestion : examQuestionModel.getExamQuestionList()) {
-            System.out.println(examQuestion.getId());
-            examQuestion.setExamId(examId);
-            examQuestionDao.save(examQuestion);
+
+            if (examQuestion.getQuestionId() != 0) {
+                System.out.println(examQuestion.getQuestionId()+"332525");
+                examQuestion.setExamId(examId);
+                examQuestionDao.save(examQuestion);
+            }
         }
 
 
@@ -109,11 +114,14 @@ public class TeacherExamController {
     @RequestMapping("exam/delete/{id}")
     public String delete(@PathVariable("id") int id) {
         examDao.delete(id);
+        examQuestionDao.deleteByExamId(id);
+        examResultDao.deleteByExamId(id);
+        examResultQuestionDao.deleteByExamId(id);
         return "redirect:/examList";
     }
 
     @RequestMapping("exam/random/{id}")
-    public String random(@PathVariable("id")int id,Model model,HttpSession session) {
+    public String random(@PathVariable("id") int id, Model model, HttpSession session) {
         /*List<ExamQuestion> examQuestionList = examQuestionDao.getExamQuestionByExamId(id);
 
         int courseId = (Integer) session.getAttribute("_courseId");

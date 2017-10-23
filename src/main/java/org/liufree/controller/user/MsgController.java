@@ -52,10 +52,12 @@ public class MsgController {
         int receiveId = Integer.parseInt(httpSession.getAttribute("userId").toString());
         List<User> senderList = msgDao.getSenderByReceiverId(receiveId);//获取所有给当前用户发过消息的用户
         List<Msg> rootMsgList = msgDao.getRootMsgByReceiverId(receiveId);//获取当前用户所有接收到的根信息
+        List<Msg> mineRootMsgList = msgDao.getRootMsgBySenderId(receiveId);//获取当前用户自己发出去的根消息
         List<User> studentList = msgDao.findStudentByTeacherIdAndCourse(receiveId);//获取老师所教课程的所有学生
 
         model.addAttribute("senderList", senderList);
         model.addAttribute("rootMsgList", rootMsgList);
+        model.addAttribute("mineRootMsgList", mineRootMsgList);
         model.addAttribute("studentList", studentList);
 
         return "teacher/teacher_message";
@@ -66,13 +68,18 @@ public class MsgController {
         System.out.println("send");
         System.out.println(DateUtil.getDate());
         int senderId = Integer.parseInt(httpSession.getAttribute("userId").toString());
+        int role = (Integer) httpSession.getAttribute("role");
+
         msg.setSenderId(senderId);
         msg.setCreateTime(DateUtil.getDate());
         msg.setMsgId(0);//根消息
         msg.setStatus(0);//未读
         msgDao.save(msg);
 
-        return "forward:/msg/student";
+        if(role == 0)
+            return "forward:/msg/student";
+        else
+            return "forward:/msg/teacher";
     }
 
     //根据根消息id循环查询其所有子消息

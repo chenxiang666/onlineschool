@@ -5,9 +5,11 @@ import com.google.gson.Gson;
 import com.google.gson.JsonElement;
 import org.liufree.bean.course.Course;
 import org.liufree.bean.course.Grade;
+import org.liufree.bean.test.Test1;
 import org.liufree.bean.user.User;
 import org.liufree.dao.course.CourseDao;
 import org.liufree.dao.course.GradeDao;
+import org.liufree.dao.test.TestDao;
 import org.liufree.dao.user.UserDao;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -37,28 +39,33 @@ public class IndexController {
     CourseDao courseDao;
     @Autowired
     UserDao userDao;
-
-    Gson gson  = new Gson();
+    @Autowired
+    TestDao testDao;
+    Gson gson = new Gson();
 
     @RequestMapping("/")
     public String index(HttpSession session) {
+        Test1 test1 = testDao.findOne(1);
+        String kk = test1.getUser().getUsername();
+        System.out.println(kk);
+
         System.out.println("OnlineSchool Success Operation");
-        session.setAttribute("username",null);
+        session.setAttribute("username", null);
         return "common/index";
     }
 
     @RequestMapping("/register")
-    public String register(){
+    public String register() {
         return "user/register";
     }
 
     @RequestMapping("/school")
-    public String school(){
+    public String school() {
         return "common/school";
     }
 
     @RequestMapping("/courses")
-    public String courses(Model model){
+    public String courses(Model model) {
         List<Grade> gradeList = gradeDao.findAll();
         model.addAttribute("gradeList", gradeList);
         List<Course> courseList = courseDao.findAll();
@@ -69,17 +76,17 @@ public class IndexController {
     }
 
     @RequestMapping("/faq")
-    public String faq(){
+    public String faq() {
         return "common/faq";
     }
 
     @RequestMapping("/contact")
-    public String contact(){
+    public String contact() {
         return "common/contact";
     }
 
     @RequestMapping(value = "/getGrade")      //TOdo 通过ajax获得gradelist
-    public void gradeList(HttpServletResponse response, HttpServletRequest request){
+    public void gradeList(HttpServletResponse response, HttpServletRequest request) {
         List<Grade> gradeList = gradeDao.findAll();
         String jsonResult = gson.toJson(gradeList);
         System.out.println(jsonResult);
@@ -89,7 +96,7 @@ public class IndexController {
             response.setHeader("Pragma", "No-cache");
             response.setHeader("Cache-Control", "no-cache");
             response.setCharacterEncoding("UTF-8");
-            PrintWriter out= null;
+            PrintWriter out = null;
             out = response.getWriter();
             out.print(jsonResult);
             out.flush();
